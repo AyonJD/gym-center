@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <div>
             <SharedNav />
-            <img className='w-full' src={img} alt="" />
+            <img className="banner -mt-[68px] z-0 w-full flex items-center justify-center flex-col" src={img} alt="" />
             <div>
                 <div className='mid-container'>
                     <h1 className='text-center text-5xl font-bold mb-16 mt-10 mx-auto'>Lorem Ipsum is simple dummy text of the printing</h1>

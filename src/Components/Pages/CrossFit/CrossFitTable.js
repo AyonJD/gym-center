@@ -17,7 +17,7 @@ const CrossFitTable = () => {
     ];
     return (
         <div>
-            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Work Schedule</h1>
+            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Class Schedule</h1>
             <SingleTable tableData={morningSchedule} />
         </div>
     );

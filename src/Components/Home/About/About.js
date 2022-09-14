@@ -1,5 +1,6 @@
 import React from 'react';
-import img from '../../../assets/Image.png'
+import { Link } from 'react-router-dom';
+import img from '../../../assets/Image.jpg'
 import './About.css'
 
 const About = () => {
@@ -7,7 +8,7 @@ const About = () => {
         <div className=' mid-container'>
             <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-7 md:gap-5 my-12'>
                 <div className='flex items-center md:justify-start justify-center  w-full'>
-                    <img className='lg:w-[500px] md:w-[350px] w-full' src={img} alt="" />
+                    <img className='lg:w-[500px] md:w-[350px] w-full rounded-xl' src={img} alt="" />
                 </div>
                 <div className='flex '>
                     <div>
@@ -29,7 +30,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <button className='btn btn-primary btn-md md:mt-0 px-5' type="">About US</button>
+                        <Link to='/about'><button className='btn btn-primary btn-md md:mt-0 px-5' type="">About US</button></Link>
                     </div>
                 </div>
             </div>
