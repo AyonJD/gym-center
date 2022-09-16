@@ -26,9 +26,7 @@ const Home = () => {
                 <ThirdProgramme />
             </>
             <Slider />
-            <SpecialOffer />
             <Contact />
-            {/* <Footer /> */}
         </div>
     );
 };

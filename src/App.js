@@ -38,6 +38,7 @@ import TrainerProfile from './Dashboard/TrainerDashboard/TrainerProfile/TrainerP
 import PackagePaymentCard from './Components/Pages/PaymentCard/PackagePaymentCard/PackagePaymentCard';
 import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
 import RequireMember from './hooks/RequireMember/RequireMember';
+import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
           <Route path="trainer-package" element={<TrainerPackages />} />
           <Route path="trainer-profile" element={<TrainerProfile />} />
           <Route path="all-schedule" element={<AllSchedule />} />
+          <Route path="my-order" element={<MyOrder />} />
         </Route>
 
       </Routes>

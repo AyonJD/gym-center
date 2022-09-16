@@ -12,7 +12,7 @@ import { GrInstagram } from "react-icons/gr";
 const Contact = () => {
     return (
         <div className='mid-container'>
-            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-7'>Contact us</h1>
+            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-7 mt-16'>Contact us</h1>
             <div className='mb-10 grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 gap-5'>
 
                 <div className=" rounded-2xl shadow-md p-3">
