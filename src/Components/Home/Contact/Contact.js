@@ -8,8 +8,30 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import { RiWhatsappFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 import { GrInstagram } from "react-icons/gr";
+import { useState } from 'react';
+import * as emailjs from "emailjs-com";
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    // console.log(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, `${process.env.REACT_APP_PUBLIC_KEY}`);
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        emailjs.send(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, { user_name: name, user_email: email, message }, `${process.env.REACT_APP_PUBLIC_KEY}`)
+            .then(function (response) {
+                if (response.status === 200) {
+                    toast.success('Message sent successfully');
+                }
+            }, function (error) {
+                if (error) {
+                    toast.error('Message not sent');
+                    console.log(error);
+                }
+            });
+    }
     return (
         <div className='mid-container'>
             <h1 className='md:text-4xl text-3xl font-bold text-primary mb-7 mt-16'>Contact us</h1>
@@ -81,20 +103,22 @@ const Contact = () => {
 
                 </div>
 
-                <div className='mt-5'>
+                <form
+                    onSubmit={(e) => handleFormSubmit(e)}
+                    className='mt-5'>
                     <div className="form-control mb-3">
-                        <input type="text" placeholder="Name" className="input input-bordered" />
+                        <input onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" className="input input-bordered" />
                     </div>
                     <div className="form-control">
-                        <input type="text" placeholder="Email" className="input input-bordered mb-3" />
+                        <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email" className="input input-bordered mb-3" />
                     </div>
                     <div className="form-control h-32">
-                        <textarea className="textarea textarea-bordered h-full" placeholder="Your Message"></textarea>
+                        <textarea onChange={(e) => setMessage(e.target.value)} className="textarea textarea-bordered h-full" placeholder="Your Message"></textarea>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Send Message</button>
+                        <button type='submit' className="btn btn-primary">Send Message</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div >
     );
