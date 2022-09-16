@@ -7,7 +7,7 @@ const Programme = () => {
     // console.log(selectedTab)
     return (
         <div name='article' className="mid-container main_tabs mt-5">
-            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Our Programmes</h1>
+            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Other Programs</h1>
             {/* Container */}
             <Tabs
                 className=""

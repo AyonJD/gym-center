@@ -45,15 +45,17 @@ const UsersHome = () => {
                         </div>
                         <div className='md:text-end text-center grid '>
                             <p className='font-bold '>Neck</p>
+                            <p className='font-bold '>Shoulder</p>
                             <p className='font-bold '>Chest</p>
-                            <p className='font-bold '>Shoulders</p>
-                            <p className='font-bold '>Biceps</p>
-                            <p className='font-bold '>Triceps</p>
-                            <p className='font-bold '>Forearms</p>
-                            <p className='font-bold '>Side Abs</p>
-                            <p className='font-bold '>Abs</p>
-                            <p className='font-bold '>Quadriceps</p>
-                            <p className='font-bold '>Calves</p>
+                            <p className='font-bold '>R Biceps</p>
+                            <p className='font-bold '>L Biceps</p>
+                            <p className='font-bold '>Waist</p>
+                            <p className='font-bold '>Abdomen</p>
+                            <p className='font-bold '>Hips</p>
+                            <p className='font-bold '>R Thigh</p>
+                            <p className='font-bold '>L Thigh</p>
+                            <p className='font-bold '>R Calf</p>
+                            <p className='font-bold '>L Calf</p>
                         </div>
                     </div>
                 </div>
@@ -68,16 +70,18 @@ const UsersHome = () => {
                             <img className='' src={img2} alt="" />
                         </div>
                         <div className='md:text-end text-center grid'>
-                            <p className='font-bold '>Neck</p>
-                            <p className='font-bold '>Shoulders</p>
-                            <p className='font-bold '>Forearms</p>
-                            <p className='font-bold '>Uper Back</p>
-                            <p className='font-bold '>Triceps</p>
-                            <p className='font-bold '>Middle Back</p>
-                            <p className='font-bold '>Lower Back</p>
-                            <p className='font-bold '>Glutes</p>
-                            <p className='font-bold '>Hamstrings</p>
-                            <p className='font-bold '>Claves</p>
+                        <p className='font-bold '>Neck</p>
+                            <p className='font-bold '>Shoulder</p>
+                            <p className='font-bold '>Chest</p>
+                            <p className='font-bold '>R Biceps</p>
+                            <p className='font-bold '>L Biceps</p>
+                            <p className='font-bold '>Waist</p>
+                            <p className='font-bold '>Abdomen</p>
+                            <p className='font-bold '>Hips</p>
+                            <p className='font-bold '>R Thigh</p>
+                            <p className='font-bold '>L Thigh</p>
+                            <p className='font-bold '>R Calf</p>
+                            <p className='font-bold '>L Calf</p>
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,7 @@ const CrossfitCompo = () => {
                         </table>
                     </div>
                     <h1 className='font-semibold mt-2'>Classes: Max 20 classes per month</h1>
-                </div>
+                </div>.
             </div>
 
         </div>
