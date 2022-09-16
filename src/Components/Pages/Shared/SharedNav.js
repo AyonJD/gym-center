@@ -103,8 +103,8 @@ const SharedNav = () => {
                                         <li><Link to='/' className="uppercase hover_effect font-bold text-sm" href="#">Home</Link></li>
                                         <li><Link to='/about' className="uppercase hover_effect font-bold text-sm" href="#">About</Link></li>
                                         <li><Link to='/crossFit' className=" hover_effect font-bold text-sm" href="#">CrossFit</Link></li>
-                                        <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Programs</Link></li>
-                                        <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Trainers</Link></li>
+                                        <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Other Program</Link></li>
+                                        <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Our Team</Link></li>
                                         <li><Link to='/testimonials' className="uppercase hover_effect font-bold text-sm" href="#">Testimonials</Link></li>
                                         <li><Link to='/blog' className="uppercase hover_effect font-bold text-sm" href="#">Blog</Link></li>
                                         <li><Link to='/shop' className="uppercase hover_effect font-bold text-sm" href="#">Shop</Link></li>

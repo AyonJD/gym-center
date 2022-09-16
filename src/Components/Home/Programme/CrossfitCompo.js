@@ -20,12 +20,6 @@ const CrossfitCompo = () => {
                             </thead>
                             <tbody>
                                 <tr className="hover">
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                </tr>
-                                <tr className="hover">
                                     <td></td>
                                     <td>Save 5%</td>
                                     <td>Save 10%</td>
