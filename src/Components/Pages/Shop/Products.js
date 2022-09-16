@@ -6,12 +6,12 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 
 const Products = ({ product }) => {
     const navigate = useNavigate()
-    const { token } = AuthUser()
+    const { token, email } = AuthUser()
     const goToDetails = useNavigate();
-    const handleClick = () => {
-        goToDetails(`/product/${product?.id}`);
-    };
 
+    const handleClick = (email) => {
+        goToDetails(`/product/${product?.id}`)
+    }
     // post product to cart
     const handleCart = (id) => {
         fetch('https://gym-management97.herokuapp.com/api/product_cart/', {
@@ -25,7 +25,6 @@ const Products = ({ product }) => {
             })
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data?.success) {
                     toast.success("Product add to cart Successfully");
                 } else if (data?.code === 'token_not_valid') {
@@ -34,7 +33,6 @@ const Products = ({ product }) => {
                 else {
                     toast.error("Product already added to cart");
                 }
-                console.log(data)
             })
     }
 
@@ -53,7 +51,7 @@ const Products = ({ product }) => {
                     {product?.original_price}
                 </del> </span></p>
                 <div
-                    onClick={() => handleCart(product?.id)}
+                    onClick={() => handleCart(email)}
                     className="bg-[#FBB848] p-3 w-full cursor-pointer">
                     <h1 className='font-bold'>Add to cart</h1>
                 </div>

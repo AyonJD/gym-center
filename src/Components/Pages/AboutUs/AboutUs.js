@@ -7,13 +7,13 @@ const AboutUs = () => {
     return (
         <div>
             <SharedNav />
-            <div className="about_banner z-0 w-full flex items-center justify-center flex-col ">
-                {/* <h1 className='lg:text-5xl uppercase md:text-4xl text-3xl font-extrabold text-white text-center'>
+           {/*  <div className="about_banner z-0 w-full flex items-center justify-center flex-col ">
+                <h1 className='lg:text-5xl uppercase md:text-4xl text-3xl font-extrabold text-white text-center'>
                 Let's know about our <br/> CrossFit Assemble
-                </h1> */}
-            </div>
+                </h1>
+            </div> */}
 
-            {/* <img className='w-full lg:h-[70vh]' src={img} alt="" /> */}
+            <img className='w-full lg:max-h-[90vh]' src={img} alt="" />
             <div>
                 <div className='mid-container'>
                     <h1 className='text-center sm:text-5xl text-3xl font-bold sm:mb-16 mb-6 mt-10 mx-auto'>Let's know about our CrossFit Assemble</h1>
