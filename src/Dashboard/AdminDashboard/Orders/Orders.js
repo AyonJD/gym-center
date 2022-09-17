@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
-import Loading from '../../../hooks/Loading/Loading';
 import OrdersTable from './OrdersTable';
 import { BiSearch } from 'react-icons/bi';
 import { VscBellDot } from 'react-icons/vsc';
-import { useQuery } from 'react-query';
-import Package from './Package';
 import { HiShoppingCart } from 'react-icons/hi';
-import { MdManageSearch } from 'react-icons/md';
 
 const Orders = () => {
-    const { token, userRole } = AuthUser()
+    const { token} = AuthUser()
     // const { packages } = Package()
 
     const [products, setProducts] = useState([]);

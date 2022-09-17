@@ -78,7 +78,7 @@ const Contact = () => {
                                 <h2 className=' font-semibold text-sm'>880 18475 46081</h2>
                                 <a target='blank' className=' font-bold ' href="https://www.facebook.com/crossfitassemblebd/">CrossFitassemblebd</a>
 
-                                <a target='blank' className=' font-bold ' href="https://www.instagram.com/crossfitassemble/">Instagram</a>
+                                <a target='blank' className=' font-bold ' href="https://www.instagram.com/crossfitassemble/">crossfitassemble</a>
                             </div>
                         </div>
                     </div>
