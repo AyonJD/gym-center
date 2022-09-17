@@ -3,7 +3,6 @@ import img1 from '../../../assets/Image/icon/icon-1.png';
 import img2 from '../../../assets/Image/icon/icon-2.png';
 import img3 from '../../../assets/Image/icon/icon-3.png';
 import { BsFacebook } from "react-icons/bs";
-import { BsGlobe2 } from "react-icons/bs";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { RiWhatsappFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
@@ -28,7 +27,6 @@ const Contact = () => {
             }, function (error) {
                 if (error) {
                     toast.error('Message not sent');
-                    console.log(error);
                 }
             });
     }
