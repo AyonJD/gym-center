@@ -15,7 +15,6 @@ const UsersProfile = () => {
     const { register, handleSubmit, watch, formState: { errors }, reset, trigger } = useForm();
 
 
-
     useEffect(() => {
         fetch(`https://gym-management97.herokuapp.com/api/user_package_order`, {
             method: 'GET',
@@ -29,29 +28,70 @@ const UsersProfile = () => {
                 setUserPackage(data)
             }
             )
-    }, [])
+    }, [token])
 
-    const handleImageEdit = async data => {
-        console.log(data.image[0]);
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
-            method: 'PATCH',
+    // get user data
+    const [userData, setUserData] = useState([])
+    useEffect(() => {
+        fetch(`https://gym-management97.herokuapp.com/api/user`, {
+            method: 'GET',
             headers: {
-                'Content-Type': 'multipart/form-data',
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ profile_image: data.image[0] })
+            }
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-            }).catch(err => console.log(err))
+                setUserData(data)
+            }
+            )
+    }, [token])
+    
 
-
-        // const res = await axios.patch('https://httpbin.org/patch', 'hello=world');
-
-        // res.data.headers['Content-Type': 'multipart/form-data']; // application/x-www-form-urlencoded
-        // res.data.json;
+    // image patch on server
+    const handleImageEdit = (data) => {
+        const image = data.image[0]
+        const formData = new FormData()
+        formData.append('profile_image', image)
+        axios.patch(`https://gym-management97.herokuapp.com/api/update_profile`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => {
+                console.log(res)
+            }).then(data =>[
+                console.log(data)
+            ])
+            .catch(err => {
+                console.log(err)
+            })
     }
+
+
+
+    //     fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'multipart/form-data',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //         body: JSON.stringify({ profile_image: data.image[0] })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //         }).catch(err => console.log(err))
+
+
+    //     // const res = await axios.patch('https://httpbin.org/patch', 'hello=world');
+
+    //     // res.data.headers['Content-Type': 'multipart/form-data']; // application/x-www-form-urlencoded
+    //     // res.data.json;
+    // }
+
+
     return (
         <div className=''>
             <div className="shadow-md w-full">
@@ -85,8 +125,9 @@ const UsersProfile = () => {
                                     <div className="modal-box relative">
                                         <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                         <h3 className="text-lg font-bold">Select image from your device</h3>
-                                        <form onSubmit={handleSubmit(handleImageEdit)}>
-                                            <input type="file" name='image' className=' input-bordered w-full focus:outline-none mt-5'
+                                        <form  onSubmit={handleSubmit(handleImageEdit)}>
+                                            <input
+                                                type="file" name='image' className=' input-bordered w-full focus:outline-none mt-5'
                                                 {...register("image", {
                                                     required: 'Image is required',
 
