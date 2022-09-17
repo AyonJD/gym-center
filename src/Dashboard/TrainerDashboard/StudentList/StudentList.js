@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { VscBellDot } from 'react-icons/vsc';
 import { useQuery } from 'react-query';
@@ -7,6 +7,7 @@ import Loading from '../../../hooks/Loading/Loading';
 
 const StudentList = () => {
     const { token } = AuthUser();
+    const [studentData, setStudentData] = useState({});
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth();
@@ -27,7 +28,7 @@ const StudentList = () => {
         return <Loading />
     }
 
-    console.log(students.data)
+    console.log(studentData);
 
     return (
         <div className='p-5  mt-4'>
@@ -62,14 +63,45 @@ const StudentList = () => {
                                             <tr>
                                                 <th>{++index}</th>
                                                 <td><img className='w-10 rounded-full h-10' src={student?.profile_image
-                                                } alt=""/></td>
+                                                } alt="" /></td>
                                                 <td>{student?.name}</td>
-                                            <td>{student?.email}</td>
+                                                <td>{student?.email}</td>
                                                 <td>{student?.phone}</td>
-                                                <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                <td
+                                                    onClick={() => setStudentData(student)}
+                                                >
+                                                    <label htmlFor="my-modal-3" className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</label>
+
+                                                </td>
                                             </tr>
                                         )
                                     })
+                                }
+
+                                {
+                                    <>
+
+
+                                        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                                        <div className="modal">
+                                            <div className="modal-box relative">
+                                                <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h3 className="text-lg font-bold">Information of {studentData?.name}</h3>
+                                                <p>
+                                                    <strong>Name: </strong>
+                                                    {studentData?.name}
+                                                </p>
+                                                <p>
+                                                    <strong>Email: </strong>
+                                                    {studentData?.email}
+                                                </p>
+                                                <p>
+                                                    <strong>Phone: </strong>
+                                                    {studentData?.phone}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </>
                                 }
                             </tbody>
                         </table>
