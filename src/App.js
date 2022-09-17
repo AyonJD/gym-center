@@ -72,7 +72,7 @@ function App() {
           <Route path="accounts-income" element={<RequireAccounts><Incomes /></RequireAccounts>} />
           <Route path="accounts-expense" element={<RequireAccounts><Expense /></RequireAccounts>} />
           <Route path="users-home" element={<RequireUser><UsersHome /></RequireUser>} />
-          <Route path="user-profile" element={<RequireUser><UsersProfile /></RequireUser>} />
+          <Route path="user-profile" element={<UsersProfile />} />
           <Route path="user-package" element={<RequireUser><UsersWorkout /></RequireUser>} />
           <Route path="trainers-home" element={<TrainersHome />} />
           <Route path="students" element={<StudentList />} />
