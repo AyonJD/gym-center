@@ -113,7 +113,7 @@ const Table = () => {
     return (
         <div className='mid-container mx-auto'>
             <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Class Schedule</h1>
-            <SingleTable tableData={newSchedule} />
+            <SingleTable tableData={morningSchedule} />
         </div>
     );
 };

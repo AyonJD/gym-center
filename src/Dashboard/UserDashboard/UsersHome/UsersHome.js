@@ -5,6 +5,10 @@ import calc1 from '../../../assets/Image/UserDashboard/calculator/Group 4.png'
 import calc2 from '../../../assets/Image/UserDashboard/calculator/Group 6.png'
 import calc3 from '../../../assets/Image/UserDashboard/calculator/Group 7.png'
 import body from '../../../assets/Image/UserDashboard/body.png'
+import { useQuery } from 'react-query';
+import AuthUser from '../../../hooks/AuthUser/AuthUser';
+import Loading from '../../../hooks/Loading/Loading';
+import { useEffect } from 'react';
 
 const UsersHome = () => {
 
@@ -16,7 +20,25 @@ const UsersHome = () => {
     const monthName = monthNames[month];
     const date = `${day} ${monthName} ${year}`;
     const [selectedDate, setSelectedDate] = useState(null);
+    const { token } = AuthUser()
+    const [userPhysic, setUserPhysic] = useState({});
 
+    //react query for getting phySicalInfo from api
+    useEffect(() => {
+        fetch(`https://gym-management97.herokuapp.com/api/physical_info`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json())
+            .then(data => {
+                setUserPhysic(data?.data)
+            }
+            )
+    }, [])
+
+
+    console.log(userPhysic);
 
     return (
         <div className='p-5 mt-4 mb-32'>
@@ -44,18 +66,54 @@ const UsersHome = () => {
                             <img className='' src={img1} alt="" />
                         </div>
                         <div className='md:text-end text-center grid '>
-                            <p className='font-bold '>Neck</p>
-                            <p className='font-bold '>Shoulder</p>
-                            <p className='font-bold '>Chest</p>
-                            <p className='font-bold '>R Biceps</p>
-                            <p className='font-bold '>L Biceps</p>
-                            <p className='font-bold '>Waist</p>
-                            <p className='font-bold '>Abdomen</p>
-                            <p className='font-bold '>Hips</p>
-                            <p className='font-bold '>R Thigh</p>
-                            <p className='font-bold '>L Thigh</p>
-                            <p className='font-bold '>R Calf</p>
-                            <p className='font-bold '>L Calf</p>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Neck</p>
+                                <small className='text-gray-500'>~{userPhysic?.neck}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Shoulder</p>
+                                <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Chest</p>
+                                <small className='text-gray-500'>~{userPhysic?.chest}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Hip</p>
+                                <small className='text-gray-500'>~{userPhysic?.hip}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Quadriceps</p>
+                                <small className='text-gray-500'>~{userPhysic?.quadriceps}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Wrist</p>
+                                <small className='text-gray-500'>~{userPhysic?.wrist}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Height</p>
+                                <small className='text-gray-500'>~{userPhysic?.height}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className='font-bold '>Shoulder</p>
+                                <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className="font-bold">BMI</p>
+                                <small className='text-gray-500'>~{userPhysic?.bmi}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className="font-bold">Calves</p>
+                                <small className='text-gray-500'>~{userPhysic?.calves}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className="font-bold">Triceps</p>
+                                <small className='text-gray-500'>~{userPhysic?.triceps}</small>
+                            </div>
+                            <div className='h-fit'>
+                                <p className="font-bold">Weight</p>
+                                <small className='text-gray-500'>~{userPhysic?.weight}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,18 +128,56 @@ const UsersHome = () => {
                             <img className='' src={img2} alt="" />
                         </div>
                         <div className='md:text-end text-center grid'>
-                        <p className='font-bold '>Neck</p>
-                            <p className='font-bold '>Shoulder</p>
-                            <p className='font-bold '>Chest</p>
-                            <p className='font-bold '>R Biceps</p>
-                            <p className='font-bold '>L Biceps</p>
-                            <p className='font-bold '>Waist</p>
-                            <p className='font-bold '>Abdomen</p>
-                            <p className='font-bold '>Hips</p>
-                            <p className='font-bold '>R Thigh</p>
-                            <p className='font-bold '>L Thigh</p>
-                            <p className='font-bold '>R Calf</p>
-                            <p className='font-bold '>L Calf</p>
+                            <div className='md:text-end text-center grid '>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Neck</p>
+                                    <small className='text-gray-500'>~{userPhysic?.neck}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Shoulder</p>
+                                    <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Chest</p>
+                                    <small className='text-gray-500'>~{userPhysic?.chest}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Hip</p>
+                                    <small className='text-gray-500'>~{userPhysic?.hip}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Quadriceps</p>
+                                    <small className='text-gray-500'>~{userPhysic?.quadriceps}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Wrist</p>
+                                    <small className='text-gray-500'>~{userPhysic?.wrist}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Height</p>
+                                    <small className='text-gray-500'>~{userPhysic?.height}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className='font-bold '>Shoulder</p>
+                                    <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className="font-bold">BMI</p>
+                                    <small className='text-gray-500'>~{userPhysic?.bmi}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className="font-bold">Calves</p>
+                                    <small className='text-gray-500'>~{userPhysic?.calves}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className="font-bold">Triceps</p>
+                                    <small className='text-gray-500'>~{userPhysic?.triceps}</small>
+                                </div>
+                                <div className='h-fit'>
+                                    <p className="font-bold">Weight</p>
+                                    <small className='text-gray-500'>~{userPhysic?.weight}</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

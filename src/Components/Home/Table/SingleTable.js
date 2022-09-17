@@ -19,7 +19,7 @@ const SingleTable = ({ tableData, topic }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {
+                            {/* {
                                 tableData.map(item => {
                                     return (
                                         <tr key={item.id} className="hover">
@@ -118,8 +118,24 @@ const SingleTable = ({ tableData, topic }) => {
                                         </tr>
                                     )
                                 })
-                            }
+                            } */}
 
+                            {
+                                tableData.map(item => {
+                                    return (
+                                        <tr key={item.id} className="hover">
+                                            <td className='text-primary'>{item.time}</td>
+                                            <td>{item.data[0]}</td>
+                                            <td>{item.data[1]}</td>
+                                            <td>{item.data[2]}</td>
+                                            <td>{item.data[3]}</td>
+                                            <td>{item.data[4]}</td>
+                                            <td>{item.data[5]}</td>
+                                            <td>{item.data[6]}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
 
                         </tbody>
                     </table>
