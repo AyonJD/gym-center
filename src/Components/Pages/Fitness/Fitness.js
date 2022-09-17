@@ -4,6 +4,7 @@ import FitnessOneImage from "../../../assets/Image/Fitness/kik.png";
 import FitnessTwoImage from "../../../assets/Image/Fitness/nu.png";
 import Package from "../Package/Package";
 import AllPackages from "../Package/AllPackage";
+import { Link } from "react-router-dom";
 
 const Fitness = () => {
   return (
@@ -18,7 +19,7 @@ const Fitness = () => {
             High Intensity workout to burn calories
           </span>
 
-          <h1 className="md:text-[100px] text-[50px] my-5 text-primary font-bold">
+          <h1 className="md:text-[80px] text-[50px] my-5 text-primary font-bold">
             KICK
             <br />
             <span>BOXING</span>
@@ -28,12 +29,12 @@ const Fitness = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="">
-            <button className="btn btn-primary text-md w-36 font-bold">
+          <Link to={'/login'}><button className="btn btn-primary text-md w-36 font-bold">
               Get Started
-            </button>
-            <button className="btn bg-[#E5E5E5] mt-5 sm-mt-0 text-md w-36 ml-4 hover:text-white font-bold border-0 text-[#071B46]">
+            </button></Link>
+            {/* <button className="btn bg-[#E5E5E5] mt-5 sm-mt-0 text-md w-36 ml-4 hover:text-white font-bold border-0 text-[#071B46]">
               Preview
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="fitness_image order-1 md:order-2 z-10 bg-[#071B46] flex items-center justify-center">
@@ -46,22 +47,22 @@ const Fitness = () => {
           <img className="z-10" src={FitnessTwoImage} alt="" />
         </div>
         <div className="fitness_content right_to_left mt-0">
-          <h1 className="md:text-[100px] text-[50px] my-5 text-primary font-bold">
-            NUTRIT
+          <h1 className="md:text-[80px] text-[50px] my-5 text-primary font-bold">
+            NUTRITION
             <br />
-            <span>ION</span>
+            <span>PLAN</span>
           </h1>
           <p className="text-[#071B46] mb-5 text-justify">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="">
-            <button className="btn bg-[#E5E5E5] mt-5 sm-mt-0 text-md w-36  hover:text-white ml-4 font-bold border-0 text-[#071B46]">
+            {/* <button className="btn bg-[#E5E5E5] mt-5 sm-mt-0 text-md w-36  hover:text-white ml-4 font-bold border-0 text-[#071B46]">
               Preview
-            </button>
-            <button className="btn btn-primary text-md w-36 font-bold">
+            </button> */}
+            <Link to={'/login'}><button className="btn btn-primary text-md w-36 font-bold">
               Get Started
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

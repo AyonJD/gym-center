@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SingleTable = ({ tableData, topic }) => {
+    console.log(tableData);
     return (
         <div className="schedule lg:mb-20 md:mb-16 sm:mb-10 mb-10 md:flex items-center">
             <div className="schedule_time w-full">
