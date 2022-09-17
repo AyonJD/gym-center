@@ -144,6 +144,13 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainer-salary'> <MdPaid className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainer-salary'}> Salary</DashLink>
+                                    </div>
+                                </div>
+
                                 {/* <div className='flex items-center justify-center mb-4'>
                                     <div className='hover:text-primary'>
                                         <DashLink to='/dashboard/trainer-form'> <AiOutlineForm className='mx-auto xl:text-xl' /></DashLink>

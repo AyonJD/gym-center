@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const UsersProfile = () => {
-    const { token } = AuthUser()
+    const { token, userRole } = AuthUser()
     const [userPackage, setUserPackage] = useState([])
     const [handleEditButton, setHandleEditButton] = useState(false)
     const { register, handleSubmit, watch, formState: { errors }, reset, trigger } = useForm();
@@ -96,10 +96,10 @@ const UsersProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.success){
+                if (data.success) {
                     reset()
                     toast.success('Profile Updated Successfully')
-                }else{
+                } else {
                     toast.error('Phone number should be start with +880')
                 }
                 console.log(data)
@@ -111,22 +111,29 @@ const UsersProfile = () => {
     return (
         <div className=''>
             <div className="shadow-md w-full">
-
-                <h2 className='text-2xl p-5 font-semibold'>Hello, User!</h2>
+                {
+                    userRole === 'user' && <h2 className='text-2xl p-5 font-semibold'>Hello, User!</h2>
+                }
+                {
+                    userRole === 'trainer' && <h2 className='text-2xl p-5 font-semibold'>Hello, Trainer!</h2>
+                }
+                {
+                    userRole === 'accountant' && <h2 className='text-2xl p-5 font-semibold'>Hello, Accounts!</h2>
+                }
             </div>
             <div className=" p-5 mt-4">
 
                 <div className=''>
                     <div className=''>
-                        <div className='w-36 max-h-40 mx-auto relative '>
+                        <div className='w-36 h-40 mx-auto relative '>
                             {
                                 userData?.data?.profile_image ? <img
                                     onMouseEnter={() => setHandleEditButton(true)}
                                     onMouseLeave={() => setHandleEditButton(false)}
-                                    className='rounded' src={userData?.data?.profile_image} alt="" /> : <img
+                                    className='rounded w-full h-full' src={userData?.data?.profile_image} alt="" /> : <img
                                     onMouseEnter={() => setHandleEditButton(true)}
                                     onMouseLeave={() => setHandleEditButton(false)}
-                                    className='rounded' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
+                                    className='rounded w-full ' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
                             }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">

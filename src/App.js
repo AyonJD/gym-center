@@ -39,6 +39,7 @@ import PackagePaymentCard from './Components/Pages/PaymentCard/PackagePaymentCar
 import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
 import RequireMember from './hooks/RequireMember/RequireMember';
 import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
+import TrainerSalary from './Dashboard/TrainerDashboard/TrainerSalary/TrainerSalary';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
           <Route path="trainer-settings" element={<TrainerSettings />} />
           <Route path="trainer-package" element={<TrainerPackages />} />
           <Route path="trainer-profile" element={<TrainerProfile />} />
+          <Route path="trainer-salary" element={<TrainerSalary />} />
           <Route path="all-schedule" element={<AllSchedule />} />
           <Route path="my-order" element={<MyOrder />} />
         </Route>
