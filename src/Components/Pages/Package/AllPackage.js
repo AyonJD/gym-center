@@ -51,7 +51,7 @@ const AllPackages = () => {
                         <div className="shadow-xl rounded-md">
                             <h1 className='text-center text-3xl font-bold pt-5 mb-2'>{item?.package_type?.package_title}</h1>
 
-                            <div className='w-28 mx-auto'>
+                            <div className='w-24 mx-auto'>
                                 <img className='w-full' src={img1} alt="Shoes" />
                             </div>
 
@@ -76,17 +76,17 @@ const AllPackages = () => {
                                     <span className='text-sm text-secondary'><del>৳ {item?.original_price
                                     }</del></span>
                                 </div>
-                                <p className='text-sm text-secondary text-justify'>{item?.description.slice(0, 250)}.</p>
-                                <h2 className='text-xl font-bold mt-3'>CrossFit</h2>
-                                <div className='ml-4 mt-3'>
-                                    <li className='text-sm mb-3'>Total Class: {item?.total_class}</li>
-                                    <li className='text-sm mb-3'>Total Consultation
+                                <p className='text-xs text-secondary text-justify'>{item?.description.slice(0, 250)}.</p>
+                                <h2 className='text-xl font-bold mt-1'>Facilities</h2>
+                                <div className='ml-4 text-xs'>
+                                    <li className='mb-1 '>Total Class: {item?.total_class}</li>
+                                    <li className='mb-1 '>Total Consultation
                                         : {item?.total_consultation
                                         }</li>
-                                    <li className='text-sm mb-3'>Customizable Calendar</li>
-                                    <li className='text-sm mb-3'>Healthy Recipes</li>
-                                    <li className='text-sm mb-3'>Health and Fitness Articles</li>
-                                    <li className='text-sm'>No Credit Card Needed</li>
+                                    <li className='mb-1 '>Customizable Calendar</li>
+                                    <li className='mb-1 '>Healthy Recipes</li>
+                                    <li className='mb-1'>Health and Fitness Articles</li>
+                                    <li className='mb-1'>No Credit Card Needed</li>
                                 </div>
                                 <div
                                     onClick={() => {
