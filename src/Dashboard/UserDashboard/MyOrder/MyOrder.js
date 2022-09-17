@@ -67,12 +67,6 @@ const MyOrder = () => {
                 
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
-                        <BiSearch className='text-xl ' />
-                    </div>
-                    <div className='bg-info px-3 py-2 rounded cursor-pointer'>
-                        <VscBellDot className='text-xl' />
-                    </div>
                 </div>
             </div>
 

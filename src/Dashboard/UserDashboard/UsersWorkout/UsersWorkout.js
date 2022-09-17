@@ -94,7 +94,7 @@ const UsersWorkout = () => {
             })
     }
 
-    // console.log(packageSchedule);
+    // console.log(purchedPackages?.data.length);
 
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
@@ -165,31 +165,36 @@ const UsersWorkout = () => {
                 </div>
 
                 {
-                    !showSchedule && packageSchedule?.data?.map((pack, index) => {
-                        return (
-                            <div className='my-8' key={index}>
-
-                                <div
-
-                                    className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
-                                    <div className="flex items-center gap-5">
-                                        <div>
-                                            <h1 className='text-[#3D3270] font-extrabold text-xl'>
-                                                {pack?.day}
-                                            </h1>
-                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
+                    purchedPackages?.data?.length >= 1  && 
+                    <>
+                    {
+                        !showSchedule && packageSchedule?.data?.map((pack, index) => {
+                            return (
+                                <div className='my-8' key={index}>
+    
+                                    <div
+    
+                                        className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
+                                        <div className="flex items-center gap-5">
+                                            <div>
+                                                <h1 className='text-[#3D3270] font-extrabold text-xl'>
+                                                    {pack?.day}
+                                                </h1>
+                                                <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
+                                            </div>
+    
                                         </div>
-
-                                    </div>
-                                    <div>
-                                        <button
-                                            onClick={() => { handleConfirm(pack.id, packageId) }}
-                                            className="btn btn-primary btn-xs">Confirm</button>
+                                        <div>
+                                            <button
+                                                onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                className="btn btn-primary btn-xs">Confirm</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })
+                            )
+                        })
+                    }
+                    </>
                 }
 
             </div>

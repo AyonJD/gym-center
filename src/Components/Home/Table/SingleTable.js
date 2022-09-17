@@ -19,6 +19,107 @@ const SingleTable = ({ tableData, topic }) => {
                             </tr>
                         </thead>
                         <tbody>
+                            {/* {
+                                tableData.map(item => {
+                                    return (
+                                        <tr key={item.id} className="hover">
+                                            <td className='text-primary'>{item.data.map(i => {
+                                                return (
+                                                    <div key={i.id}>{i.from_time}</div>
+                                                )
+                                            })}</td>
+                                            {
+                                                item.day === "Saturday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    })}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Sunday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Monday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Tuesday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Wednesday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Thursday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+                                            {
+                                                item.day === "Friday" ? (
+                                                    <td className=''>{item.data.map(i => {
+                                                        return (
+                                                            <div key={i.id}>{i.feature.name}</div>
+                                                        )
+                                                    }
+                                                    )}</td>
+                                                ) : (
+                                                    <td></td>
+                                                )
+                                            }
+
+
+
+
+                                        </tr>
+                                    )
+                                })
+                            } */}
+
                             {
                                 tableData.map(item => {
                                     return (
@@ -35,7 +136,6 @@ const SingleTable = ({ tableData, topic }) => {
                                     )
                                 })
                             }
-
 
                         </tbody>
                     </table>
