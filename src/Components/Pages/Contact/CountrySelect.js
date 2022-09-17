@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Select from "react-select";
 import './CountrySelect.css';
 
-const CountrySelect = () => {
+const CountrySelect = ({ setSelectedCountryName }) => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState({});
 
@@ -21,7 +21,10 @@ const CountrySelect = () => {
             className='z_index'
             options={countries}
             value={selectedCountry}
-            onChange={(selectedOption) => setSelectedCountry(selectedOption)}
+            onChange={(selectedOption) => {
+                setSelectedCountry(selectedOption)
+                setSelectedCountryName(selectedOption.label)
+            }}
         />
     );
 };
