@@ -47,10 +47,6 @@ const UsersProfile = () => {
             }).catch(err => console.log(err))
 
 
-        // const res = await axios.patch('https://httpbin.org/patch', 'hello=world');
-
-        // res.data.headers['Content-Type': 'multipart/form-data']; // application/x-www-form-urlencoded
-        // res.data.json;
     }
     return (
         <div className=''>
