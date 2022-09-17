@@ -16,7 +16,6 @@ const Contact = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    // console.log(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, `${process.env.REACT_APP_PUBLIC_KEY}`);
     const handleFormSubmit = (e) => {
         e.preventDefault();
         emailjs.send(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, { user_name: name, user_email: email, message }, `${process.env.REACT_APP_PUBLIC_KEY}`)

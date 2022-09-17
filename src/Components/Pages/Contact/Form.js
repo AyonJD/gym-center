@@ -11,29 +11,23 @@ const Form = () => {
 
 
     const onSubmitParam = data => {
+
         const formData = {
             user_name: data.floating_first_name,
             user_email: data.floating_email,
-            message: {
-                country: selectedCountryName,
-                interested_in: interestedInOptions,
-                company: data.floating_company || null,
-                phone: data.floating_phone || null,
-                message: data.floating_message
-            }
+            phone: data.floating_phone,
+            message: data.floating_message
         }
 
         emailjs.send(`${process.env.REACT_APP_SERVICE_ID}`, `${process.env.REACT_APP_TEMPLATE_ID}`, formData, `${process.env.REACT_APP_PUBLIC_KEY}`)
             .then(function (response) {
                 if (response.status === 200) {
                     toast.success('Message sent successfully');
-                    console.log(response);
                     reset();
                 }
             }, function (error) {
                 if (error) {
                     toast.error('Message not sent');
-                    console.log(error);
                 }
             });
     }
