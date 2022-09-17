@@ -172,6 +172,13 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/my-order'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/my-order'}> My Order</DashLink>
+                                    </div>
+                                </div>
+
                                 <div className='flex items-center justify-center mb-4 cursor-pointer'>
                                     <div className='hover:text-primary' onClick={logout}>
                                         <GoSignOut className='mx-auto xl:text-xl' />

@@ -6,7 +6,7 @@ import { HiShoppingCart } from 'react-icons/hi';
 import OrdersTable from '../../AdminDashboard/Orders/OrdersTable';
 
 const MyOrder = () => {
-    const { token} = AuthUser()
+    const { token, userRole } = AuthUser()
     // const { packages } = Package()
 
     const [products, setProducts] = useState([]);
@@ -58,7 +58,13 @@ const MyOrder = () => {
     return (
         <div className='p-5 mt-4'>
             <div className='flex justify-between'>
-                <h2 className='text-2xl font-semibold'>Hello, Users!</h2>
+                {
+                    userRole === 'user' && <h2 className='text-2xl font-semibold'>Hello, Users!</h2>
+                }
+                {
+                    userRole === 'trainer' && <h2 className='text-2xl font-semibold'>Hello, Trainer!</h2>
+                }
+                
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
                     <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
@@ -92,9 +98,9 @@ const MyOrder = () => {
                     <button
                         onClick={handleProduct}
                         className='btn btn-sm btn-primary rounded-md mr-2'>All</button>
-                    <button 
-                    onClick={handleProduct}
-                    className='btn btn-sm btn-primary rounded-md mr-2'>Products</button>
+                    <button
+                        onClick={handleProduct}
+                        className='btn btn-sm btn-primary rounded-md mr-2'>Products</button>
                     <button
                         onClick={handlePackage}
                         className='btn btn-sm btn-primary rounded-md'>Packages</button>
