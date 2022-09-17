@@ -104,7 +104,7 @@ const Orders = () => {
                 <div className="overflow-x-auto ">
                     <table className="table table-compact w-full">
                         <thead>
-                            <tr className='bg-accent'>
+                            <tr className='bg-accent text-center'>
                                 <th className='bg-accent'>#</th>
                                 <th className='bg-accent'>Menu</th>
                                 <th className='bg-accent'>Date</th>
