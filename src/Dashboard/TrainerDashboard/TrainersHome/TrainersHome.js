@@ -84,24 +84,24 @@ const TrainersHome = () => {
                 <h2 className='text-2xl font-semibold'>Hello, Trainer!</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>{date}</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
+                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
                     <div className='bg-info px-3 py-2 rounded cursor-pointer'>
                         <VscBellDot className='text-xl' />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
             <div className="grid mt-16 grid-cols-1 lg:grid-cols-3">
                 <div className="border-r px-5">
                     <div className="flex items-center lg:justify-between">
-                        <h1 className='text-md font-bold'>Programs Post</h1>
-                        <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button>
+                        <h1 className='text-xl font-bold'>Programs</h1>
+                        {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
                     </div>
 
-                    <div className='md:flex border-b py-5 justify-between items-center'>
-                        <div className="date_field flex w-full items-center mb-5 md:mb-0">
+                    <div className='md:flex border-b pb-5 justify-between items-center'>
+                        {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
                             <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
                                 selectedDate ? selectedDate : date
                             }</p>
@@ -110,7 +110,7 @@ const TrainersHome = () => {
                             <input onChange={(e) => {
                                 setSelectedDate(e.target.value);
                             }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Packages part */}
@@ -142,12 +142,12 @@ const TrainersHome = () => {
 
                 <div className="px-5 border-r">
                     <div className="flex items-center lg:justify-between">
-                        <h1 className='text-md font-bold'>Students </h1>
-                        <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button>
+                        <h1 className='text-xl font-bold'>Students </h1>
+                        {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
                     </div>
 
-                    <div className='md:flex border-b py-5 justify-between items-center'>
-                        <div className="date_field flex w-full items-center mb-5 md:mb-0">
+                    <div className='md:flex border-b pb-5 justify-between items-center'>
+                        {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
                             <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
                                 selectedDate ? selectedDate : date
                             }</p>
@@ -156,7 +156,7 @@ const TrainersHome = () => {
                             <input onChange={(e) => {
                                 setSelectedDate(e.target.value);
                             }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                        </div>
+                        </div> */}
                     </div>
 
                     {

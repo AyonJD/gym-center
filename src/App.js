@@ -37,13 +37,10 @@ import UsersWorkout from './Dashboard/UserDashboard/UsersWorkout/UsersWorkout';
 import TrainerProfile from './Dashboard/TrainerDashboard/TrainerProfile/TrainerProfile';
 import PackagePaymentCard from './Components/Pages/PaymentCard/PackagePaymentCard/PackagePaymentCard';
 import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
+import RequireMember from './hooks/RequireMember/RequireMember';
+import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
 
 function App() {
-  // const [location, setLocation] = useState(window.location.pathname);
-
-  // useEffect(() => {
-  //   setLocation(window.location.pathname);
-  // }, [location])
 
   return (
     <div>
@@ -64,7 +61,7 @@ function App() {
         <Route path='/payment/:id' element={<PackagePaymentCard />} />
         <Route path='*' element={<NotFound />} />
 
-        <Route path="/product/:productId" element={<ProductDetails />}></Route>
+        <Route path="/product/:productId" element={<RequireMember><ProductDetails /></RequireMember>}></Route>
 
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="accounts-home" element={<RequireAccounts><AccountsHome /></RequireAccounts>} />
@@ -83,12 +80,10 @@ function App() {
           <Route path="trainer-package" element={<TrainerPackages />} />
           <Route path="trainer-profile" element={<TrainerProfile />} />
           <Route path="all-schedule" element={<AllSchedule />} />
+          <Route path="my-order" element={<MyOrder />} />
         </Route>
 
       </Routes>
-      {/* {
-        location === '/' || '/about' || '/crossFit' || '/programs' || '/trainers' || '/testimonials' || '/blog' || '/shop' || '/contact' ? <Footer /> : null
-      } */}
       <Footer />
       <Toaster
         position="top-center"

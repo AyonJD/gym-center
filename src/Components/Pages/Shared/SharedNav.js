@@ -32,8 +32,6 @@ const SharedNav = () => {
             <div className='bg-gray-800 border-b lg:pr-10 md:pr-4'>
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly text-white py-2">
-
-                        <Link className='hover:text-primary' to="#"><BsBell ></BsBell></Link>
                         <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link>
                         <Link to="#"><HiOutlineUser className='ml-8 hover:text-primary'></HiOutlineUser></Link>
                         {
@@ -73,8 +71,8 @@ const SharedNav = () => {
                     </li> */}
 
                                 <li><CustomLink to='/crossfit' className=" hover_effect font-bold text-sm text-[12px] p-2" href="#">CrossFit</CustomLink></li>
-                                <li><CustomLink to='/programs' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Programs</CustomLink></li>
-                                <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Trainers</CustomLink></li>
+                                <li><CustomLink to='/programs' className="uppercase hover_effect font-bold w-[130px] text-sm text-[12px] p-2" href="#">Other Programs</CustomLink></li>
+                                <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm w-20 text-[12px] p-2" href="#">Our Team</CustomLink></li>
                                 <li><CustomLink to='/testimonials' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Testimonials</CustomLink></li>
 
                                 <li><CustomLink to='/blog' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Blog</CustomLink></li>
@@ -103,8 +101,8 @@ const SharedNav = () => {
                                         <li><Link to='/' className="uppercase hover_effect font-bold text-sm" href="#">Home</Link></li>
                                         <li><Link to='/about' className="uppercase hover_effect font-bold text-sm" href="#">About</Link></li>
                                         <li><Link to='/crossFit' className=" hover_effect font-bold text-sm" href="#">CrossFit</Link></li>
-                                        <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Programs</Link></li>
-                                        <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Trainers</Link></li>
+                                        <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Other Programs</Link></li>
+                                        <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Our Team</Link></li>
                                         <li><Link to='/testimonials' className="uppercase hover_effect font-bold text-sm" href="#">Testimonials</Link></li>
                                         <li><Link to='/blog' className="uppercase hover_effect font-bold text-sm" href="#">Blog</Link></li>
                                         <li><Link to='/shop' className="uppercase hover_effect font-bold text-sm" href="#">Shop</Link></li>

@@ -8,7 +8,7 @@ const OrdersTable = ({ product, index }) => {
             {
                 product?.order_details?.map(items => (
                     <>
-                        <tr>
+                        <tr className='text-center'>
                             <th>{items?.id}</th>
                             <td>{items?.name}</td>
                             <td>{product?.order_date}</td>

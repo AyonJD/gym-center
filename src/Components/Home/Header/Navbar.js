@@ -36,8 +36,8 @@ const Navbar = () => {
                         </ul>
                     </li> */}
                     <li><CustomLink to='/crossfit' className=" hover_effect font-bold text-sm text-[12px] p-2" href="#">CrossFit</CustomLink></li>
-                    <li><CustomLink to='/programs' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Programs</CustomLink></li>
-                    <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Trainers</CustomLink></li>
+                    <li><CustomLink to='/programs' className="uppercase hover_effect font-bold text-sm text-[12px] w-[130px] p-2" href="#">Other Programs</CustomLink></li>
+                    <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm text-[12px] w-20 p-2" href="#">Our Team</CustomLink></li>
                     <li><CustomLink to='/testimonials' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Testimonials</CustomLink></li>
 
                     <li><CustomLink to='/blog' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Blog</CustomLink></li>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
             <div className='navbar-end lg:hidden'>
                 <div className=" dropdown-end ">
-                    <label onClick={() => setIsOpen(!isOpen)} tabIndex="0" className="btn btn-ghost lg:hidden pr-0">
+                    <label onClick={() => setIsOpen(!isOpen)} tabIndex="0" className="btn btn-ghost lg:hidden ">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
 
@@ -60,8 +60,8 @@ const Navbar = () => {
                             <li><Link to='/' className="uppercase hover_effect font-bold text-sm" href="#">Home</Link></li>
                             <li><Link to='/about' className="uppercase hover_effect font-bold text-sm" href="#">About</Link></li>
                             <li><Link to='/crossFit' className=" hover_effect font-bold text-sm" href="#">CrossFit</Link></li>
-                            <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Programs</Link></li>
-                            <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Trainers</Link></li>
+                            <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Other Programs</Link></li>
+                            <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Our Team</Link></li>
                             <li><Link to='/testimonials' className="uppercase hover_effect font-bold text-sm" href="#">Testimonials</Link></li>
                             <li><Link to='/blog' className="uppercase hover_effect font-bold text-sm" href="#">Blog</Link></li>
                             <li><Link to='/shop' className="uppercase hover_effect font-bold text-sm" href="#">Shop</Link></li>

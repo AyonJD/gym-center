@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { AiOutlineRight } from 'react-icons/ai';
 import { FiMinusCircle } from 'react-icons/fi';
@@ -8,6 +8,7 @@ import Loading from '../../../hooks/Loading/Loading';
 import SharedNav from '../Shared/SharedNav';
 import useAllProducts from './useAllProducts';
 import RelatedProducts from './RelatedProducts';
+import toast from 'react-hot-toast';
 
 const ProductDetails = () => {
     const { productId } = useParams();
@@ -16,6 +17,7 @@ const ProductDetails = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const navigate = useNavigate()
 
     useEffect(() => {
         setLoading(true);
@@ -55,7 +57,14 @@ const ProductDetails = () => {
             })
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data?.success) {
+                    toast.success("Product add to cart Successfully");
+                } else if (data?.code === 'token_not_valid') {
+                    navigate('/login')
+                }
+                else {
+                    toast.error("Product already added to cart");
+                }
             })
     }
 

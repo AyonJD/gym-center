@@ -20,12 +20,6 @@ const CrossfitCompo = () => {
                             </thead>
                             <tbody>
                                 <tr className="hover">
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                    <td>Omit Price</td>
-                                </tr>
-                                <tr className="hover">
                                     <td></td>
                                     <td>Save 5%</td>
                                     <td>Save 10%</td>
@@ -35,7 +29,7 @@ const CrossfitCompo = () => {
                         </table>
                     </div>
                     <h1 className='font-semibold mt-2'>Classes: Max 20 classes per month</h1>
-                </div>
+                </div>.
             </div>
 
         </div>
