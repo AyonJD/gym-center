@@ -8,6 +8,7 @@ import Popup from 'reactjs-popup';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const UsersProfile = () => {
     const { token } = AuthUser()
@@ -95,7 +96,13 @@ const UsersProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                if(data.success){
+                    reset()
+                    toast.success('Profile Updated Successfully')
+                }else{
+                    toast.error('Phone number should be start with +880')
+                }
+                console.log(data)
             }
             )
     }
@@ -111,7 +118,7 @@ const UsersProfile = () => {
 
                 <div className=''>
                     <div className=''>
-                        <div className='w-36 mx-auto relative '>
+                        <div className='w-36 max-h-40 mx-auto relative '>
                             {
                                 userData?.data?.profile_image ? <img
                                     onMouseEnter={() => setHandleEditButton(true)}
