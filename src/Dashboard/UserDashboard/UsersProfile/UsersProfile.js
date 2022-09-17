@@ -7,6 +7,7 @@ import { BsPencilSquare } from 'react-icons/bs'
 import Popup from 'reactjs-popup';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const UsersProfile = () => {
     const { token } = AuthUser()
@@ -48,7 +49,7 @@ const UsersProfile = () => {
             )
     }, [token, userData])
 
-    console.log(userData)
+    // console.log(userData)
 
     // image patch on server
     const handleImageEdit = (data) => {
@@ -70,6 +71,14 @@ const UsersProfile = () => {
                 console.log(err)
             })
     }
+
+
+    // patch user data on server
+    const submitUserData = (data) => {
+        console.log(data)
+    }
+
+
 
 
     return (
@@ -95,7 +104,7 @@ const UsersProfile = () => {
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
                                     <BsPencilSquare
-                                        onClick={()=>setOpenModal(false)}
+                                        onClick={() => setOpenModal(false)}
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
                                         htmlFor="my-modal-3"
@@ -140,69 +149,61 @@ const UsersProfile = () => {
                     </div>
                 </div>
 
-                <div >
+                <form onSubmit={handleSubmit(submitUserData)}>
                     <div className='md:w-2/3 mx-auto border-dashed border-b-2 pb-10'>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Name</span>
-                            </label>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+                        <div className="flex  w-full mx-auto flex-col">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Name</label>
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="name" name="name" id="" placeholder='Your Name'
+                                {...register("name", {
+                                    pattern: {
+                                        value: 3,
+                                        message: 'Name must be at least 3 characters'
+                                    }
+                                })}
+                                onKeyUp={(e) => {
+                                    trigger('name')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.name?.message}</small>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Email</span>
-                            </label>
-                            <input type="email" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+
+
+                        <div className="flex  w-full mx-auto flex-col mt-5">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Email</label>
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="email" name="email" id="" placeholder='Email or phone number'
+                                {...register("email", {
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Please enter a valid Email"
+                                    }
+                                })}
+                                onKeyUp={(e) => {
+                                    trigger('email')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.email?.message}</small>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Phone</span>
-                            </label>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+
+                        <div className="flex  w-full mx-auto flex-col mt-5">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2' >Phone</label>
+                            <input className='py-3 rounded-md bg-[#F2F2F2] px-5 focus:outline-0' type="text" name="phone" id="" placeholder='Enter Phone Number'
+                                {...register('phone', {
+                                    minLength: {
+                                        value: 11,
+                                        message: 'Minimum 11 character required'
+                                    }
+                                })}
+                                onKeyUp={() => {
+                                    trigger('phone')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] ml-2 text-xs font-medium my-2'>{errors?.phone?.message}</small>
                         </div>
-                        <button className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit">Update Profile</button>
-                        {/* <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div> */}
-                    </div>
 
-                    {/* <div className='grid grid-cols-2 gap-5 pt-8 pb-5'>
-                    <h1>Information Section 02</h1>
-                    <h1>Information Section 02</h1>
-                </div> */}
-
-                    {/* <div className='grid grid-cols-2 gap-5'>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+                        <button
+                            className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit" > Submit</button>
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                </div> */}
-
-
-                </div>
+                </form>
             </div>
         </div >
     );
