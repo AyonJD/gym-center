@@ -19,24 +19,24 @@ const Table = () => {
         { id: 11, time: '08:00 PM', data: ['', 'CrossFit', 'CrossFit', 'CrossFit', 'CrossFit', 'CrossFit', '',] }
     ];
 
-    let timeThree = [];
-    let timeSeven = [];
-    let timeEight = [];
-    let timeNine = [];
-    let timeEleven = [];
-    let timeElevenFiftyNine = [];
-    let timefour = [];
-    let timeFive = [];
-    let timeSevenPM = [];
-    let timeTen = [];
+    // let timeThree = [];
+    // let timeSeven = [];
+    // let timeEight = [];
+    // let timeNine = [];
+    // let timeEleven = [];
+    // let timeElevenFiftyNine = [];
+    // let timefour = [];
+    // let timeFive = [];
+    // let timeSevenPM = [];
+    // let timeTen = [];
 
-    let saturday = [];
-    let sunday = [];
-    let monday = [];
-    let tuesday = [];
-    let wednesday = [];
-    let thursday = [];
-    let friday = [];
+    // let saturday = [];
+    // let sunday = [];
+    // let monday = [];
+    // let tuesday = [];
+    // let wednesday = [];
+    // let thursday = [];
+    // let friday = [];
 
 
 
@@ -80,35 +80,35 @@ const Table = () => {
     //     }
     // })
 
-    schedule.data.forEach(item => {
-        if (item.day === "Saturday") {
-            saturday.push(item)
-        } else if (item.day === "Sunday") {
-            sunday.push(item)
-        } else if (item.day === "Monday") {
-            monday.push(item)
-        } else if (item.day === "Tuesday") {
-            tuesday.push(item)
-        } else if (item.day === "Wednesday") {
-            wednesday.push(item)
-        } else if (item.day === "Thursday") {
-            thursday.push(item)
-        } else if (item.day === "Friday") {
-            friday.push(item)
-        }
-    })
+    // schedule.data.forEach(item => {
+    //     if (item.day === "Saturday") {
+    //         saturday.push(item)
+    //     } else if (item.day === "Sunday") {
+    //         sunday.push(item)
+    //     } else if (item.day === "Monday") {
+    //         monday.push(item)
+    //     } else if (item.day === "Tuesday") {
+    //         tuesday.push(item)
+    //     } else if (item.day === "Wednesday") {
+    //         wednesday.push(item)
+    //     } else if (item.day === "Thursday") {
+    //         thursday.push(item)
+    //     } else if (item.day === "Friday") {
+    //         friday.push(item)
+    //     }
+    // })
 
-    const newSchedule = [
-        { day: "Saturday", data: saturday },
-        { day: "Sunday", data: sunday },
-        { day: "Monday", data: monday },
-        { day: "Tuesday", data: tuesday },
-        { day: "Wednesday", data: wednesday },
-        { day: "Thursday", data: thursday },
-        { day: "Friday", data: friday },
-    ]
+    // const newSchedule = [
+    //     { day: "Saturday", data: saturday },
+    //     { day: "Sunday", data: sunday },
+    //     { day: "Monday", data: monday },
+    //     { day: "Tuesday", data: tuesday },
+    //     { day: "Wednesday", data: wednesday },
+    //     { day: "Thursday", data: thursday },
+    //     { day: "Friday", data: friday },
+    // ]
 
-    console.log(newSchedule);
+    // console.log(newSchedule);
 
     return (
         <div className='mid-container mx-auto'>
