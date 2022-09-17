@@ -35,15 +35,15 @@ const UsersProfile = () => {
         fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'multipart/data',
+                'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({ profile_image: data.image[0] })
         })
-            .then(res => console.log(res))
-        .then(data => {
-            console.log(data);
-        }).catch(err => console.log(err))
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            }).catch(err => console.log(err))
     }
     return (
         <div className=''>
