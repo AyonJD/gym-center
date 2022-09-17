@@ -33,8 +33,8 @@ const UsersProfile = () => {
     // get user data
     const [userData, setUserData] = useState([])
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/user`, {
-            method: 'GET',
+        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
@@ -43,10 +43,12 @@ const UsersProfile = () => {
             .then(res => res.json())
             .then(data => {
                 setUserData(data)
+                // console.log(data)
             }
             )
     }, [token])
-    
+
+    console.log(userData)
 
     // image patch on server
     const handleImageEdit = (data) => {
@@ -107,7 +109,7 @@ const UsersProfile = () => {
                             <img
                                 onMouseEnter={() => setHandleEditButton(true)}
                                 onMouseLeave={() => setHandleEditButton(false)}
-                                className='rounded' src={img} alt="" />
+                                className='rounded' src={userData?.data?.profile_image} alt="" />
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
                                     <BsPencilSquare
@@ -118,6 +120,7 @@ const UsersProfile = () => {
                                 </label>
                             }
                         </div>
+                        
                         {
                             <>
                                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
