@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
-import Loading from '../../../hooks/Loading/Loading';
 import OrdersTable from './OrdersTable';
 import { BiSearch } from 'react-icons/bi';
 import { VscBellDot } from 'react-icons/vsc';
-import { useQuery } from 'react-query';
-import Package from './Package';
 import { HiShoppingCart } from 'react-icons/hi';
-import { MdManageSearch } from 'react-icons/md';
 
 const Orders = () => {
-    const { token, userRole } = AuthUser()
+    const { token} = AuthUser()
     // const { packages } = Package()
 
     const [products, setProducts] = useState([]);
@@ -44,7 +40,7 @@ const Orders = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.data, 'packages');
+                // console.log(data.data, 'packages');
                 setPackages(data.data)
             });
     }, [token]);
@@ -59,18 +55,20 @@ const Orders = () => {
 
     }
 
+    console.log(products)
+
     return (
         <div className='p-5 mt-4'>
             <div className='flex justify-between'>
                 <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
+                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
                     <div className='bg-info px-3 py-2 rounded cursor-pointer'>
                         <VscBellDot className='text-xl' />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
@@ -103,8 +101,8 @@ const Orders = () => {
                 </div>
             </div>
             <div className='mb-5'>
-                <div class="overflow-x-auto ">
-                    <table class="table table-compact w-full">
+                <div className="overflow-x-auto ">
+                    <table className="table table-compact w-full">
                         <thead>
                             <tr className='bg-accent'>
                                 <th className='bg-accent'>#</th>
@@ -124,17 +122,17 @@ const Orders = () => {
                                     ></OrdersTable>)
                                 ) : (
                                     packages?.map((product, index) =>
-                                            <tr key={index} >
-                                                <th>{product?.id}</th>
-                                                <td>{product?.package?.feature[0]?.name}</td>
-                                                <td>{product?.order_date}</td>
-                                                <td className='font-bold'>৳ {product?.package?.discounted_price}</td>
-                                                {
-                                                    product?.status === 'Complete' ? <td><button className='btn btn-xs btn-success'>{product?.status}</button></td>
-                                                        :
-                                                        <td><button className='btn btn-xs btn-primary'>{product?.status}</button></td>
-                                                }
-                                            </tr>
+                                        <tr key={index} >
+                                            <th>{product?.id}</th>
+                                            <td>{product?.package?.feature[0]?.name}</td>
+                                            <td>{product?.order_date}</td>
+                                            <td className='font-bold'>৳ {product?.package?.discounted_price}</td>
+                                            {
+                                                product?.status === 'Complete' ? <td><button className='btn btn-xs btn-success'>{product?.status}</button></td>
+                                                    :
+                                                    <td><button className='btn btn-xs btn-primary'>{product?.status}</button></td>
+                                            }
+                                        </tr>
 
                                     )
                                 )

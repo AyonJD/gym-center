@@ -59,12 +59,12 @@ const AccountsHome = () => {
                 <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>{date}</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
+                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
                     <div className='bg-info px-3 py-2 rounded cursor-pointer'>
                         <VscBellDot className='text-xl' />
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
@@ -87,7 +87,7 @@ const AccountsHome = () => {
                     <ExpenseModal refetch={refetch} />
 
                     <div className='text-primary sm:py-8 pt-5  pb-2'>
-                        <h1 className='font-bold text-xl'>Total Expense</h1>
+                        <h1 className='font-bold text-xl text-center'>Total Expense</h1>
                         <h2 className='flex items-center justify-center sm:text-3xl text-2xl font-semibold mr-4'><TbCurrencyTaka />{expenseTotal}</h2>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const AccountsHome = () => {
                 <div className='flex items-center justify-center relative'>
                     <IncomeModal refetch={refetch} />
                     <div className='text-success sm:py-8 pt-5 pb-4'>
-                        <h1 className='font-bold text-xl'>Total Income</h1>
+                        <h1 className='font-bold text-xl text-center'>Total Income</h1>
                         <h2 className='flex items-center justify-center sm:text-3xl text-2xl font-semibold mr-4'><TbCurrencyTaka />{incomeTotal}</h2>
                     </div>
                 </div>

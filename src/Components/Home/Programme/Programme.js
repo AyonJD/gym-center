@@ -7,15 +7,17 @@ const Programme = () => {
     // console.log(selectedTab)
     return (
         <div name='article' className="mid-container main_tabs mt-5">
-            <h1 className='text-4xl font-bold text-primary mb-8 '>Our Programms</h1>
+            <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Other Programs</h1>
             {/* Container */}
             <Tabs
                 className=""
                 setSelectedTab={setSelectedTab}
                 items={[
-                    { to: "crossfit", name: 'CrossFit' },
                     { to: "on-ramp", name: "On Ramp" },
-                    { to: "assemble", name: "Assemble" }
+                    { to: "assemble", name: "Assemble" },
+                    { to: "legion", name: "Legion" },
+                    { to: "skill-session", name: "Skill Session" },
+                    { to: "body-comp", name: "Body Comp Analyzer" },
                 ]}
             />
 

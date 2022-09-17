@@ -56,11 +56,11 @@ const Incomes = () => {
                     <p className='text-sm  font-bold text-secondary'>{date}</p>
                 </div>
             </div>
-            <h1 className='text-center md:text-2xl text-xl font-bold mt-4 md:mb-5 mb-5'>Income History</h1>
+            <h1 className='lg:text-center lg:text-2xl font-bold mt-4 md:mb-5 mb-5'>Income History</h1>
 
             <div className='md:flex justify-between items-center'>
                 <div className="date_field flex md:w-[40%] w-full items-center mb-5 md:mb-0">
-                    <p className='text-sm mr-5 font-bold w-fit text-secondary'>{selectedDate}</p>
+                    {/* <p className='text-sm mr-5 font-bold w-fit text-secondary'>{selectedDate}</p> */}
                     <input onChange={(e) => {
                         setSelectedDate(e.target.value);
                     }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />

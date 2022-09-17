@@ -26,7 +26,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -42,7 +42,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -58,7 +58,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -74,7 +74,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -90,7 +90,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -108,7 +108,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -124,7 +124,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -140,7 +140,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -156,7 +156,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>
@@ -172,7 +172,7 @@ const Testimonials = () => {
                             <div className='lg:w-[60%] flex items-center'>
                                 <div>
                                     <img src={img2} alt="" />
-                                    <p className='italic mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
+                                    <p className='italic mt-3 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum elementum et id diam quis nunc mi volutpat sem. Ut odio dictum netus consectetur aliquam ligula. Vehicula non non quis dui aliquam vulputate eget fusce. Pellentesque amet, facilisis rhoncus, pharetra, ac convallis.
                                     </p>
                                     <p className='mt-10 text-sm text-secondary'>Posted 1w ago</p>
                                 </div>

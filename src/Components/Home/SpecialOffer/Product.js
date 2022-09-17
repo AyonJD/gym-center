@@ -2,8 +2,11 @@ import React from 'react';
 import itemImg from '../../../assets/Special/Rectangle 8.png';
 import { FaCartPlus } from 'react-icons/fa';
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
+    const navigate = useNavigate()
+
     return (
         <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-5 '>
             <div className="card  shadow-xl ">
@@ -14,7 +17,9 @@ const Product = () => {
                     <h2 className="card-title font-semibold">Product Name</h2>
                     <p className='text-xl font-bold text-primary flex'><TbCurrencyTaka className='text-2xl' />199</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -26,7 +31,9 @@ const Product = () => {
                     <h2 className="card-title font-semibold">Product Name</h2>
                     <p className='text-xl font-bold text-primary flex'><TbCurrencyTaka className='text-2xl' />199</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +45,9 @@ const Product = () => {
                     <h2 className="card-title font-semibold">Product Name</h2>
                     <p className='text-xl font-bold text-primary flex'><TbCurrencyTaka className='text-2xl' />199</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -50,7 +59,9 @@ const Product = () => {
                     <h2 className="card-title font-semibold">Product Name</h2>
                     <p className='text-xl font-bold text-primary flex'><TbCurrencyTaka className='text-2xl' />199</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className="btn btn-primary btn-sm mt-2">{FaCartPlus} Add to cart</button>
                     </div>
                 </div>
             </div>

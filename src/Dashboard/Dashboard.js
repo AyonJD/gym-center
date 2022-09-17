@@ -4,16 +4,18 @@ import SharedNav from '../Components/Pages/Shared/SharedNav';
 import { FaHouseUser } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { MdPaid } from 'react-icons/md';
-import { AiOutlineForm } from 'react-icons/ai';
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaMoneyCheck } from 'react-icons/fa';
 import { RiOrderPlayLine } from 'react-icons/ri';
 import { GoSignOut } from 'react-icons/go';
+import { MdManageAccounts } from 'react-icons/md';
+import { VscWorkspaceTrusted } from 'react-icons/vsc';
 import AuthUser from '../hooks/AuthUser/AuthUser';
 import DashLink from '../hooks/DashboardCustomLink/DashLink';
 
 const Dashboard = () => {
     const { logout, userRole } = AuthUser()
+    // console.log(userRole)
     return (
         <>
             <SharedNav />
@@ -90,8 +92,90 @@ const Dashboard = () => {
                             userRole === 'user' && <>
                                 <div className='flex items-center justify-center mb-4'>
                                     <div className='hover:text-primary'>
-                                        <DashLink to='/dashboard/accounts-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
-                                        <DashLink className='' to={'/dashboard/accounts-home'}> Home</DashLink>
+                                        <DashLink to='/dashboard/users-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/users-home'}> Home</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/user-profile'> <FaUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/user-profile'}> Profile</DashLink>
+                                    </div>
+                                </div>
+
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/user-package'> <VscWorkspaceTrusted className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/user-package'}> Workout</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/my-order'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/my-order'}> My Order</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4 cursor-pointer'>
+                                    <div className='hover:text-primary' onClick={logout}>
+                                        <GoSignOut className='mx-auto xl:text-xl' />
+                                        <button> LogOut</button>
+                                    </div>
+                                </div>
+                            </>
+                        }
+
+                        {
+                            userRole === 'trainer' && <>
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainers-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainers-home'}> Home</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainer-profile'> <FaUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainer-profile'}> Profile</DashLink>
+                                    </div>
+                                </div>
+
+                                {/* <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainer-form'> <AiOutlineForm className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainer-form'}> Form</DashLink>
+                                    </div>
+                                </div> */}
+
+                                {/* <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainer-package'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainer-package'}> Packages</DashLink>
+                                    </div>
+                                </div> */}
+
+                                {/* <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/trainer-settings'>  <AiFillSetting className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/trainer-settings'}> Settings</DashLink>
+                                    </div>
+                                </div> */}
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/students'> <MdManageAccounts className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/students'}> Students</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/my-order'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/my-order'}> My Order</DashLink>
                                     </div>
                                 </div>
 

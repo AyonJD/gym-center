@@ -69,17 +69,17 @@ export default function ExpenseModal({ refetch }) {
                 </div>
             </label>
 
-            <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-            <label for="my-modal-5" class="modal">
-                <label class="modal-box lg:w-[60%] relative" for="">
+            <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+            <label for="my-modal-5" className="modal">
+                <label className="modal-box lg:w-[60%] relative" for="">
                     <form onSubmit={handleSubmit(onSubmitForm)} id="my-modal-5">
-                        <label for="my-modal-5" class="btn btn-sm text-white btn-error btn-circle absolute right-2 top-2">✕</label>
+                        <label for="my-modal-5" className="btn btn-sm text-white btn-error btn-circle absolute right-2 top-2">✕</label>
                         <div className=" mt-3">
-                            <div class="form-control w-full">
-                                <label class="label">
-                                    <span class="label-text">Source Name</span>
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">Source Name</span>
                                 </label>
-                                <input type="text" placeholder="Enter The Name of Expense Source" class="input input-bordered w-full focus:outline-none"
+                                <input type="text" placeholder="Enter The Name of Expense Source" className="input input-bordered w-full focus:outline-none"
                                     {...register("name", {
                                         required: 'Name is required',
                                         minLength: {
@@ -94,11 +94,11 @@ export default function ExpenseModal({ refetch }) {
                             </div>
                         </div>
                         <div className=" mt-3 ">
-                            <div class="form-control w-full">
-                                <label class="label">
-                                    <span class="label-text">Amount</span>
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">Amount</span>
                                 </label>
-                                <input type="number" placeholder="Enter The Amount of Expense" class="input input-bordered w-full focus:outline-none"
+                                <input type="number" placeholder="Enter The Amount of Expense" className="input input-bordered w-full focus:outline-none"
                                     {...register("amount", {
                                         required: 'Amount is required',
                                     })}
@@ -110,11 +110,11 @@ export default function ExpenseModal({ refetch }) {
                             </div>
                         </div>
                         <div className=" mt-3">
-                            <div class="form-control w-full">
-                                <label class="label">
-                                    <span class="label-text">Expense Date</span>
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">Expense Date</span>
                                 </label>
-                                <input type="date" class="input input-bordered w-full focus:outline-none"
+                                <input type="date" className="input input-bordered w-full focus:outline-none"
                                     {...register("expense_date", {
                                         required: 'Date is required',
                                     })}
@@ -127,11 +127,11 @@ export default function ExpenseModal({ refetch }) {
                         </div>
 
                         <div className=" mt-3">
-                            <div class="form-control w-full">
-                                <label class="label">
-                                    <span class="label-text">Message</span>
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">Message</span>
                                 </label>
-                                <input placeholder="Enter your Message" type="text" class="input input-bordered w-full focus:outline-none"
+                                <input placeholder="Enter your Message" type="text" className="input input-bordered w-full focus:outline-none"
                                     {...register("message", {
                                         required: 'Message is required',
                                     })}
@@ -144,11 +144,11 @@ export default function ExpenseModal({ refetch }) {
                         </div>
 
                         {/* <div className=" mt-3">
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Upload File</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Upload File</span>
                             </label>
-                            <input type="file" placeholder="Write Any Message For This Income" class="input w-full focus:outline-none h-full pl-0 rounded-none shadow-none border-none"
+                            <input type="file" placeholder="Write Any Message For This Income" className="input w-full focus:outline-none h-full pl-0 rounded-none shadow-none border-none"
                                 {...register("image", {
                                     required: 'Image is required',
                                 })}
@@ -162,7 +162,7 @@ export default function ExpenseModal({ refetch }) {
 
                         <div className="flex gap-2 mt-12 relative">
                             <div>
-                                <label for="my-modal-5" class="btn btn-error text-white font-bold btn-sm">Close</label>
+                                <label for="my-modal-5" className="btn btn-error text-white font-bold btn-sm">Close</label>
                             </div>
                             <div className="text-end">
                                 <button

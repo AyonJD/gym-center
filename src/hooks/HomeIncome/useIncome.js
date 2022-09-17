@@ -13,7 +13,7 @@ const useIncome = () => {
             }
         }).then(res => res.json())
             .then(data => setIncome(data.data))
-    }, []);
+    }, [token]);
 
     return { income }
 };

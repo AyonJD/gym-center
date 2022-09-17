@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { MdGroupAdd } from 'react-icons/md'
-import { BsBoxArrowLeft } from "react-icons/bs";
-import CrossfitCompo from '../CrossfitCompo';
 import OnRampCompo from '../OnRampCompo';
 import AssembleCompo from '../AssembleCompo';
+import LegionCompo from '../ProgrammeData/LegionCompo';
+import SkillSessionCompo from '../ProgrammeData/SkillSessionCompo';
+import BodyCompAnalyerCompo from '../ProgrammeData/BodyCompAnalyzerCompo';
 
 const TabsWrapper = styled.div`
   border-bottom: 1px solid #E0E0E0;
@@ -38,7 +37,7 @@ const TabItem = styled.li`
 const Tabs = props => {
     const activeRef = React.createRef();
     const none = React.createRef();
-    const [selected, setSelected] = React.useState("crossfit");
+    const [selected, setSelected] = React.useState("on-ramp");
     const [offset, setOffset] = React.useState(0);
     const [width, setWidth] = React.useState(0);
     React.useEffect(() => {
@@ -50,12 +49,16 @@ const Tabs = props => {
 
 
     let section;
-    if (selected === "crossfit") {
-        section = <CrossfitCompo />;
-    } else if (selected === "on-ramp") {
+    if (selected === "on-ramp") {
         section = <OnRampCompo />;
-    } else {
-        section = <AssembleCompo />;
+    } else if (selected === "assemble") {
+        section = <AssembleCompo />
+    } else if (selected === "legion") {
+        section = <LegionCompo />
+    } else if (selected === "skill-session") {
+        section = <SkillSessionCompo />
+    } else if (selected === "body-comp") {
+        section = <BodyCompAnalyerCompo />
     }
 
     return (

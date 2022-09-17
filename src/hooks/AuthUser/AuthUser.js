@@ -16,6 +16,7 @@ export default function AuthUser() {
     const user_detail = JSON.parse(userString);
     return user_detail;
   };
+  
   const getUserRole = () => {
     const roleString = localStorage.getItem("role");
     const role_name = JSON.parse(roleString);

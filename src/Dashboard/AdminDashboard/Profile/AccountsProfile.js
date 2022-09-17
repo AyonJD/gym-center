@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../..//assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
+import img from '../../../assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
 
 const AccountsProfile = () => {
     return (
@@ -16,9 +16,11 @@ const AccountsProfile = () => {
                 </div>
                 <div>
                     <h1 className='text-xl font-bold mb-3 text-warning'>Access Level:</h1>
-                    <button className='btn btn-accent btn-sm font-bold mr-3' >Transaction</button>
-                    <button className='btn btn-accent btn-sm font-bold mr-3' >Purchase</button>
-                    <button className='btn btn-accent btn-sm font-bold' >Salary</button>
+                    <div className='grid sm:grid-cols-3 gap-3'>
+                        <button className='btn btn-accent btn-sm font-bold ' >Transaction</button>
+                        <button className='btn btn-accent btn-sm font-bold ' >Purchase</button>
+                        <button className='btn btn-accent btn-sm font-bold' >Salary</button>
+                    </div>
                 </div>
             </div>
 

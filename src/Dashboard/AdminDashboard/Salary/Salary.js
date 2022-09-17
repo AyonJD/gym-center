@@ -26,6 +26,7 @@ const Salary = () => {
         return <Loading />
     }
 
+    // console.log(salaryDetails)
 
     const salaryPaid = salaryDetails.data.filter(salary => {
         if (salary.status) {
@@ -55,12 +56,12 @@ const Salary = () => {
                 <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
+                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
                     <div className='bg-info px-3 py-2 rounded cursor-pointer'>
                         <VscBellDot className='text-xl' />
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
@@ -98,7 +99,7 @@ const Salary = () => {
 
             <div className='mb-8 flex justify-between items-center'>
                 <p>03 Mar 2022, Thursday</p>
-                <AddSalaryModal refetch={refetch}/>
+                <AddSalaryModal refetch={refetch} />
             </div>
             <SalaryTable salaryDetails={salaryDetails.data} />
         </div>
