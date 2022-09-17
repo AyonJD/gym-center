@@ -9,7 +9,7 @@ const Products = ({ product }) => {
     const { token, email } = AuthUser()
     const goToDetails = useNavigate();
 
-    const handleClick = (email) => {
+    const handleClick = () => {
         goToDetails(`/product/${product?.id}`)
     }
     // post product to cart
@@ -51,7 +51,7 @@ const Products = ({ product }) => {
                     {product?.original_price}
                 </del> </span></p>
                 <div
-                    onClick={() => handleCart(email)}
+                    onClick={() => handleCart(product?.id)}
                     className="bg-[#FBB848] p-3 w-full cursor-pointer">
                     <h1 className='font-bold'>Add to cart</h1>
                 </div>

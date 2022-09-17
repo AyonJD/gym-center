@@ -36,12 +36,12 @@ const Navbar = () => {
                         </ul>
                     </li> */}
                     <li><CustomLink to='/crossfit' className=" hover_effect font-bold text-sm text-[12px] p-2" href="#">CrossFit</CustomLink></li>
-                    <li><CustomLink to='/programs' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Programs</CustomLink></li>
-                    <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Trainers</CustomLink></li>
+                    <li><CustomLink to='/programs' className="uppercase hover_effect font-bold text-sm text-[12px] w-[130px] p-2" href="#">Other Programs</CustomLink></li>
+                    <li><CustomLink to='/trainers' className="uppercase hover_effect font-bold text-sm text-[12px] w-20 p-2" href="#">Our Team</CustomLink></li>
                     <li><CustomLink to='/testimonials' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Testimonials</CustomLink></li>
 
                     <li><CustomLink to='/blog' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Blog</CustomLink></li>
-                    <li><CustomLink to='/shop' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Shop</CustomLink></li>
+                    {/* <li><CustomLink to='/shop' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Shop</CustomLink></li> */}
                     <li><CustomLink to='/contact' className="uppercase hover_effect font-semibold text-sm text-[12px] p-2" href="#">Contact</CustomLink></li>
                     {
                         email ? <li onClick={logout}><CustomLink to='/login' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">LogOut</CustomLink></li> : <li><CustomLink to='/login' className="uppercase hover_effect font-bold text-sm text-[12px] p-2" href="#">Login</CustomLink></li>
@@ -60,11 +60,11 @@ const Navbar = () => {
                             <li><Link to='/' className="uppercase hover_effect font-bold text-sm" href="#">Home</Link></li>
                             <li><Link to='/about' className="uppercase hover_effect font-bold text-sm" href="#">About</Link></li>
                             <li><Link to='/crossFit' className=" hover_effect font-bold text-sm" href="#">CrossFit</Link></li>
-                            <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Other Program</Link></li>
+                            <li><Link to='/programs' className="uppercase hover_effect font-bold text-sm" href="#">Other Programs</Link></li>
                             <li><Link to='/trainers' className="uppercase hover_effect font-bold text-sm" href="#">Our Team</Link></li>
                             <li><Link to='/testimonials' className="uppercase hover_effect font-bold text-sm" href="#">Testimonials</Link></li>
                             <li><Link to='/blog' className="uppercase hover_effect font-bold text-sm" href="#">Blog</Link></li>
-                            <li><Link to='/shop' className="uppercase hover_effect font-bold text-sm" href="#">Shop</Link></li>
+                            {/* <li><Link to='/shop' className="uppercase hover_effect font-bold text-sm" href="#">Shop</Link></li> */}
                             <li><Link to='/contact' className="uppercase hover_effect font-bold text-sm" href="#">Contact</Link></li>
                             {
                                 email ? <li onClick={logout}><Link to='/login' className="uppercase hover_effect font-bold text-sm" href="#">LogOut</Link></li> : <li><Link to='/login' className="uppercase hover_effect font-bold text-sm" href="#">Login</Link></li>

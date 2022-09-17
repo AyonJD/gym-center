@@ -8,7 +8,7 @@ import Blog from './Components/Pages/Blog/Blog';
 import Contact from './Components/Pages/Contact/Contact';
 import CrossFit from './Components/Pages/CrossFit/CrossFit';
 import Fitness from './Components/Pages/Fitness/Fitness';
-import Shop from './Components/Pages/Shop/Shop';
+// import Shop from './Components/Pages/Shop/Shop';
 import Testimonials from './Components/Pages/Testimonials/Testimonials';
 import Trainers from './Components/Pages/Trainers/Trainers';
 import FigmaLogin from './Components/Pages/Shared/FigmaLogin';
@@ -38,6 +38,7 @@ import TrainerProfile from './Dashboard/TrainerDashboard/TrainerProfile/TrainerP
 import PackagePaymentCard from './Components/Pages/PaymentCard/PackagePaymentCard/PackagePaymentCard';
 import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
 import RequireMember from './hooks/RequireMember/RequireMember';
+import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
         <Route path='/trainers' element={<Trainers />} />
         <Route path='/testimonials' element={<Testimonials />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/shop' element={<Shop />} />
+        {/* <Route path='/shop' element={<Shop />} /> */}
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<FigmaLogin />} />
         <Route path='/register' element={<Register />} />
@@ -79,6 +80,7 @@ function App() {
           <Route path="trainer-package" element={<TrainerPackages />} />
           <Route path="trainer-profile" element={<TrainerProfile />} />
           <Route path="all-schedule" element={<AllSchedule />} />
+          <Route path="my-order" element={<MyOrder />} />
         </Route>
 
       </Routes>

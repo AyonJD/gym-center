@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
-import OrdersTable from './OrdersTable';
 import { BiSearch } from 'react-icons/bi';
 import { VscBellDot } from 'react-icons/vsc';
 import { HiShoppingCart } from 'react-icons/hi';
+import OrdersTable from '../../AdminDashboard/Orders/OrdersTable';
 
-const Orders = () => {
-    const { token} = AuthUser()
+const MyOrder = () => {
+    const { token, userRole } = AuthUser()
     // const { packages } = Package()
 
     const [products, setProducts] = useState([]);
@@ -14,7 +14,7 @@ const Orders = () => {
     const [allProductState, setAllProductState] = useState(true);
     // product
     useEffect(() => {
-        const url = "https://gym-management97.herokuapp.com/api/product_orders";
+        const url = "https://gym-management97.herokuapp.com/api/user_orders";
 
         fetch(url, {
             method: "GET",
@@ -30,7 +30,7 @@ const Orders = () => {
 
 
     useEffect(() => {
-        const url = "https://gym-management97.herokuapp.com/api/package_order";
+        const url = "https://gym-management97.herokuapp.com/api/user_package_order";
 
         fetch(url, {
             method: "GET",
@@ -47,28 +47,32 @@ const Orders = () => {
 
     const handleProduct = () => {
         setAllProductState(true);
-
-
     }
     const handlePackage = () => {
         setAllProductState(false);
 
     }
 
-    console.log(products)
+    console.log(packages)
 
     return (
         <div className='p-5 mt-4'>
             <div className='flex justify-between'>
-                <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
+                {
+                    userRole === 'user' && <h2 className='text-2xl font-semibold'>Hello, Users!</h2>
+                }
+                {
+                    userRole === 'trainer' && <h2 className='text-2xl font-semibold'>Hello, Trainer!</h2>
+                }
+                
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
+                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
                     <div className='bg-info px-3 py-2 rounded cursor-pointer'>
                         <VscBellDot className='text-xl' />
-                    </div> */}
+                    </div>
                 </div>
             </div>
 
@@ -94,7 +98,9 @@ const Orders = () => {
                     <button
                         onClick={handleProduct}
                         className='btn btn-sm btn-primary rounded-md mr-2'>All</button>
-                    <button className='btn btn-sm btn-primary rounded-md mr-2'>Products</button>
+                    <button
+                        onClick={handleProduct}
+                        className='btn btn-sm btn-primary rounded-md mr-2'>Products</button>
                     <button
                         onClick={handlePackage}
                         className='btn btn-sm btn-primary rounded-md'>Packages</button>
@@ -104,7 +110,7 @@ const Orders = () => {
                 <div className="overflow-x-auto ">
                     <table className="table table-compact w-full">
                         <thead>
-                            <tr className='bg-accent'>
+                            <tr className='bg-accent text-center'>
                                 <th className='bg-accent'>#</th>
                                 <th className='bg-accent'>Menu</th>
                                 <th className='bg-accent'>Date</th>
@@ -122,9 +128,9 @@ const Orders = () => {
                                     ></OrdersTable>)
                                 ) : (
                                     packages?.map((product, index) =>
-                                        <tr key={index} >
+                                        <tr className='text-center' key={index} >
                                             <th>{product?.id}</th>
-                                            <td>{product?.package?.feature[0]?.name}</td>
+                                            <td>{product?.package?.package_type?.package_title}</td>
                                             <td>{product?.order_date}</td>
                                             <td className='font-bold'>৳ {product?.package?.discounted_price}</td>
                                             {
@@ -152,4 +158,4 @@ const Orders = () => {
     );
 };
 
-export default Orders;
+export default MyOrder;

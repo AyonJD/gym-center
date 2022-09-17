@@ -24,14 +24,14 @@ const UsersHome = () => {
                 <h2 className='text-2xl font-semibold'>Hello, Users!</h2>
             </div>
 
-            <div className='md:flex justify-between items-center sm:mt-8 mt-4'>
+            {/* <div className='md:flex justify-between items-center sm:mt-8 mt-4'>
                 <div className="date_field flex md:w-[40%] w-full items-center mb-5 md:mb-0">
-                    {/* <p className='text-sm font-bold w-fit text-secondary'>{selectedDate}</p> */}
+                   
                     <input onChange={(e) => {
                         setSelectedDate(e.target.value);
                     }} className='input w-[50%] input-bordered input-md' type="date" />
                 </div>
-            </div>
+            </div> */}
 
             <div className='sm:grid grid-cols-2 lg:gap-20 gap-10 sm:mt-10 mt-8 border-b-2 pb-6'>
                 <div>

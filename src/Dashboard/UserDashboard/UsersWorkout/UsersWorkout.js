@@ -100,12 +100,12 @@ const UsersWorkout = () => {
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
             <div className="border-r px-5">
                 <div className="flex items-center lg:justify-between">
-                    <h1 className='text-md font-bold'>Programs</h1>
+                    <h1 className='text-xl font-bold'>Programs</h1>
                     {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
                 </div>
 
                 <div className='md:flex border-b py-5 justify-between items-center'>
-                    <div className="date_field flex w-full items-center mb-5 md:mb-0">
+                    {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
                         <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
                             selectedDate ? selectedDate : date
                         }</p>
@@ -114,7 +114,7 @@ const UsersWorkout = () => {
                         <input onChange={(e) => {
                             setSelectedDate(e.target.value);
                         }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Packages part */}
@@ -147,12 +147,12 @@ const UsersWorkout = () => {
 
             <div className="px-5 border-r">
                 <div className="flex items-center lg:justify-between">
-                    <h1 className='text-md font-bold'>Schedule</h1>
+                    <h1 className='text-xl font-bold'>Schedule</h1>
                     {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
                 </div>
 
                 <div className='md:flex border-b py-5 justify-between items-center'>
-                    <div className="date_field flex w-full items-center mb-5 md:mb-0">
+                    {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
                         <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
                             selectedDate ? selectedDate : date
                         }</p>
@@ -161,7 +161,7 @@ const UsersWorkout = () => {
                         <input onChange={(e) => {
                             setSelectedDate(e.target.value);
                         }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                    </div>
+                    </div> */}
                 </div>
 
                 {
