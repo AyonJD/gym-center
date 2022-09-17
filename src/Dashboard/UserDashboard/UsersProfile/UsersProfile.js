@@ -6,6 +6,7 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsPencilSquare } from 'react-icons/bs'
 import Popup from 'reactjs-popup';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const UsersProfile = () => {
     const { token } = AuthUser()
@@ -30,7 +31,7 @@ const UsersProfile = () => {
             )
     }, [])
 
-    const handleImageEdit = data => {
+    const handleImageEdit = async data => {
         console.log(data.image[0]);
         fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
             method: 'PATCH',
@@ -44,6 +45,12 @@ const UsersProfile = () => {
             .then(data => {
                 console.log(data);
             }).catch(err => console.log(err))
+
+
+        // const res = await axios.patch('https://httpbin.org/patch', 'hello=world');
+
+        // res.data.headers['Content-Type': 'multipart/form-data']; // application/x-www-form-urlencoded
+        // res.data.json;
     }
     return (
         <div className=''>
