@@ -8,7 +8,7 @@ import Blog from './Components/Pages/Blog/Blog';
 import Contact from './Components/Pages/Contact/Contact';
 import CrossFit from './Components/Pages/CrossFit/CrossFit';
 import Fitness from './Components/Pages/Fitness/Fitness';
-import Shop from './Components/Pages/Shop/Shop';
+// import Shop from './Components/Pages/Shop/Shop';
 import Testimonials from './Components/Pages/Testimonials/Testimonials';
 import Trainers from './Components/Pages/Trainers/Trainers';
 import FigmaLogin from './Components/Pages/Shared/FigmaLogin';
@@ -52,7 +52,7 @@ function App() {
         <Route path='/trainers' element={<Trainers />} />
         <Route path='/testimonials' element={<Testimonials />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/shop' element={<Shop />} />
+        {/* <Route path='/shop' element={<Shop />} /> */}
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<FigmaLogin />} />
         <Route path='/register' element={<Register />} />
