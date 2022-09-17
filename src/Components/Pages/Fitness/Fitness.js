@@ -3,6 +3,7 @@ import SharedNav from "../Shared/SharedNav";
 import FitnessOneImage from "../../../assets/Image/Fitness/kik.png";
 import FitnessTwoImage from "../../../assets/Image/Fitness/nu.png";
 import Package from "../Package/Package";
+import AllPackages from "../Package/AllPackage";
 
 const Fitness = () => {
   return (
@@ -69,7 +70,7 @@ const Fitness = () => {
           recomended
           <br /> packeges for you
         </h1>
-        <Package />
+        <AllPackages />
       </div>
     </>
   );
