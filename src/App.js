@@ -50,7 +50,7 @@ function App() {
         <Route path='/crossFit' element={<CrossFit />} />
         <Route path='/programs' element={<Fitness />} />
         <Route path='/trainers' element={<Trainers />} />
-        <Route path='/testimonials' element={<Testimonials />} />
+        {/* <Route path='/testimonials' element={<Testimonials />} /> */}
         <Route path='/blog' element={<Blog />} />
         {/* <Route path='/shop' element={<Shop />} /> */}
         <Route path='/contact' element={<Contact />} />
