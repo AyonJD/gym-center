@@ -149,8 +149,8 @@ const UsersProfile = () => {
                         }
 
                         <div className='text-center'>
-                            <h2 className='text-sm font-semibold mt-5'>First & Last Name</h2>
-                            <h2 className='text-sm font-semibold mt-2 text-primary'>User</h2>
+                            <h1 className=' font-bold mt-3'>{userData?.data?.name}</h1>
+                            <h2 className='text-sm  text-secondary'>User</h2>
                         </div>
                     </div>
 
