@@ -106,10 +106,15 @@ const UsersProfile = () => {
                 <div className='mt-8 w-[40%]'>
                     <div className=''>
                         <div className='w-40 mx-auto relative'>
-                            <img
+                            {
+                                userData?.data?.profile_image ? <img
                                 onMouseEnter={() => setHandleEditButton(true)}
                                 onMouseLeave={() => setHandleEditButton(false)}
-                                className='rounded' src={userData?.data?.profile_image} alt="" />
+                                className='rounded' src={userData?.data?.profile_image} alt="" /> : <img
+                                onMouseEnter={() => setHandleEditButton(true)}
+                                onMouseLeave={() => setHandleEditButton(false)}
+                                className='rounded' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
+                            }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
                                     <BsPencilSquare
