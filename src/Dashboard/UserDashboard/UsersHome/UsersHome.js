@@ -185,7 +185,7 @@ const UsersHome = () => {
 
 
             <div className='mt-10'>
-                <div className='grid grid-cols-2 '>
+                {/* <div className='grid grid-cols-2 '>
                     <div>
                         <h1 className='font-bold text-2xl'>Muscle Name</h1>
                         <div className='sm:flex gap-5 items-center mt-3'>
@@ -196,10 +196,10 @@ const UsersHome = () => {
                     <div className='text-end'>
                         <button className='btn btn-primary px-10 font-bold text-white' type="">Check</button>
                     </div>
-                </div>
+                </div> */}
 
-                <div className='mt-10 sm:grid grid-cols-2 gap-10'>
-                    <div>
+                <div className='mt-10'>
+                    {/* <div>
                         <div>
                             <h1 className='md:text-3xl text-2xl'>Body mass index</h1>
                             <h2 className='sm:text-2xl text-xl font-bold'>Calculator</h2>
@@ -220,7 +220,7 @@ const UsersHome = () => {
                             </div>
                             <button className='btn btn-primary'>Inverted Triangle Body Shape</button>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='grid grid-cols-2 sm:mt-0 mt-10'>
                         <div className='mx-auto'>
@@ -230,19 +230,19 @@ const UsersHome = () => {
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Chest (in)</h1>
-                                    <h1 className='text-2xl font-bold'>44.5</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.chest}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Waist (in)</h1>
-                                    <h1 className='text-2xl font-bold'>34</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.wrist}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Hip (in)</h1>
-                                    <h1 className='text-2xl font-bold'>42.5</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.hip}</h1>
                                 </div>
                             </div>
                         </div>
