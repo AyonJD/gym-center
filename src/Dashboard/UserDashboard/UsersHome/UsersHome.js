@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import img1 from '../../../assets/Image/UserDashboard/Frame original.png'
 import img2 from '../../../assets/Image/UserDashboard/Frame.png'
-import calc1 from '../../../assets/Image/UserDashboard/calculator/Group 4.png'
-import calc2 from '../../../assets/Image/UserDashboard/calculator/Group 6.png'
-import calc3 from '../../../assets/Image/UserDashboard/calculator/Group 7.png'
 import body from '../../../assets/Image/UserDashboard/body.png'
-import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
-import Loading from '../../../hooks/Loading/Loading';
 import { useEffect } from 'react';
 
 const UsersHome = () => {
 
-    const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const monthName = monthNames[month];
-    const date = `${day} ${monthName} ${year}`;
-    const [selectedDate, setSelectedDate] = useState(null);
     const { token } = AuthUser()
     const [userPhysic, setUserPhysic] = useState({});
 
@@ -32,10 +19,10 @@ const UsersHome = () => {
             }
         }).then(res => res.json())
             .then(data => {
-                setUserPhysic(data?.data)
+                setUserPhysic(data)
             }
             )
-    }, [])
+    }, [token])
 
 
     console.log(userPhysic);

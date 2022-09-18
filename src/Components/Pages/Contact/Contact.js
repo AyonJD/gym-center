@@ -76,6 +76,7 @@ const Contact = () => {
         <Form />
         <div className="h-[500px] w-full">
           <iframe
+            title="map"
             className="w-full h-full"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.16975104848854!2d90.4090285514542!3d23.793124890614084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70eb0eecca3%3A0x57d900b91d331294!2sGreen%20Grandeur!5e0!3m2!1sen!2sbd!4v1661632020017!5m2!1sen!2sbd"
             allowfullscreen=""
@@ -144,7 +145,7 @@ const Contact = () => {
                     className=""
                     href="https://www.instagram.com/crossfitassemble/"
                   >
-                    Instagram
+                    crossfitassemble
                   </a>
                 </div>
               </div>
