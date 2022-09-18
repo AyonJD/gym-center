@@ -11,23 +11,6 @@ const Package = () => {
     const { token } = AuthUser()
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     fetch('https://gym-management97.herokuapp.com/api/package_order/', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: JSON.stringify({
-    //             package: packageId
-    //         })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }, [])
-
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
         fetch(`https://gym-management97.herokuapp.com/api/package_by_type?package_type=1`, {
             method: 'GET',
@@ -91,15 +74,11 @@ const Package = () => {
                                 </div>
                                 <p className='text-sm text-secondary text-justify'>{item?.description}</p>
                                 <h2 className='text-xl font-bold mt-3'>CrossFit</h2>
-                                <div className='ml-4 mt-3'>
+                                <div className='ml-4 mt-3 list-none'>
                                     <li className='text-sm mb-3'>Total Class: {item?.total_class}</li>
                                     <li className='text-sm mb-3'>Total Consultation
                                         : {item?.total_consultation
                                         }</li>
-                                    <li className='text-sm mb-3'>Customizable Calendar</li>
-                                    <li className='text-sm mb-3'>Healthy Recipes</li>
-                                    <li className='text-sm mb-3'>Health and Fitness Articles</li>
-                                    <li className='text-sm'>No Credit Card Needed</li>
                                 </div>
                                 <div
                                     onClick={() => {
