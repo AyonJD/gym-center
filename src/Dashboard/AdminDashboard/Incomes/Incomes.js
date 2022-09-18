@@ -51,7 +51,7 @@ const Incomes = () => {
     return (
         <div className='p-5 mt-4'>
             <div className='flex justify-between'>
-                <h2 className='md:text-2xl text-xl font-semibold'>Hello, Manager</h2>
+                <h2 className='md:text-2xl text-xl font-semibold'>Hello, Accountant</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm  font-bold text-secondary'>{date}</p>
                 </div>
