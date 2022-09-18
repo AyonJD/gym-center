@@ -24,8 +24,7 @@ const UsersHome = () => {
             )
     }, [token])
 
-
-    console.log(userPhysic);
+// console.log(userPhysic?.DATA.data?)
 
     return (
         <div className='p-5 mt-4 mb-32'>
@@ -55,51 +54,51 @@ const UsersHome = () => {
                         <div className='md:text-end text-center grid '>
                             <div className='h-fit'>
                                 <p className='font-bold '>Neck</p>
-                                <small className='text-gray-500'>~{userPhysic?.neck}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.neck}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Shoulder</p>
-                                <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Chest</p>
-                                <small className='text-gray-500'>~{userPhysic?.chest}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.chest}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Hip</p>
-                                <small className='text-gray-500'>~{userPhysic?.hip}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.hip}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Quadriceps</p>
-                                <small className='text-gray-500'>~{userPhysic?.quadriceps}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.quadriceps}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Wrist</p>
-                                <small className='text-gray-500'>~{userPhysic?.wrist}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.wrist}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Height</p>
-                                <small className='text-gray-500'>~{userPhysic?.height}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.height}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className='font-bold '>Shoulder</p>
-                                <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className="font-bold">BMI</p>
-                                <small className='text-gray-500'>~{userPhysic?.bmi}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.bmi}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className="font-bold">Calves</p>
-                                <small className='text-gray-500'>~{userPhysic?.calves}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.calves}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className="font-bold">Triceps</p>
-                                <small className='text-gray-500'>~{userPhysic?.triceps}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.triceps}</small>
                             </div>
                             <div className='h-fit'>
                                 <p className="font-bold">Weight</p>
-                                <small className='text-gray-500'>~{userPhysic?.weight}</small>
+                                <small className='text-gray-500'>~{userPhysic?.data?.weight}</small>
                             </div>
                         </div>
                     </div>
@@ -118,51 +117,51 @@ const UsersHome = () => {
                             <div className='md:text-end text-center grid '>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Neck</p>
-                                    <small className='text-gray-500'>~{userPhysic?.neck}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.neck}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Shoulder</p>
-                                    <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Chest</p>
-                                    <small className='text-gray-500'>~{userPhysic?.chest}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.chest}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Hip</p>
-                                    <small className='text-gray-500'>~{userPhysic?.hip}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.hip}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Quadriceps</p>
-                                    <small className='text-gray-500'>~{userPhysic?.quadriceps}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.quadriceps}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Wrist</p>
-                                    <small className='text-gray-500'>~{userPhysic?.wrist}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.wrist}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Height</p>
-                                    <small className='text-gray-500'>~{userPhysic?.height}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.height}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className='font-bold '>Shoulder</p>
-                                    <small className='text-gray-500'>~{userPhysic?.shoulder}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className="font-bold">BMI</p>
-                                    <small className='text-gray-500'>~{userPhysic?.bmi}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.bmi}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className="font-bold">Calves</p>
-                                    <small className='text-gray-500'>~{userPhysic?.calves}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.calves}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className="font-bold">Triceps</p>
-                                    <small className='text-gray-500'>~{userPhysic?.triceps}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.triceps}</small>
                                 </div>
                                 <div className='h-fit'>
                                     <p className="font-bold">Weight</p>
-                                    <small className='text-gray-500'>~{userPhysic?.weight}</small>
+                                    <small className='text-gray-500'>~{userPhysic?.data?.weight}</small>
                                 </div>
                             </div>
                         </div>
@@ -217,19 +216,19 @@ const UsersHome = () => {
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Chest (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.chest}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.chest}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Waist (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.wrist}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.wrist}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Hip (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.hip}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.hip}</h1>
                                 </div>
                             </div>
                         </div>

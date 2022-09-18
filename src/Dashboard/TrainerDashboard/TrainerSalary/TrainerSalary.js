@@ -28,8 +28,8 @@ const TrainerSalary = () => {
             return salary
         }
     })
-    
-    
+
+
 
     const salaryPaid = trainerDetail?.filter(salary => {
         if (salary.status) {
@@ -50,20 +50,20 @@ const TrainerSalary = () => {
     }, 0)
 
 
-// total pending salary user
+    // total pending salary user
     const totalPendingSalary = trainerDetail?.filter(salary => {
         if (salary.status === false) {
             return salary
         }
     })
 
-    console.log(totalPendingSalary.length)
+    // console.log(salaryDetails, 'salaryDetails')
 
 
     return (
         <div className='p-5 mt-4 '>
             <div className='flex justify-between'>
-                <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
+                <h2 className='text-2xl font-semibold'>Hello, Trainers!</h2>
             </div>
 
             <div className='mt-7 border-b-[1px] pb-3 mb-5'>
