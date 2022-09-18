@@ -27,7 +27,7 @@ export default function App() {
         }).then(res => res.json())
     )
 
-    console.log(review, 'review')
+    // console.log(review, 'review')
 
     return (
         <div className="mid-container">

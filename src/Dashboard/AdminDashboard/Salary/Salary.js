@@ -46,36 +46,32 @@ const Salary = () => {
         return acc + curr.amount
     }, 0)
 
+    // total pending salary user
+    const totalPendingSalary = salaryDetails?.data?.filter(salary => {
+        if (salary.status === false) {
+            return salary
+        }
+    })
 
-    console.log(salaryDetails.data)
+    // console.log(salaryDetails?.data)
 
 
     return (
         <div className='p-5 mt-4'>
             <div className='flex justify-between'>
                 <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
-                <div className='flex items-center gap-3'>
-                    <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
-                        <BiSearch className='text-xl ' />
-                    </div>
-                    <div className='bg-info px-3 py-2 rounded cursor-pointer'>
-                        <VscBellDot className='text-xl' />
-                    </div> */}
-
-                </div>
             </div>
 
             <div className='mt-7 border-b-[1px] pb-3 mb-5'>
                 <h2 className='font-semibold'>Salary Overview</h2>
-                <p className='text-secondary text-sm'>March 2022</p>
+                {/* <p className='text-secondary text-sm'>March 2022</p> */}
             </div>
 
             <div className='grid sm:grid-cols-3 bg-[#FEEDD1] lg:py-5'>
                 <div className='flex items-center justify-center sm:border-r-2 sm:border-b-0 border-b-2 border-white'>
                     <div className='sm:py-8 pt-5 pb-2 text-center'>
                         <h1 className='font-bold text-xl text-center'>Total Pending</h1>
-                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4'><TbCurrencyTaka />100</h2>
+                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4 text-primary'>{totalPendingSalary?.length}</h2>
                     </div>
                 </div>
 
@@ -98,7 +94,7 @@ const Salary = () => {
 
 
             <div className='mb-8 flex justify-between items-center'>
-                <p>03 Mar 2022, Thursday</p>
+                {/* <p>03 Mar 2022, Thursday</p> */}
                 <AddSalaryModal refetch={refetch} />
             </div>
             <SalaryTable salaryDetails={salaryDetails.data} />

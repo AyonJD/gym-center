@@ -6,8 +6,14 @@ import { VscBellDot } from 'react-icons/vsc';
 import { HiShoppingCart } from 'react-icons/hi';
 
 const Orders = () => {
-    const { token} = AuthUser()
-    // const { packages } = Package()
+    const { token } = AuthUser()
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthName = monthNames[month];
+    const date = `${day} ${monthName} ${year}`;
 
     const [products, setProducts] = useState([]);
     const [packages, setPackages] = useState([]);
@@ -62,7 +68,7 @@ const Orders = () => {
             <div className='flex justify-between'>
                 <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
                 <div className='flex items-center gap-3'>
-                    <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
+                    <p className='text-sm font-bold text-secondary'>{date}</p>
                     {/* <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
                         <BiSearch className='text-xl ' />
                     </div>
@@ -104,7 +110,7 @@ const Orders = () => {
                 <div className="overflow-x-auto ">
                     <table className="table table-compact w-full">
                         <thead>
-                            <tr className='bg-accent'>
+                            <tr className='bg-accent text-center'>
                                 <th className='bg-accent'>#</th>
                                 <th className='bg-accent'>Menu</th>
                                 <th className='bg-accent'>Date</th>
