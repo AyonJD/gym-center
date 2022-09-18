@@ -181,7 +181,7 @@ const UsersProfile = () => {
                     <div className='md:w-2/3 mx-auto border-dashed border-b-2 pb-10'>
                         <div className="flex  w-full mx-auto flex-col">
                             <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Name</label>
-                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="name" name="name" id="" placeholder='Your Name'
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="name" name="name" id="" placeholder={userData?.data?.name}
                                 {...register("name", {
                                     pattern: {
                                         value: 3,
@@ -198,7 +198,7 @@ const UsersProfile = () => {
 
                         <div className="flex  w-full mx-auto flex-col mt-5">
                             <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Email</label>
-                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="email" name="email" id="" placeholder='Email or phone number'
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="email" name="email" id="" placeholder={userData?.data?.email}
                                 {...register("email", {
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -214,7 +214,7 @@ const UsersProfile = () => {
 
                         <div className="flex  w-full mx-auto flex-col mt-5">
                             <label className='text-[#747474] text-sm font-medium ml-1 mb-2' >Phone</label>
-                            <input className='py-3 rounded-md bg-[#F2F2F2] px-5 focus:outline-0' type="text" name="phone" id="" placeholder='Enter Phone Number'
+                            <input className='py-3 rounded-md bg-[#F2F2F2] px-5 focus:outline-0' type="text" name="phone" id="" placeholder={userData?.data?.phone}
                                 {...register('phone', {
                                     minLength: {
                                         value: 11,

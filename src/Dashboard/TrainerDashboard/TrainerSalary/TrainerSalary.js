@@ -22,32 +22,42 @@ const TrainerSalary = () => {
         return <Loading />
     }
 
-
-    const salaryPaid = salaryDetails.data.filter(salary => {
-        if (salary.status) {
-            return salary
-        }
-    })
-    const paidAmount = salaryPaid.reduce((acc, curr) => {
-        return acc + curr.amount
-    }, 0)
-
-    const salaryUnPaid = salaryDetails.data.filter(salary => {
-        if (salary.status === false) {
-            return salary
-        }
-    })
-    const unPaidAmount = salaryUnPaid.reduce((acc, curr) => {
-        return acc + curr.amount
-    }, 0)
-
-// get trainer detail by email from salarydetails
+    // get trainer detail by email from salarydetails
     const trainerDetail = salaryDetails?.data?.filter(salary => {
         if (salary?.user?.email === 'trainer@gmail.com') {
             return salary
         }
     })
-    console.log(trainerDetail)
+    
+    
+
+    const salaryPaid = trainerDetail?.filter(salary => {
+        if (salary.status) {
+            return salary
+        }
+    })
+    const paidAmount = salaryPaid?.reduce((acc, curr) => {
+        return acc + curr.amount
+    }, 0)
+
+    const salaryUnPaid = trainerDetail?.filter(salary => {
+        if (salary.status === false) {
+            return salary
+        }
+    })
+    const unPaidAmount = salaryUnPaid?.reduce((acc, curr) => {
+        return acc + curr.amount
+    }, 0)
+
+
+// total pending salary user
+    const totalPendingSalary = trainerDetail?.filter(salary => {
+        if (salary.status === false) {
+            return salary
+        }
+    })
+
+    console.log(totalPendingSalary.length)
 
 
     return (
@@ -65,7 +75,7 @@ const TrainerSalary = () => {
                 <div className='flex items-center justify-center sm:border-r-2 sm:border-b-0 border-b-2 border-white'>
                     <div className='sm:py-8 pt-5 pb-2 text-center'>
                         <h1 className='font-bold text-xl text-center'>Total Pending</h1>
-                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4'><TbCurrencyTaka />100</h2>
+                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4 text-primary'>{totalPendingSalary?.length}</h2>
                     </div>
                 </div>
 
