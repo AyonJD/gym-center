@@ -11,22 +11,7 @@ const AllPackages = () => {
     const { token } = AuthUser()
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     fetch('https://gym-management97.herokuapp.com/api/package_order/', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: JSON.stringify({
-    //             package: packageId
-    //         })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }, [])
+
 
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
         fetch(`https://gym-management97.herokuapp.com/api/packages`, {
@@ -41,7 +26,6 @@ const AllPackages = () => {
     }
 
 
-    console.log(packages)
 
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-7 md:mb-16 mb-10'>

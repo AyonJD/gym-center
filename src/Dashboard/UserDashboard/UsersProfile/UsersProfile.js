@@ -4,10 +4,8 @@ import { useState } from 'react';
 import img from '../../../assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsPencilSquare } from 'react-icons/bs'
-import Popup from 'reactjs-popup';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const UsersProfile = () => {
@@ -50,9 +48,7 @@ const UsersProfile = () => {
                 // console.log(data)
             }
             )
-    }, [token, userData])
-
-    // console.log(userData)
+    }, [token])
 
     // image patch on server
     const handleImageEdit = event => {
@@ -229,7 +225,7 @@ const UsersProfile = () => {
                         </div>
 
                         <button
-                            className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit" > Submit</button>
+                            className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit" > Update</button>
                     </div>
                 </form>
             </div>
