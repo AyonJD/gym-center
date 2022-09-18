@@ -46,8 +46,14 @@ const Salary = () => {
         return acc + curr.amount
     }, 0)
 
+    // total pending salary user
+    const totalPendingSalary = salaryDetails?.data?.filter(salary => {
+        if (salary.status === false) {
+            return salary
+        }
+    })
 
-    console.log(salaryDetails.data)
+    // console.log(salaryDetails?.data)
 
 
     return (
@@ -65,7 +71,7 @@ const Salary = () => {
                 <div className='flex items-center justify-center sm:border-r-2 sm:border-b-0 border-b-2 border-white'>
                     <div className='sm:py-8 pt-5 pb-2 text-center'>
                         <h1 className='font-bold text-xl text-center'>Total Pending</h1>
-                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4'><TbCurrencyTaka />100</h2>
+                        <h2 className='flex items-center justify-center sm:text-3xl text-2xl  font-semibold mr-4 text-primary'>{totalPendingSalary?.length}</h2>
                     </div>
                 </div>
 
