@@ -25,7 +25,6 @@ const UsersHome = () => {
     }, [token])
 
 
-    console.log(userPhysic);
 
     return (
         <div className='p-5 mt-4 mb-32'>

@@ -13,7 +13,6 @@ const UsersWorkout = () => {
     const monthName = monthNames[month];
     const date = `${day} ${monthName} ${year}`;
 
-    const [selectedDate, setSelectedDate] = useState(null);
     const [purchedPackages, setPurchedPackages] = useState([]);
     const [showSchedule, setShowSchedule] = useState(false);
     const [packageSchedule, setPackageSchedule] = useState(null);
@@ -29,10 +28,10 @@ const UsersWorkout = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setPackageSchedule(data)
             })
-    }, [packageId, token])
+    }, [packageId, token, showSchedule, purchedPackages, packageSchedule])
 
     useEffect(() => {
         fetch('https://gym-management97.herokuapp.com/api/user_package_order', {
@@ -47,7 +46,7 @@ const UsersWorkout = () => {
                 // console.log(data)
                 setPurchedPackages(data);
             })
-    }, [token])
+    }, [token, packageSchedule, purchedPackages ])
 
     const handlePackageClick = (id) => {
         setShowSchedule(false)
@@ -61,11 +60,19 @@ const UsersWorkout = () => {
             .then(res => res.json())
             .then(data => {
                 setPackageSchedule(data)
+                setShowSchedule(true)
                 // console.log(data)
             })
     }
 
-    console.log(purchedPackages)
+    // get is_active value from package schedule data
+    const isActive = packageSchedule?.data?.filter(active => {
+        if (active?.is_active === 1) {
+            return active
+        }
+    })
+
+    // console.log(isActive?.length)
 
     const handleConfirm = (schedule_id, package_id) => {
         // console.log(schedule_id, package_id)
@@ -82,14 +89,16 @@ const UsersWorkout = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data) {
-                    if (!data.success && data.error === "The fields user_id, shedule_id must make a unique set.") {
-                        toast.error('You have already booked this schedule')
-                    } else if (!data.success) {
-                        toast.error('Something went wrong')
-                    } else {
-                        toast.success('Schedule confirmed')
-                    }
+                console.log(data, 'data')
+                if (data.success) {
+                    console.log(data , 'success')
+                    toast.success('Schedule confirmed successfully')
+                } else if (!data.success && data.error === "The fields user_id, shedule_id must make a unique set.") {
+                    toast.error('You have already booked this schedule')
+                } else if (!data.success) {
+                    toast.error('Something went wrong')
+                } else {
+                    toast.success('Schedule confirmed')
                 }
             })
     }
@@ -99,22 +108,8 @@ const UsersWorkout = () => {
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
             <div className="border-r px-5">
-                <div className="flex items-center lg:justify-between">
+                <div className="flex items-center lg:justify-between border-b pb-5">
                     <h1 className='text-xl font-bold'>Programs</h1>
-                    {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
-                </div>
-
-                <div className='md:flex border-b py-5 justify-between items-center'>
-                    {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
-                        <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
-                            selectedDate ? selectedDate : date
-                        }</p>
-
-
-                        <input onChange={(e) => {
-                            setSelectedDate(e.target.value);
-                        }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                    </div> */}
                 </div>
 
                 {/* Packages part */}
@@ -146,59 +141,43 @@ const UsersWorkout = () => {
             </div>
 
             <div className="px-5 border-r">
-                <div className="flex items-center lg:justify-between">
+                <div className="flex items-center lg:justify-between border-b pb-5">
                     <h1 className='text-xl font-bold'>Schedule</h1>
-                    {/* <button className='bg-primary rounded-full h-8 text-2xl font-bold text-white w-8 ml-5 lg:ml-0'>+</button> */}
-                </div>
-
-                <div className='md:flex border-b py-5 justify-between items-center'>
-                    {/* <div className="date_field flex w-full items-center mb-5 md:mb-0">
-                        <p className='text-sm mr-5 font-bold w-fit text-secondary'>{
-                            selectedDate ? selectedDate : date
-                        }</p>
-
-
-                        <input onChange={(e) => {
-                            setSelectedDate(e.target.value);
-                        }} className='input w-[50%] input-bordered input-md cursor-pointer' type="date" />
-                    </div> */}
                 </div>
 
                 {
-                    purchedPackages?.data?.length >= 1  && 
-                    <>
-                    {
-                        !showSchedule && packageSchedule?.data?.map((pack, index) => {
-                            return (
-                                <div className='my-8' key={index}>
-    
-                                    <div
-    
-                                        className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
-                                        <div className="flex items-center gap-5">
-                                            <div>
-                                                <h1 className='text-[#3D3270] font-extrabold text-xl'>
-                                                    {pack?.day}
-                                                </h1>
-                                                <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
-                                            </div>
-    
-                                        </div>
+                    showSchedule && packageSchedule?.data?.map((pack, index) => {
+                        return (
+                            <div className='my-8' key={index}>
+                                <div
+
+                                    className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
+                                    <div className="flex items-center gap-5">
                                         <div>
-                                            <button
-                                                onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                className="btn btn-primary btn-xs">Confirm</button>
+                                            <h1 className='text-[#3D3270] font-extrabold text-xl'>
+                                                {pack?.day}
+                                            </h1>
+                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
                                         </div>
+
+                                    </div>
+                                    <div>
+                                        {
+                                            isActive?.length >= 1 ?
+                                                <button
+                                                    disabled
+                                                    onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                    className="btn btn-primary btn-xs disabled">Confirm</button> : <button
+                                                        onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                        className="btn btn-primary btn-xs disabled">Confirm</button>
+                                        }
                                     </div>
                                 </div>
-                            )
-                        })
-                    }
-                    </>
+                            </div>
+                        )
+                    })
                 }
-
             </div>
-
         </div>
     );
 };
