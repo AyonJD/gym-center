@@ -216,19 +216,19 @@ const UsersHome = () => {
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Chest (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.chest}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.chest}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Waist (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.wrist}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.wrist}</h1>
                                 </div>
                             </div>
                             <div className='bg-accent rounded-xl shadow px-5  flex items-center justify-center'>
                                 <div className='text-center'>
                                     <h1 className='text-xl font-bold'>Hip (in)</h1>
-                                    <h1 className='text-2xl font-bold'>{userPhysic?.hip}</h1>
+                                    <h1 className='text-2xl font-bold'>{userPhysic?.data?.hip}</h1>
                                 </div>
                             </div>
                         </div>

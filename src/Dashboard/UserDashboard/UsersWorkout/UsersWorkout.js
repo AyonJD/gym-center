@@ -31,7 +31,7 @@ const UsersWorkout = () => {
                 // console.log(data)
                 setPackageSchedule(data)
             })
-    }, [packageId, token, showSchedule, purchedPackages, packageSchedule])
+    }, [packageId, token])
 
     useEffect(() => {
         fetch('https://gym-management97.herokuapp.com/api/user_package_order', {
