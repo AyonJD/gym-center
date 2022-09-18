@@ -85,7 +85,7 @@ const Incomes = () => {
                                     <th className='bg-accent'>Name</th>
                                     <th className='bg-accent'>Date</th>
                                     <th className='bg-accent'>Amount</th>
-                                    <th className='bg-accent'>Action</th>
+                                    {/* <th className='bg-accent'>Action</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,7 +110,7 @@ const Incomes = () => {
                                                     <td>{income?.name}</td>
                                                     <td>{income?.expense_date}</td>
                                                     <td className='font-bold'>৳ {income?.amount}</td>
-                                                    <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                    {/* <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td> */}
                                                 </tr>
                                             )
                                         })

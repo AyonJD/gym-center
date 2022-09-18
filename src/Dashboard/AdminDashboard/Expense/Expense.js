@@ -129,7 +129,7 @@ const Expense = () => {
                                     <th className='bg-accent'>Name</th>
                                     <th className='bg-accent'>Date</th>
                                     <th className='bg-accent'>Amount</th>
-                                    <th className='bg-accent'>Payment Type</th>
+                                    {/* <th className='bg-accent'>Payment Type</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -142,7 +142,7 @@ const Expense = () => {
                                                     <td>{expense?.name}</td>
                                                     <td>{expense?.expense_date}</td>
                                                     <td className='font-bold'>৳ {expense?.amount}</td>
-                                                    <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                    {/* <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td> */}
                                                 </tr>
                                             )
                                         })
@@ -155,7 +155,7 @@ const Expense = () => {
                                                         <td>{expense?.name}</td>
                                                         <td>{expense?.expense_date}</td>
                                                         <td className='font-bold'>৳ {expense?.amount}</td>
-                                                        <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                        {/* <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td> */}
                                                     </tr>
                                                 )
                                             })) :
@@ -167,7 +167,7 @@ const Expense = () => {
                                                             <td>{expense?.name}</td>
                                                             <td>{expense?.expense_date}</td>
                                                             <td className='font-bold'>৳ {expense?.amount}</td>
-                                                            <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                            {/* <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td> */}
                                                         </tr>
                                                     )
                                                 })) :
@@ -179,7 +179,7 @@ const Expense = () => {
                                                             <td>{expense?.name}</td>
                                                             <td>{expense?.expense_date}</td>
                                                             <td className='font-bold'>৳ {expense?.amount}</td>
-                                                            <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td>
+                                                            {/* <td><button className='btn lg:btn-sm btn-xs btn-warning text-white'>Details</button></td> */}
                                                         </tr>
                                                     )
                                                 }))
