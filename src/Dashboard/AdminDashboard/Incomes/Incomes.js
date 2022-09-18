@@ -72,7 +72,8 @@ const Incomes = () => {
                 </div> */}
             </div>
 
-            <AddIncomeModal refetch={refetch} />
+                
+                <AddIncomeModal refetch={refetch} />
 
             <div className='mt-10'>
                 <div className='mb-5'>

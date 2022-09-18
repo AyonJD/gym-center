@@ -28,8 +28,8 @@ const TrainerSalary = () => {
             return salary
         }
     })
-    
-    
+
+
 
     const salaryPaid = trainerDetail?.filter(salary => {
         if (salary.status) {
@@ -50,14 +50,14 @@ const TrainerSalary = () => {
     }, 0)
 
 
-// total pending salary user
+    // total pending salary user
     const totalPendingSalary = trainerDetail?.filter(salary => {
         if (salary.status === false) {
             return salary
         }
     })
 
-    console.log(totalPendingSalary.length)
+    // console.log(salaryDetails, 'salaryDetails')
 
 
     return (
