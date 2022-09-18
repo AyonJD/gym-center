@@ -63,7 +63,7 @@ const TrainerSalary = () => {
     return (
         <div className='p-5 mt-4 '>
             <div className='flex justify-between'>
-                <h2 className='text-2xl font-semibold'>Hello, Accounts!</h2>
+                <h2 className='text-2xl font-semibold'>Hello, Trainers!</h2>
             </div>
 
             <div className='mt-7 border-b-[1px] pb-3 mb-5'>

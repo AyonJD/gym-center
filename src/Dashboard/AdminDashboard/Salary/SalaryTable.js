@@ -5,7 +5,7 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 const SalaryTable = ({ salaryDetails }) => {
     const [confirm, setConfirm] = useState(false)
     const [id, setId] = useState(null)
-    const { token } = AuthUser()
+    const { token, userRole } = AuthUser()
 
     const handlePaid = (id) => {
 
@@ -35,7 +35,7 @@ const SalaryTable = ({ salaryDetails }) => {
     }
     return (
         <div className='mb-5'>
-            <div className="overflow-x-auto ">
+            <div className="overflow-x-auto overflow-y-hidden">
                 <table className="table table-compact w-full">
                     <thead>
                         <tr className='bg-accent text-center'>
@@ -46,7 +46,9 @@ const SalaryTable = ({ salaryDetails }) => {
                             <th className='bg-accent'>Date</th>
                             <th className='bg-accent'>Amount</th>
                             <th className='bg-accent'>Type</th>
-                            <th className='bg-accent'>Action</th>
+                            {
+                                userRole === 'accountant' && <th className='bg-accent'>Action</th>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -68,16 +70,18 @@ const SalaryTable = ({ salaryDetails }) => {
                                             }
 
                                         </td>
-                                        <td>
-                                            {
-                                                !data?.status &&
-                                                <label onClick={() => handlePaid(data?.id)} className='btn  btn-xs btn-success text-white' htmlFor="my-modal-3">Make Paid</label>
+                                        {
+                                            userRole === 'accountant' && <td>
+                                                {
+                                                    !data?.status &&
+                                                    <label onClick={() => handlePaid(data?.id)} className='btn  btn-xs btn-success text-white' htmlFor="my-modal-3">Make Paid</label>
 
 
-                                            }
+                                                }
 
 
-                                        </td>
+                                            </td>
+                                        }
 
                                     </tr>
                                 )
