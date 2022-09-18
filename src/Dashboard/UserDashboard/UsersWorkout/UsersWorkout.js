@@ -24,7 +24,7 @@ const UsersWorkout = () => {
 
 
     useEffect(() => {
-        
+
         fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${packageId}`, {
             method: 'GET',
             headers: {
@@ -34,7 +34,7 @@ const UsersWorkout = () => {
             .then(res => res.json())
             .then(data => {
                 setPackageSchedule(data)
-                
+
             })
     }, [packageId, token, packageSchedule])
 
