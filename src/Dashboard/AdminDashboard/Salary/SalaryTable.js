@@ -95,10 +95,10 @@ const SalaryTable = ({ salaryDetails }) => {
                                         <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                         <h3 className="text-lg font-bold">Are you sure you want to mark it as PAID?</h3>
                                         <div className='flex justify-evenly items-center mt-5'>
-                                            <label onClick={() => setConfirm(true)} className='btn btn-success text-white ' htmlFor="my-modal-3">
+                                            <label onClick={() => setConfirm(true)} className='btn btn-success text-white px-10 ' htmlFor="my-modal-3">
                                                 Yes
                                             </label>
-                                            <label className='btn btn-error text-white' htmlFor="my-modal-3">
+                                            <label className='btn btn-error px-10 text-white' htmlFor="my-modal-3">
                                                 No
                                             </label>
                                         </div>

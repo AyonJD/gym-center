@@ -79,7 +79,7 @@ const UsersWorkout = () => {
         }
     })
 
-    // console.log(isActive?.length)
+
 
     const handleConfirm = (schedule_id, package_id) => {
         // console.log(schedule_id, package_id)
@@ -110,6 +110,15 @@ const UsersWorkout = () => {
             })
     }
 
+    const assignedPackages = purchedPackages?.data?.filter(assigned => {
+        if (assigned?.status === 'assigned') {
+            return assigned
+
+        }
+    })
+    console.log(assignedPackages)
+
+
     // console.log(purchedPackages?.data.length);
 
     return (
@@ -122,7 +131,7 @@ const UsersWorkout = () => {
                 {/* Packages part */}
                 <div className='mt-10'>
                     {
-                        purchedPackages?.data?.map((pack, index) => {
+                        assignedPackages?.map((pack, index) => {
                             return (
                                 <div className='my-8' key={index}>
                                     <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package?.package_type?.package_title}</h1>
