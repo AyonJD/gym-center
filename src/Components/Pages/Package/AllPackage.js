@@ -76,7 +76,7 @@ const AllPackages = () => {
                                     <span className='text-sm text-secondary'><del>৳ {item?.original_price
                                     }</del></span>
                                 </div>
-                                <p className='text-xs text-secondary text-justify'>{item?.description.slice(0, 250)}.</p>
+                                <p className='text-xs text-secondary text-justify'>{item?.description?.slice(0, 250)}.</p>
                                 <h2 className='text-xl font-bold mt-1'>Facilities</h2>
                                 <div className='ml-4 text-xs'>
                                     <li className='mb-1 '>Total Class: {item?.total_class}</li>
