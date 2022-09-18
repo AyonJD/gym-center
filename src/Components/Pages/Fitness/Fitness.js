@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SharedNav from "../Shared/SharedNav";
 import FitnessOneImage from "../../../assets/Image/Fitness/kik.png";
 import FitnessTwoImage from "../../../assets/Image/Fitness/nu.png";
 import Package from "../Package/Package";
 import AllPackages from "../Package/AllPackage";
 import { Link } from "react-router-dom";
+import AuthUser from "../../../hooks/AuthUser/AuthUser";
 
 const Fitness = () => {
+  const { token, email } = AuthUser()
+  const [userData, setUserData] = useState([])
+
+  useEffect(() => {
+    fetch(`https://gym-management97.herokuapp.com/api/users/`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserData(data)
+        // console.log(data)
+      }
+      )
+  }, [token])
+
+  // get current user data
+  const currentUser = userData?.filter(item => item?.email === email)
+
+  // console.log(currentUser[0]?.is_full_active)
   return (
     <>
       <SharedNav />
@@ -29,7 +53,7 @@ const Fitness = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="">
-          <Link to={'/login'}><button className="btn btn-primary text-md w-36 font-bold">
+            <Link to={'/login'}><button className="btn btn-primary text-md w-36 font-bold">
               Get Started
             </button></Link>
             {/* <button className="btn bg-[#E5E5E5] mt-5 sm-mt-0 text-md w-36 ml-4 hover:text-white font-bold border-0 text-[#071B46]">
@@ -66,13 +90,18 @@ const Fitness = () => {
           </div>
         </div>
       </div>
-      <div className="mid-container">
-        <h1 className="uppercase mt-16 mb-5 text-primary font-extrabold text-3xl ">
-          recomended
-          <br /> packeges for you
-        </h1>
-        <AllPackages />
-      </div>
+      {
+        currentUser[0]?.is_full_active === true &&
+        <>
+          <div className="mid-container">
+            <h1 className="uppercase mt-16 mb-5 text-primary font-extrabold text-3xl ">
+              recomended
+              <br /> packeges for you
+            </h1>
+            <AllPackages />
+          </div>
+        </>
+      }
     </>
   );
 };

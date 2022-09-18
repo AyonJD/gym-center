@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import toast from 'react-hot-toast';
+import { set } from 'react-hook-form';
+import Loading from '../../../hooks/Loading/Loading';
 
 const UsersWorkout = () => {
     const { token } = AuthUser();
@@ -17,9 +19,12 @@ const UsersWorkout = () => {
     const [showSchedule, setShowSchedule] = useState(false);
     const [packageSchedule, setPackageSchedule] = useState(null);
     const [packageId, setPackageId] = useState(6);
+    const [packageLoading, setPackageLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
+
         fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${packageId}`, {
             method: 'GET',
             headers: {
@@ -28,12 +33,13 @@ const UsersWorkout = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 setPackageSchedule(data)
+
             })
-    }, [packageId, token, showSchedule, purchedPackages, packageSchedule])
+    }, [packageId, token, packageSchedule])
 
     useEffect(() => {
+        setPackageLoading(true);
         fetch('https://gym-management97.herokuapp.com/api/user_package_order', {
             method: 'GET',
             headers: {
@@ -43,14 +49,15 @@ const UsersWorkout = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 setPurchedPackages(data);
+                setPackageLoading(false);
             })
-    }, [token, packageSchedule, purchedPackages ])
+    }, [token, packageSchedule, purchedPackages])
 
     const handlePackageClick = (id) => {
         setShowSchedule(false)
         setPackageId(id)
+        setLoading(true);
         fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${id}`, {
             method: 'GET',
             headers: {
@@ -61,7 +68,7 @@ const UsersWorkout = () => {
             .then(data => {
                 setPackageSchedule(data)
                 setShowSchedule(true)
-                // console.log(data)
+                setLoading(false)
             })
     }
 
@@ -72,7 +79,7 @@ const UsersWorkout = () => {
         }
     })
 
-    // console.log(isActive?.length)
+
 
     const handleConfirm = (schedule_id, package_id) => {
         // console.log(schedule_id, package_id)
@@ -91,7 +98,7 @@ const UsersWorkout = () => {
             .then(data => {
                 console.log(data, 'data')
                 if (data.success) {
-                    console.log(data , 'success')
+                    console.log(data, 'success')
                     toast.success('Schedule confirmed successfully')
                 } else if (!data.success && data.error === "The fields user_id, shedule_id must make a unique set.") {
                     toast.error('You have already booked this schedule')
@@ -102,6 +109,15 @@ const UsersWorkout = () => {
                 }
             })
     }
+
+    const assignedPackages = purchedPackages?.data?.filter(assigned => {
+        if (assigned?.status === 'assigned') {
+            return assigned
+
+        }
+    })
+    console.log(assignedPackages)
+
 
     // console.log(purchedPackages?.data.length);
 
@@ -115,7 +131,7 @@ const UsersWorkout = () => {
                 {/* Packages part */}
                 <div className='mt-10'>
                     {
-                        purchedPackages?.data?.map((pack, index) => {
+                        assignedPackages?.map((pack, index) => {
                             return (
                                 <div className='my-8' key={index}>
                                     <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package?.package_type?.package_title}</h1>
@@ -144,38 +160,42 @@ const UsersWorkout = () => {
                 <div className="flex items-center lg:justify-between border-b pb-5">
                     <h1 className='text-xl font-bold'>Schedule</h1>
                 </div>
-
                 {
-                    showSchedule && packageSchedule?.data?.map((pack, index) => {
-                        return (
-                            <div className='my-8' key={index}>
-                                <div
+                    loading ? <Loading /> :
+                        <>
+                            {
+                                showSchedule && packageSchedule?.data?.map((pack, index) => {
+                                    return (
+                                        <div className='my-8' key={index}>
+                                            <div
 
-                                    className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
-                                    <div className="flex items-center gap-5">
-                                        <div>
-                                            <h1 className='text-[#3D3270] font-extrabold text-xl'>
-                                                {pack?.day}
-                                            </h1>
-                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
+                                                className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
+                                                <div className="flex items-center gap-5">
+                                                    <div>
+                                                        <h1 className='text-[#3D3270] font-extrabold text-xl'>
+                                                            {pack?.day}
+                                                        </h1>
+                                                        <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
+                                                    </div>
+
+                                                </div>
+                                                <div>
+                                                    {
+                                                        isActive?.length >= 1 ?
+                                                            <button
+                                                                disabled
+                                                                onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                                className="btn btn-primary btn-xs disabled">Confirm</button> : <button
+                                                                    onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                                    className="btn btn-primary btn-xs disabled">Confirm</button>
+                                                    }
+                                                </div>
+                                            </div>
                                         </div>
-
-                                    </div>
-                                    <div>
-                                        {
-                                            isActive?.length >= 1 ?
-                                                <button
-                                                    disabled
-                                                    onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                    className="btn btn-primary btn-xs disabled">Confirm</button> : <button
-                                                        onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                        className="btn btn-primary btn-xs disabled">Confirm</button>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })
+                                    )
+                                })
+                            }
+                        </>
                 }
             </div>
         </div>
