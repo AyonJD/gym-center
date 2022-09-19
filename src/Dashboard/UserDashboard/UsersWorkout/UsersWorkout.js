@@ -130,9 +130,6 @@ const UsersWorkout = () => {
     }
 
 
-
-    // console.log(tConvert('01:00:00'), 'time');
-
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
             <div className="border-r px-5">
@@ -159,7 +156,7 @@ const UsersWorkout = () => {
 
                                             <div>
                                                 <h1>Class left: {pack?.class_left}</h1>
-                                                <h1>Consultation left: {pack?.total_consultation}</h1>
+                                                <h1>Consultation left: {pack?.consultation_left}</h1>
                                             </div>
                                             <BsFillArrowRightCircleFill className='h-8 cursor-pointer w-8' />
                                         </div>
