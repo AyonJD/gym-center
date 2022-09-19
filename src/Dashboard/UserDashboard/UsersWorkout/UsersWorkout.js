@@ -21,6 +21,7 @@ const UsersWorkout = () => {
     const [packageId, setPackageId] = useState(6);
     const [packageLoading, setPackageLoading] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [activeCard, setActiveCard] = useState(null);
 
 
     useEffect(() => {
@@ -79,10 +80,8 @@ const UsersWorkout = () => {
         }
     })
 
-
-
     const handleConfirm = (schedule_id, package_id) => {
-        // console.log(schedule_id, package_id)
+        setActiveCard(schedule_id)
         fetch(`https://gym-management97.herokuapp.com/api/confirm_shedule`, {
             method: 'POST',
             headers: {
@@ -150,7 +149,7 @@ const UsersWorkout = () => {
                                     <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package_type?.package_title}</h1>
                                     <div
                                         onClick={() => { handlePackageClick(pack.id) }}
-                                        className="bg-primary package_card text-white  px-4 py-2">
+                                        className="bg-primary package_card text-white px-4 py-2">
                                         <h1 className='text-xl'>Total Time: <span className='font-bold'>{pack?.duration_days} Days</span></h1>
                                         <div className="flex items-center w-full justify-between">
                                             <div>
@@ -183,30 +182,46 @@ const UsersWorkout = () => {
                             {
                                 showSchedule && packageSchedule?.data?.map((pack, index) => {
                                     return (
-                                        <div className='my-8' key={index}>
+                                        <div className={`my-8 `} key={index}>
                                             <div
 
-                                                className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
+                                                className={`border-2 student_card text-black flex items-center justify-between px-4 py-2 ${isActive[0]?.id === pack.id ? "border-primary bg-primary" : "border-[#3D3270] bg-white"}`}>
                                                 <div className="flex items-center gap-5">
-                                                    <div>
-                                                        <h1 className='text-[#3D3270] font-extrabold text-xl'>
+                                                    <div className={`${isActive[0]?.id === pack.id ? "text-white" : "text-[#3D3270]"}`}>
+                                                        <h1 className=' font-extrabold text-xl'>
                                                             {pack?.day}
                                                         </h1>
 
-                                                        <h1 className='text-[#3D3270] font-extrabold text-sm'>{tConvert(pack?.from_time)} - {tConvert(pack?.to_time)}</h1>
+                                                        <h1 className=' font-extrabold text-sm'>{tConvert(pack?.from_time)} - {tConvert(pack?.to_time)}</h1>
                                                     </div>
 
                                                 </div>
                                                 <div>
                                                     {
-                                                        isActive?.length >= 1 ?
+                                                        isActive[0]?.id !== pack.id && (
                                                             <button
                                                                 disabled
-                                                                onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                                className="btn btn-primary btn-xs disabled">Confirm</button> : <button
-                                                                    onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                                    className="btn btn-primary btn-xs disabled">Confirm</button>
+                                                                className='btn btn-xs btn-primary text-white'>
+                                                                Confirm
+                                                            </button>
+                                                        )}
+                                                    {
+                                                        isActive[0]?.id === pack.id &&
+                                                        (
+                                                            <div
+                                                                className={`px-[12px] py-[2px] rounded-xl text-md bg-[#17b117] text-white`}>
+                                                                Confirmed
+                                                            </div>
+                                                        )
                                                     }
+                                                    {
+                                                        isActive[0]?.id === pack.id && isActive?.length === 0 && (<button
+                                                            onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                            className={`btn btn-xs btn-success text-white`}>
+                                                            Confirm
+                                                        </button>)
+                                                    }
+
                                                 </div>
                                             </div>
                                         </div>

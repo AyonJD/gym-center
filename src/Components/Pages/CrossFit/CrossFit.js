@@ -41,7 +41,6 @@ const CrossFit = () => {
     currentUser = userData?.filter(item => item?.email === email)
   }
 
-
   return (
     <>
       <SharedNav />
