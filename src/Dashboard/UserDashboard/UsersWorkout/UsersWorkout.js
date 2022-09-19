@@ -117,8 +117,20 @@ const UsersWorkout = () => {
         }
     })
 
+    const tConvert = time => {
+        time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
-    console.log(packageSchedule);
+        if (time.length > 1) { 
+            time = time.slice(1); 
+            time[5] = +time[0] < 12 ? 'AM' : 'PM'; 
+            time[0] = +time[0] % 12 || 12;
+        }
+        return time.join('');
+    }
+
+
+
+    // console.log(tConvert('01:00:00'), 'time');
 
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
@@ -174,15 +186,8 @@ const UsersWorkout = () => {
                                                         <h1 className='text-[#3D3270] font-extrabold text-xl'>
                                                             {pack?.day}
                                                         </h1>
-                                                        {
-                                                            parseInt(pack?.to_time) > 12 &&
-                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} PM - {pack?.to_time} PM</h1> 
-                                                        }
-                                                        {
-                                                            parseInt(pack?.to_time) < 12 &&
-                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> 
-                                                        }
-                                                        {/* <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> */}
+
+                                                        <h1 className='text-[#3D3270] font-extrabold text-sm'>{tConvert(pack?.from_time)} - {tConvert(pack?.to_time)}</h1>
                                                     </div>
 
                                                 </div>
