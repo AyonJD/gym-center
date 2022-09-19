@@ -21,6 +21,7 @@ const UsersWorkout = () => {
     const [packageId, setPackageId] = useState(6);
     const [packageLoading, setPackageLoading] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [activeCard, setActiveCard] = useState(null);
 
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const UsersWorkout = () => {
 
     useEffect(() => {
         setPackageLoading(true);
-        fetch('https://gym-management97.herokuapp.com/api/user_package_order', {
+        fetch('https://gym-management97.herokuapp.com/api/user_package', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,10 +80,8 @@ const UsersWorkout = () => {
         }
     })
 
-
-
     const handleConfirm = (schedule_id, package_id) => {
-        // console.log(schedule_id, package_id)
+        setActiveCard(schedule_id)
         fetch(`https://gym-management97.herokuapp.com/api/confirm_shedule`, {
             method: 'POST',
             headers: {
@@ -110,15 +109,29 @@ const UsersWorkout = () => {
             })
     }
 
-    const assignedPackages = purchedPackages?.data?.filter(assigned => {
-        if (assigned?.status === 'assigned') {
-            return assigned
+    // const assignedPackages = purchedPackages?.data?.filter(assigned => {
+    //     if (assigned?.status === 'assigned') {
+    //         return assigned
 
+    //     }
+    // })
+
+    // console.log(purchedPackages, 'purchedPackages');
+
+    const tConvert = time => {
+        time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) {
+            time = time.slice(1);
+            time[5] = +time[0] < 12 ? 'AM' : 'PM';
+            time[0] = +time[0] % 12 || 12;
         }
-    })
+        return time.join('');
+    }
 
 
-    console.log(packageSchedule);
+
+    // console.log(tConvert('01:00:00'), 'time');
 
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
@@ -130,22 +143,26 @@ const UsersWorkout = () => {
                 {/* Packages part */}
                 <div className='mt-10'>
                     {
-                        assignedPackages?.map((pack, index) => {
+                        purchedPackages?.data?.map((pack, index) => {
                             return (
                                 <div className='my-8' key={index}>
-                                    <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package?.package_type?.package_title}</h1>
+                                    <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package_type?.package_title}</h1>
                                     <div
-                                        onClick={() => { handlePackageClick(pack.package.id) }}
-                                        className="bg-primary package_card text-white flex items-center justify-between px-4 py-2">
-                                        <div className="">
-                                            <h1 className='text-xl'>Total Time: <span className='font-bold'>{pack?.package?.duration_days} Days</span></h1>
+                                        onClick={() => { handlePackageClick(pack.id) }}
+                                        className="bg-primary package_card text-white px-4 py-2">
+                                        <h1 className='text-xl'>Total Time: <span className='font-bold'>{pack?.duration_days} Days</span></h1>
+                                        <div className="flex items-center w-full justify-between">
                                             <div>
-                                                <h1>Total Class: {pack?.package?.total_class}</h1>
-                                                <h1>Total Consultation: {pack?.package?.total_consultation}</h1>
+                                                <h1>Total Class: {pack?.total_class}</h1>
+                                                <h1>Total Consultation: {pack?.total_consultation}</h1>
                                             </div>
 
+                                            <div>
+                                                <h1>Class left: {pack?.class_left}</h1>
+                                                <h1>Consultation left: {pack?.total_consultation}</h1>
+                                            </div>
+                                            <BsFillArrowRightCircleFill className='h-8 cursor-pointer w-8' />
                                         </div>
-                                        <BsFillArrowRightCircleFill className='h-8 cursor-pointer w-8' />
                                     </div>
                                 </div>
                             )
@@ -165,37 +182,46 @@ const UsersWorkout = () => {
                             {
                                 showSchedule && packageSchedule?.data?.map((pack, index) => {
                                     return (
-                                        <div className='my-8' key={index}>
+                                        <div className={`my-8 `} key={index}>
                                             <div
 
-                                                className="bg-white border-2 border-[#3D3270] student_card text-black flex items-center justify-between px-4 py-2">
+                                                className={`border-2 student_card text-black flex items-center justify-between px-4 py-2 ${isActive[0]?.id === pack.id ? "border-primary bg-primary" : "border-[#3D3270] bg-white"}`}>
                                                 <div className="flex items-center gap-5">
-                                                    <div>
-                                                        <h1 className='text-[#3D3270] font-extrabold text-xl'>
+                                                    <div className={`${isActive[0]?.id === pack.id ? "text-white" : "text-[#3D3270]"}`}>
+                                                        <h1 className=' font-extrabold text-xl'>
                                                             {pack?.day}
                                                         </h1>
-                                                        {
-                                                            parseInt(pack?.to_time) > 12 &&
-                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} PM - {pack?.to_time} PM</h1> 
-                                                        }
-                                                        {
-                                                            parseInt(pack?.to_time) < 12 &&
-                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> 
-                                                        }
-                                                        {/* <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> */}
+
+                                                        <h1 className=' font-extrabold text-sm'>{tConvert(pack?.from_time)} - {tConvert(pack?.to_time)}</h1>
                                                     </div>
 
                                                 </div>
                                                 <div>
                                                     {
-                                                        isActive?.length >= 1 ?
+                                                        isActive[0]?.id !== pack.id && (
                                                             <button
                                                                 disabled
-                                                                onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                                className="btn btn-primary btn-xs disabled">Confirm</button> : <button
-                                                                    onClick={() => { handleConfirm(pack.id, packageId) }}
-                                                                    className="btn btn-primary btn-xs disabled">Confirm</button>
+                                                                className='btn btn-xs btn-primary text-white'>
+                                                                Confirm
+                                                            </button>
+                                                        )}
+                                                    {
+                                                        isActive[0]?.id === pack.id &&
+                                                        (
+                                                            <div
+                                                                className={`px-[12px] py-[2px] rounded-xl text-md bg-[#17b117] text-white`}>
+                                                                Confirmed
+                                                            </div>
+                                                        )
                                                     }
+                                                    {
+                                                        isActive[0]?.id === pack.id && isActive?.length === 0 && (<button
+                                                            onClick={() => { handleConfirm(pack.id, packageId) }}
+                                                            className={`btn btn-xs btn-success text-white`}>
+                                                            Confirm
+                                                        </button>)
+                                                    }
+
                                                 </div>
                                             </div>
                                         </div>
