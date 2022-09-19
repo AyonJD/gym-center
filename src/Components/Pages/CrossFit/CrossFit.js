@@ -4,6 +4,7 @@ import img2 from "../../../assets/Image/CrossFit/pic2.png";
 import daif from "../../../assets/Image/Trainers/Daif1.jpeg";
 import shahid from "../../../assets/Image/Trainers/shahid2.jpeg";
 import AuthUser from "../../../hooks/AuthUser/AuthUser";
+import Loading from "../../../hooks/Loading/Loading";
 import Package from "../Package/Package";
 import SharedNav from "../Shared/SharedNav";
 import "./CrossFit.css";
@@ -12,8 +13,10 @@ import CrossFitTable from "./CrossFitTable";
 const CrossFit = () => {
   const { token, email } = AuthUser()
   const [userData, setUserData] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     fetch(`https://gym-management97.herokuapp.com/api/users/`, {
       method: 'GET',
       headers: {
@@ -24,13 +27,13 @@ const CrossFit = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data)
+        setLoading(false)
         // console.log(data)
       }
       )
   }, [token])
 
-  // get current user data
-  const currentUser = userData?.filter(item => item?.email === email)
+    const currentUser = userData?.filter(item => item?.email === email)
 
   return (
     <>
@@ -165,13 +168,18 @@ const CrossFit = () => {
         </div>
 
         {
-           currentUser[0]?.is_full_active === true &&
-          <>
-            <h1 className="md:text-4xl text-3xl font-bold text-primary mb-6">
-              Recommended <br /> Packages for you
-            </h1>
-            <Package />
-          </>
+          loading ? <Loading /> :
+            <>
+              {
+                currentUser[0]?.is_full_active === true &&
+                <>
+                  <h1 className="md:text-4xl text-3xl font-bold text-primary mb-6">
+                    Recommended <br /> Packages for you
+                  </h1>
+                  <Package />
+                </>
+              }
+            </>
         }
       </div>
     </>
