@@ -39,6 +39,7 @@ import PackagePaymentCard from './Components/Pages/PaymentCard/PackagePaymentCar
 import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
 import RequireMember from './hooks/RequireMember/RequireMember';
 import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
+import TrainerSalary from './Dashboard/TrainerDashboard/TrainerSalary/TrainerSalary';
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
         <Route path='/crossFit' element={<CrossFit />} />
         <Route path='/programs' element={<Fitness />} />
         <Route path='/trainers' element={<Trainers />} />
-        <Route path='/testimonials' element={<Testimonials />} />
+        {/* <Route path='/testimonials' element={<Testimonials />} /> */}
         <Route path='/blog' element={<Blog />} />
         {/* <Route path='/shop' element={<Shop />} /> */}
         <Route path='/contact' element={<Contact />} />
@@ -72,13 +73,14 @@ function App() {
           <Route path="accounts-income" element={<RequireAccounts><Incomes /></RequireAccounts>} />
           <Route path="accounts-expense" element={<RequireAccounts><Expense /></RequireAccounts>} />
           <Route path="users-home" element={<RequireUser><UsersHome /></RequireUser>} />
-          <Route path="user-profile" element={<RequireUser><UsersProfile /></RequireUser>} />
+          <Route path="user-profile" element={<UsersProfile />} />
           <Route path="user-package" element={<RequireUser><UsersWorkout /></RequireUser>} />
           <Route path="trainers-home" element={<TrainersHome />} />
           <Route path="students" element={<StudentList />} />
           <Route path="trainer-settings" element={<TrainerSettings />} />
           <Route path="trainer-package" element={<TrainerPackages />} />
           <Route path="trainer-profile" element={<TrainerProfile />} />
+          <Route path="trainer-salary" element={<TrainerSalary />} />
           <Route path="all-schedule" element={<AllSchedule />} />
           <Route path="my-order" element={<MyOrder />} />
         </Route>

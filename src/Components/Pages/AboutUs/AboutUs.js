@@ -74,15 +74,7 @@ const AboutUs = () => {
                                 personal development.
                             </p>
                             <h2 className='font-semibold mt-3 text-xl text-[18px]' >Effectiveness</h2>
-                            <p>Effectiveness
-                                The results do the talking so
-                                we can focus on coaching.
-                            </p>
-
-                            <h2 className='font-semibold mt-3 text-xl text-[18px]' >Effectiveness</h2>
-                            <p>Effectiveness
-                                The results do the talking so
-                                we can focus on coaching.
+                            <p>Effectiveness The results do the talking so we can focus on coaching.
                             </p>
                             <h2 className='font-semibold mt-3 text-xl text-[18px]' >Community</h2>
                             <p>It's at the heart of what we

@@ -7,7 +7,13 @@ import OrdersTable from '../../AdminDashboard/Orders/OrdersTable';
 
 const MyOrder = () => {
     const { token, userRole } = AuthUser()
-    // const { packages } = Package()
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthName = monthNames[month];
+    const date = `${day} ${monthName} ${year}`;
 
     const [products, setProducts] = useState([]);
     const [packages, setPackages] = useState([]);
@@ -64,15 +70,9 @@ const MyOrder = () => {
                 {
                     userRole === 'trainer' && <h2 className='text-2xl font-semibold'>Hello, Trainer!</h2>
                 }
-                
+
                 <div className='flex items-center gap-3'>
-                    <p className='text-sm font-bold text-secondary'>12 Apr 2022, Tuesday</p>
-                    <div className='bg-accent px-3 py-2 rounded cursor-pointer'>
-                        <BiSearch className='text-xl ' />
-                    </div>
-                    <div className='bg-info px-3 py-2 rounded cursor-pointer'>
-                        <VscBellDot className='text-xl' />
-                    </div>
+                    <p className='text-sm font-bold text-secondary'>{date}</p>
                 </div>
             </div>
 

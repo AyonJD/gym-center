@@ -11,22 +11,7 @@ const AllPackages = () => {
     const { token } = AuthUser()
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     fetch('https://gym-management97.herokuapp.com/api/package_order/', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: JSON.stringify({
-    //             package: packageId
-    //         })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }, [])
+
 
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
         fetch(`https://gym-management97.herokuapp.com/api/packages`, {
@@ -40,16 +25,20 @@ const AllPackages = () => {
         return <Loading />
     }
 
+    console.log(packages?.data)
 
-    console.log(packages)
+    const currentPackage = packages?.data?.filter(item => item?.package_type?.package_title !== 'Crossfit')
 
+    console.log(currentPackage)
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-7 md:mb-16 mb-10'>
             {
-                packages?.data?.map((item, index) => {
+                currentPackage?.map((item, index) => {
                     return (
                         <div className="shadow-xl rounded-md">
-                            <h1 className='text-center text-3xl font-bold pt-5 mb-2'>{item?.package_type?.package_title}</h1>
+                            <div className='lg:h-[80px] flex items-center justify-center'>
+                                <h1 className='text-center text-2xl font-bold pt-5 mb-2'>{item?.package_type?.package_title}</h1>
+                            </div>
 
                             <div className='w-24 mx-auto'>
                                 <img className='w-full' src={img1} alt="Shoes" />
@@ -76,17 +65,13 @@ const AllPackages = () => {
                                     <span className='text-sm text-secondary'><del>৳ {item?.original_price
                                     }</del></span>
                                 </div>
-                                <p className='text-xs text-secondary text-justify'>{item?.description.slice(0, 250)}.</p>
-                                <h2 className='text-xl font-bold mt-1'>Facilities</h2>
-                                <div className='ml-4 text-xs'>
+                                <p className='text-xs text-secondary text-justify'>{item?.description?.slice(0, 250)}.</p>
+                                <h2 className='font-semibold mt-1'>Facilities</h2>
+                                <div className='ml-4 list-none'>
                                     <li className='mb-1 '>Total Class: {item?.total_class}</li>
                                     <li className='mb-1 '>Total Consultation
                                         : {item?.total_consultation
                                         }</li>
-                                    <li className='mb-1 '>Customizable Calendar</li>
-                                    <li className='mb-1 '>Healthy Recipes</li>
-                                    <li className='mb-1'>Health and Fitness Articles</li>
-                                    <li className='mb-1'>No Credit Card Needed</li>
                                 </div>
                                 <div
                                     onClick={() => {

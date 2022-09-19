@@ -71,7 +71,7 @@ const AccountsHome = () => {
 
             <div className='mt-7 border-b-[1px] pb-3 mb-5'>
                 <h2 className='font-semibold'>Account Overview</h2>
-                <p className='text-secondary text-sm'>March 2022</p>
+                <p className='text-secondary text-sm'>{monthName} {year}</p>
             </div>
 
             <div className='grid sm:grid-cols-3 bg-[#FEEDD1] sm:py-5 mb-8'>
@@ -102,7 +102,7 @@ const AccountsHome = () => {
             </div>
 
             <div className='mb-8 '>
-                03 Mar 2022, Thursday
+                {date}
             </div>
 
             <AccountsTable orders={orders.data} />

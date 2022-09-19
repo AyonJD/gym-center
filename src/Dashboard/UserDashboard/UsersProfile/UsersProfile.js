@@ -4,16 +4,18 @@ import { useState } from 'react';
 import img from '../../../assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsPencilSquare } from 'react-icons/bs'
-import Popup from 'reactjs-popup';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const UsersProfile = () => {
-    const { token } = AuthUser()
+    const { token, userRole } = AuthUser()
     const [userPackage, setUserPackage] = useState([])
     const [handleEditButton, setHandleEditButton] = useState(false)
     const { register, handleSubmit, watch, formState: { errors }, reset, trigger } = useForm();
-
+    const [openModal, setOpenModal] = useState(false)
+    const [imageField, setImageField] = useState(null)
+    const [userData, setUserData] = useState([])
 
     useEffect(() => {
         fetch(`https://gym-management97.herokuapp.com/api/user_package_order`, {
@@ -31,7 +33,7 @@ const UsersProfile = () => {
     }, [token])
 
     // get user data
-    const [userData, setUserData] = useState([])
+
     useEffect(() => {
         fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
             method: 'PATCH',
@@ -48,11 +50,10 @@ const UsersProfile = () => {
             )
     }, [token])
 
-    console.log(userData)
-
     // image patch on server
-    const handleImageEdit = (data) => {
-        const image = data.image[0]
+    const handleImageEdit = event => {
+        event.preventDefault();
+        const image = imageField;
         const formData = new FormData()
         formData.append('profile_image', image)
         axios.patch(`https://gym-management97.herokuapp.com/api/update_profile`, formData, {
@@ -62,57 +63,78 @@ const UsersProfile = () => {
             }
         })
             .then(res => {
-                console.log(res)
-            }).then(data =>[
-                console.log(data)
+                // console.log(res)
+            }).then(data => [
+                // console.log(data)
             ])
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
 
-
-    //     fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'Content-Type': 'multipart/form-data',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: JSON.stringify({ profile_image: data.image[0] })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //         }).catch(err => console.log(err))
-
-
-    //     // const res = await axios.patch('https://httpbin.org/patch', 'hello=world');
-
-    //     // res.data.headers['Content-Type': 'multipart/form-data']; // application/x-www-form-urlencoded
-    //     // res.data.json;
-    // }
+    // patch user data on server
+    const submitUserData = (data) => {
+        const { name, email, phone } = data;
+        const updatedUserData = {
+            name: name || userData?.name,
+            email: email || userData?.email,
+            phone: phone || userData?.phone
+        }
+        // console.log(userData)
+        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(updatedUserData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    reset()
+                    toast.success('Profile Updated Successfully')
+                } else {
+                    toast.error('Phone number should be start with +880')
+                }
+                console.log(data)
+            }
+            )
+    }
 
 
     return (
         <div className=''>
             <div className="shadow-md w-full">
-
-                <h2 className='text-2xl p-5 font-semibold'>Hello, User!</h2>
+                {
+                    userRole === 'user' && <h2 className='text-2xl p-5 font-semibold'>Hello, User!</h2>
+                }
+                {
+                    userRole === 'trainer' && <h2 className='text-2xl p-5 font-semibold'>Hello, Trainer!</h2>
+                }
+                {
+                    userRole === 'accountant' && <h2 className='text-2xl p-5 font-semibold'>Hello, Accounts!</h2>
+                }
             </div>
-            <div className="flex gap-10 p-5 mt-4">
+            <div className=" p-5 mt-4">
 
-
-                <div className='mt-8 w-[40%]'>
+                <div className=''>
                     <div className=''>
-                        <div className='w-40 mx-auto relative'>
-                            <img
-                                onMouseEnter={() => setHandleEditButton(true)}
-                                onMouseLeave={() => setHandleEditButton(false)}
-                                className='rounded' src={userData?.data?.profile_image} alt="" />
+                        <div className='w-36 h-40 mx-auto relative '>
+                            {
+                                userData?.data?.profile_image ? <img
+                                    onMouseEnter={() => setHandleEditButton(true)}
+                                    onMouseLeave={() => setHandleEditButton(false)}
+                                    className='rounded w-full h-full' src={userData?.data?.profile_image} alt="" /> : <img
+                                    onMouseEnter={() => setHandleEditButton(true)}
+                                    onMouseLeave={() => setHandleEditButton(false)}
+                                    className='rounded w-full h-full' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
+                            }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
                                     <BsPencilSquare
+                                        onClick={() => setOpenModal(false)}
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
                                         htmlFor="my-modal-3"
@@ -120,28 +142,24 @@ const UsersProfile = () => {
                                 </label>
                             }
                         </div>
-                        
+
                         {
                             <>
                                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-                                <div className="modal">
-                                    <div className="modal-box relative">
+                                <div className={`modal ${openModal && 'hidden'}`}>
+                                    <div className='modal-box relative'>
                                         <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                         <h3 className="text-lg font-bold">Select image from your device</h3>
-                                        <form  onSubmit={handleSubmit(handleImageEdit)}>
+                                        <form onSubmit={(event) => handleImageEdit(event)}>
                                             <input
                                                 type="file" name='image' className=' input-bordered w-full focus:outline-none mt-5'
-                                                {...register("image", {
-                                                    required: 'Image is required',
-
-                                                })}
-                                                onKeyUp={(e) => {
-                                                    trigger('image')
-                                                }}
+                                                onChange={e => { setImageField(e.target.files[0]) }}
                                             />
                                             <small className='text-[#FF4B2B] block text-xs ml-2 font-medium my-2'>{errors?.image?.message}</small>
 
-                                            <input type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
+                                            <input
+                                                onClick={() => setOpenModal(true)}
+                                                type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
                                         </form>
                                     </div>
                                 </div>
@@ -153,88 +171,63 @@ const UsersProfile = () => {
                             <h2 className='text-sm  text-secondary'>User</h2>
                         </div>
                     </div>
-
-                    <div className='flex flex-col'>
-                        <div>
-                            <h1 className='text-xl font-bold mb-3 text-warning'>Workout Plan:</h1>
-                            <div className='grid sm:grid-cols-3 gap-3'>
-                                <button className='btn btn-primary btn-sm font-bold ' >CrossFit</button>
-                                <button className='btn btn-accent btn-sm font-bold ' >Yoga</button>
-                                <button className='btn btn-accent btn-sm font-bold' >Freehand</button>
-                            </div>
-                        </div>
-                        <div className='mt-5'>
-                            <h1 className='text-lg font-bold mb-3 text-[#595085]'>Subscriber Plan:</h1>
-                            <button className='btn btn-primary btn-sm font-bold mr-3 mb-3' >Monthly</button>
-                            <button className='btn btn-accent btn-sm font-bold mr-3' >12 Days left</button>
-                        </div>
-                    </div>
-
                 </div>
 
-                <div className='mt-5 w-[60%]'>
-                    <div className='w-2/3 mx-auto border-dashed border-b-2 pb-10'>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Name</span>
-                            </label>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+                <form onSubmit={handleSubmit(submitUserData)}>
+                    <div className='md:w-2/3 mx-auto border-dashed border-b-2 pb-10'>
+                        <div className="flex  w-full mx-auto flex-col">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Name</label>
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="name" name="name" id="" placeholder={userData?.data?.name}
+                                {...register("name", {
+                                    pattern: {
+                                        value: 3,
+                                        message: 'Name must be at least 3 characters'
+                                    }
+                                })}
+                                onKeyUp={(e) => {
+                                    trigger('name')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.name?.message}</small>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Email</span>
-                            </label>
-                            <input type="email" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+
+
+                        <div className="flex  w-full mx-auto flex-col mt-5">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2'>Email</label>
+                            <input className='py-3 px-5 bg-[#F2F2F2] rounded-md focus:outline-0' type="email" name="email" id="" placeholder={userData?.data?.email}
+                                {...register("email", {
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Please enter a valid Email"
+                                    }
+                                })}
+                                onKeyUp={(e) => {
+                                    trigger('email')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.email?.message}</small>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Phone</span>
-                            </label>
-                            <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+
+                        <div className="flex  w-full mx-auto flex-col mt-5">
+                            <label className='text-[#747474] text-sm font-medium ml-1 mb-2' >Phone</label>
+                            <input className='py-3 rounded-md bg-[#F2F2F2] px-5 focus:outline-0' type="text" name="phone" id="" placeholder={userData?.data?.phone}
+                                {...register('phone', {
+                                    minLength: {
+                                        value: 11,
+                                        message: 'Minimum 11 character required'
+                                    }
+                                })}
+                                onKeyUp={() => {
+                                    trigger('phone')
+                                }}
+                            />
+                            <small className='text-[#FF4B2B] ml-2 text-xs font-medium my-2'>{errors?.phone?.message}</small>
                         </div>
-                        <button className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit">Update Profile</button>
-                        {/* <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div> */}
-                    </div>
 
-                    {/* <div className='grid grid-cols-2 gap-5 pt-8 pb-5'>
-                    <h1>Information Section 02</h1>
-                    <h1>Information Section 02</h1>
-                </div> */}
-
-                    {/* <div className='grid grid-cols-2 gap-5'>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
+                        <button
+                            className='btn btn-primary btn-sm px-4 mt-10 mb-32' type="submit" > Update</button>
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Text Level 01</span>
-                        </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full focus:outline-none shadow" />
-                    </div>
-                </div> */}
-
-
-                </div>
+                </form>
             </div>
         </div >
     );

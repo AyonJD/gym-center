@@ -1,4 +1,7 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import AuthUser from '../../../hooks/AuthUser/AuthUser';
+import Loading from '../../../hooks/Loading/Loading';
 import SingleTable from './SingleTable';
 
 const Table = () => {
@@ -15,6 +18,27 @@ const Table = () => {
         { id: 10, time: '07:00 PM', data: ['Power Hour', 'Power Hour', 'Mobilizer', 'Mobilizer', 'Power Hour', 'Power Hour', 'Power Hour',] },
         { id: 11, time: '08:00 PM', data: ['', 'CrossFit', 'CrossFit', 'CrossFit', 'CrossFit', 'CrossFit', '',] }
     ];
+
+
+
+
+
+    // const { token } = AuthUser()
+
+    // const { data: schedule, isLoading, refetch } = useQuery('users', () =>
+    //     fetch(`https://gym-management97.herokuapp.com/api/all_shedule`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'authorization': `Bearer ${token}`
+    //         }
+    //     }).then(res => res.json())
+    // )
+    // if (isLoading) {
+    //     return <Loading />
+    // }
+
+
+
     return (
         <div className='mid-container mx-auto'>
             <h1 className='md:text-4xl text-3xl font-bold text-primary mb-6 '>Class Schedule</h1>
