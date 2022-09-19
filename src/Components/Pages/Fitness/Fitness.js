@@ -32,7 +32,10 @@ const Fitness = () => {
   }, [token])
 
   // get current user data
-  const currentUser = userData?.filter(item => item?.email === email)
+  let currentUser = []
+  if (userData.length > 0) {
+    currentUser = userData?.filter(item => item?.email === email)
+  }
 
   // console.log(currentUser[0]?.is_full_active)
   return (

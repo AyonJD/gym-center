@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import img1 from "../../../assets/Image/CrossFit/pic1.png";
 import img2 from "../../../assets/Image/CrossFit/pic2.png";
 import daif from "../../../assets/Image/Trainers/Daif1.jpeg";
@@ -14,6 +15,7 @@ const CrossFit = () => {
   const { token, email } = AuthUser()
   const [userData, setUserData] = useState([])
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoading(true)
@@ -33,7 +35,12 @@ const CrossFit = () => {
       )
   }, [token])
 
-    const currentUser = userData?.filter(item => item?.email === email)
+
+  let currentUser = []
+  if (userData.length > 0) {
+    currentUser = userData?.filter(item => item?.email === email)
+  }
+
 
   return (
     <>
@@ -171,14 +178,20 @@ const CrossFit = () => {
           loading ? <Loading /> :
             <>
               {
-                currentUser[0]?.is_full_active === true &&
+                userData && userData.length > 0 &&
                 <>
-                  <h1 className="md:text-4xl text-3xl font-bold text-primary mb-6">
-                    Recommended <br /> Packages for you
-                  </h1>
-                  <Package />
+                  {
+                    currentUser[0]?.is_full_active === true &&
+                    <>
+                      <h1 className="md:text-4xl text-3xl font-bold text-primary mb-6">
+                        Recommended <br /> Packages for you
+                      </h1>
+                      <Package />
+                    </>
+                  }
                 </>
               }
+
             </>
         }
       </div>
