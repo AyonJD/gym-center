@@ -129,7 +129,7 @@ const UsersProfile = () => {
                                     className='rounded w-full h-full' src={userData?.data?.profile_image} alt="" /> : <img
                                     onMouseEnter={() => setHandleEditButton(true)}
                                     onMouseLeave={() => setHandleEditButton(false)}
-                                    className='rounded w-full ' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
+                                    className='rounded w-full h-full' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
                             }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">

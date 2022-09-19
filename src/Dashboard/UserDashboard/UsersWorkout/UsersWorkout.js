@@ -52,7 +52,7 @@ const UsersWorkout = () => {
                 setPurchedPackages(data);
                 setPackageLoading(false);
             })
-    }, [token, packageSchedule, purchedPackages])
+    }, [token, packageSchedule])
 
     const handlePackageClick = (id) => {
         setShowSchedule(false)
@@ -116,10 +116,9 @@ const UsersWorkout = () => {
 
         }
     })
-    console.log(assignedPackages)
 
 
-    // console.log(purchedPackages?.data.length);
+    console.log(packageSchedule);
 
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
@@ -175,7 +174,15 @@ const UsersWorkout = () => {
                                                         <h1 className='text-[#3D3270] font-extrabold text-xl'>
                                                             {pack?.day}
                                                         </h1>
-                                                        <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1>
+                                                        {
+                                                            parseInt(pack?.to_time) > 12 &&
+                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} PM - {pack?.to_time} PM</h1> 
+                                                        }
+                                                        {
+                                                            parseInt(pack?.to_time) < 12 &&
+                                                            <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> 
+                                                        }
+                                                        {/* <h1 className='text-[#3D3270] font-extrabold text-sm'>{pack?.from_time} AM - {pack?.to_time} AM</h1> */}
                                                     </div>
 
                                                 </div>
