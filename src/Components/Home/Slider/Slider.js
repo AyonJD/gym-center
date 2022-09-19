@@ -22,9 +22,6 @@ export default function App() {
     const { data: review, isLoading, refetch } = useQuery('users', () =>
         fetch(`https://gym-management97.herokuapp.com/api/feedback?page=1&limit=10`, {
             method: 'GET',
-            headers: {
-                'authorization': `Bearer ${token}`
-            }
         }).then(res => res.json())
     )
 
@@ -33,7 +30,7 @@ export default function App() {
     }
 
 
-    console.log(review, 'review')
+    console.log(review.data, 'review')
 
     return (<div className="mid-container">
         <Swiper
