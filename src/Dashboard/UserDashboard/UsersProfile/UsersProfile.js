@@ -121,7 +121,7 @@ const UsersProfile = () => {
 
                 <div className=''>
                     <div className=''>
-                        <div className='w-36 h-40 mx-auto relative '>
+                        <div className='w-36 h-40 mx-auto relative border rounded'>
                             {
                                 userData?.data?.profile_image ? <img
                                     onMouseEnter={() => setHandleEditButton(true)}
@@ -138,7 +138,7 @@ const UsersProfile = () => {
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
                                         htmlFor="my-modal-3"
-                                        className='z-50 cursor-pointer text-white h-8 w-8 ' />
+                                        className='z-50 text-white cursor-pointer h-8 w-8 ' />
                                 </label>
                             }
                         </div>
