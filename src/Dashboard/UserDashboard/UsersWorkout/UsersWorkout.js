@@ -40,7 +40,7 @@ const UsersWorkout = () => {
 
     useEffect(() => {
         setPackageLoading(true);
-        fetch('https://gym-management97.herokuapp.com/api/user_package_order', {
+        fetch('https://gym-management97.herokuapp.com/api/user_package', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -110,19 +110,21 @@ const UsersWorkout = () => {
             })
     }
 
-    const assignedPackages = purchedPackages?.data?.filter(assigned => {
-        if (assigned?.status === 'assigned') {
-            return assigned
+    // const assignedPackages = purchedPackages?.data?.filter(assigned => {
+    //     if (assigned?.status === 'assigned') {
+    //         return assigned
 
-        }
-    })
+    //     }
+    // })
+
+    // console.log(purchedPackages, 'purchedPackages');
 
     const tConvert = time => {
         time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
-        if (time.length > 1) { 
-            time = time.slice(1); 
-            time[5] = +time[0] < 12 ? 'AM' : 'PM'; 
+        if (time.length > 1) {
+            time = time.slice(1);
+            time[5] = +time[0] < 12 ? 'AM' : 'PM';
             time[0] = +time[0] % 12 || 12;
         }
         return time.join('');
@@ -142,22 +144,26 @@ const UsersWorkout = () => {
                 {/* Packages part */}
                 <div className='mt-10'>
                     {
-                        assignedPackages?.map((pack, index) => {
+                        purchedPackages?.data?.map((pack, index) => {
                             return (
                                 <div className='my-8' key={index}>
-                                    <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package?.package_type?.package_title}</h1>
+                                    <h1 className='texxt-xl font-bold text-primary border-primary border w-fit px-5 py-1'>{pack?.package_type?.package_title}</h1>
                                     <div
-                                        onClick={() => { handlePackageClick(pack.package.id) }}
-                                        className="bg-primary package_card text-white flex items-center justify-between px-4 py-2">
-                                        <div className="">
-                                            <h1 className='text-xl'>Total Time: <span className='font-bold'>{pack?.package?.duration_days} Days</span></h1>
+                                        onClick={() => { handlePackageClick(pack.id) }}
+                                        className="bg-primary package_card text-white  px-4 py-2">
+                                        <h1 className='text-xl'>Total Time: <span className='font-bold'>{pack?.duration_days} Days</span></h1>
+                                        <div className="flex items-center w-full justify-between">
                                             <div>
-                                                <h1>Total Class: {pack?.package?.total_class}</h1>
-                                                <h1>Total Consultation: {pack?.package?.total_consultation}</h1>
+                                                <h1>Total Class: {pack?.total_class}</h1>
+                                                <h1>Total Consultation: {pack?.total_consultation}</h1>
                                             </div>
 
+                                            <div>
+                                                <h1>Class left: {pack?.class_left}</h1>
+                                                <h1>Consultation left: {pack?.total_consultation}</h1>
+                                            </div>
+                                            <BsFillArrowRightCircleFill className='h-8 cursor-pointer w-8' />
                                         </div>
-                                        <BsFillArrowRightCircleFill className='h-8 cursor-pointer w-8' />
                                     </div>
                                 </div>
                             )
