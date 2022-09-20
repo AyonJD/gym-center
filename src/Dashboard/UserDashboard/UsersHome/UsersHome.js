@@ -27,17 +27,14 @@ const UsersHome = () => {
     console.log(userPhysic)
 
     return (
-        <div className='p-5 mt-4 mb-32'>
+        <div className='p-5 mt-4 '>
             <div className='flex justify-between'>
                 <h2 className='text-2xl font-semibold'>Hello, Users!</h2>
             </div>
 
-            <div className=' sm:mt-10 mt-8 border-b-2 pb-6'>
-                <span className='bg-info py-2 px-8 font-bold  rounded-md cursor-pointer'>
-                    Front
-                </span>
+            <div className=' sm:mt-10 mt-8 border-b-2'>
 
-                <div className='sm:mt-10 mt-7 flex md:justify-evenly justify-between'>
+                <div className='sm:mt-10 mt-7 flex md:justify-evenly justify-between uppercase'>
 
                     <div className=' md:text-center grid sm:text-[16px] text-xs '>
                         <div className=''>
@@ -53,40 +50,40 @@ const UsersHome = () => {
                             <small className='text-gray-500'>~{userPhysic?.data?.chest}</small>
                         </div>
                         <div className=' '>
+                            <p className='font-bold '>R Biceps</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_biceps}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>L Biceps</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_biceps}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>Waist</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.waist}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>Abdomen</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.abdomen}</small>
+                        </div>
+                        <div className=' '>
                             <p className='font-bold '>Hip</p>
                             <small className='text-gray-500'>~{userPhysic?.data?.hip}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Quadriceps</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.quadriceps}</small>
+                            <p className="font-bold">R Thigh</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_thigh}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Wrist</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.wrist}</small>
+                            <p className="font-bold">L Thigh</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_thigh}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Height</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.height}</small>
+                            <p className="font-bold">R Calf </p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_calf}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Shoulder</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">BMI</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.bmi}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Calves</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.calves}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Triceps</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.triceps}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Weight</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.weight}</small>
+                            <p className="font-bold">L Calf</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_calf}</small>
                         </div>
                     </div>
 
@@ -95,11 +92,11 @@ const UsersHome = () => {
                     </div>
 
                     <div className=' md:text-center text-end grid sm:text-[16px] text-xs '>
-                        <div className=' '>
+                        <div className=''>
                             <p className='font-bold '>Neck</p>
                             <small className='text-gray-500'>~{userPhysic?.data?.neck}</small>
                         </div>
-                        <div className=' '>
+                        <div className=''>
                             <p className='font-bold '>Shoulder</p>
                             <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
                         </div>
@@ -108,40 +105,40 @@ const UsersHome = () => {
                             <small className='text-gray-500'>~{userPhysic?.data?.chest}</small>
                         </div>
                         <div className=' '>
+                            <p className='font-bold '>R Biceps</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_biceps}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>L Biceps</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_biceps}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>Waist</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.waist}</small>
+                        </div>
+                        <div className=' '>
+                            <p className='font-bold '>Abdomen</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.abdomen}</small>
+                        </div>
+                        <div className=' '>
                             <p className='font-bold '>Hip</p>
                             <small className='text-gray-500'>~{userPhysic?.data?.hip}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Quadriceps</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.quadriceps}</small>
+                            <p className="font-bold">R Thigh</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_thigh}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Wrist</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.wrist}</small>
+                            <p className="font-bold">L Thigh</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_thigh}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Height</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.height}</small>
+                            <p className="font-bold">R Calf </p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.r_calf}</small>
                         </div>
                         <div className=' '>
-                            <p className='font-bold '>Shoulder</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.shoulder}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">BMI</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.bmi}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Calves</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.calves}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Triceps</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.triceps}</small>
-                        </div>
-                        <div className=' '>
-                            <p className="font-bold">Weight</p>
-                            <small className='text-gray-500'>~{userPhysic?.data?.weight}</small>
+                            <p className="font-bold">L Calf</p>
+                            <small className='text-gray-500'>~{userPhysic?.data?.l_calf}</small>
                         </div>
                     </div>
                 </div>
