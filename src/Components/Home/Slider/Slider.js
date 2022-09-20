@@ -22,9 +22,6 @@ export default function App() {
     const { data: review, isLoading, refetch } = useQuery('users', () =>
         fetch(`https://gym-management97.herokuapp.com/api/feedback?page=1&limit=10`, {
             method: 'GET',
-            headers: {
-                'authorization': `Bearer ${token}`
-            }
         }).then(res => res.json())
     )
 
@@ -33,7 +30,6 @@ export default function App() {
     }
 
 
-    console.log(review, 'review')
 
     return (<div className="mid-container">
         <Swiper
@@ -53,7 +49,7 @@ export default function App() {
 
             {
                 review?.data?.map((item, index) => (
-                    <SwiperSlide>
+                    <SwiperSlide  key={index}>
                         <div className="image-slide-bgOne relative md:px-10 md:py-24 px-5 py-16 md:flex items-center justify-between">
                             <div className="md:w-[70%] flex">
                                 <img className="quote_image relative top-[-35px]  quote_image_one inline-block" src={quote} alt="" />

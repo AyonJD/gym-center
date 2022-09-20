@@ -40,7 +40,7 @@ const Header = () => {
             <div className='bg-gray-800 border-b lg:pr-10 md:pr-4 z-50'>
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly items-center text-white py-2 ">
-                        <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link>
+                        {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
                         {/* <Link to="#"><HiOutlineUser className='ml-8 hover:text-primary'></HiOutlineUser></Link> */}
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
@@ -66,12 +66,26 @@ const Header = () => {
                     Start Today
                 </h1>
                 <div className="button_section mt-8">
-                    <Link to="/login" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                    {
+                        email ?
+                            <>
+                               {
+                                      userRole === 'user' &&  <Link to="dashboard/users-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                               }
+                               {
+                                      userRole === 'trainer' &&  <Link to="dashboard/trainers-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                               }
+                               {
+                                      userRole === 'accountant' &&  <Link to="dashboard/accounts-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                               }
+                            </>
+                            :
+                            <Link to="/login" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                    }
+
                     <Link to="/programs" className="btn btn-outline ml-4 package_button btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] lg:text-lg font-bold text-white">PROGRAMS</Link>
                 </div>
             </div>
-            {/* </div>
-            </div> */}
         </>
     );
 };

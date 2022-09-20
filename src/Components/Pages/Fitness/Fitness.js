@@ -6,12 +6,15 @@ import Package from "../Package/Package";
 import AllPackages from "../Package/AllPackage";
 import { Link } from "react-router-dom";
 import AuthUser from "../../../hooks/AuthUser/AuthUser";
+import Loading from "../../../hooks/Loading/Loading";
 
 const Fitness = () => {
   const { token, email } = AuthUser()
   const [userData, setUserData] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     fetch(`https://gym-management97.herokuapp.com/api/users/`, {
       method: 'GET',
       headers: {
@@ -22,13 +25,17 @@ const Fitness = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data)
+        setLoading(false)
         // console.log(data)
       }
       )
   }, [token])
 
   // get current user data
-  const currentUser = userData?.filter(item => item?.email === email)
+  let currentUser = []
+  if (userData.length > 0) {
+    currentUser = userData?.filter(item => item?.email === email)
+  }
 
   // console.log(currentUser[0]?.is_full_active)
   return (
@@ -91,16 +98,21 @@ const Fitness = () => {
         </div>
       </div>
       {
-        currentUser[0]?.is_full_active === true &&
-        <>
-          <div className="mid-container">
-            <h1 className="uppercase mt-16 mb-5 text-primary font-extrabold text-3xl ">
-              recomended
-              <br /> packeges for you
-            </h1>
-            <AllPackages />
-          </div>
-        </>
+        loading ? <Loading /> :
+          <>
+            {
+              currentUser[0]?.is_full_active === true &&
+              <>
+                <div className="mid-container">
+                  <h1 className="uppercase mt-16 mb-5 text-primary font-extrabold text-3xl ">
+                    recomended
+                    <br /> packeges for you
+                  </h1>
+                  <AllPackages />
+                </div>
+              </>
+            }
+          </>
       }
     </>
   );
