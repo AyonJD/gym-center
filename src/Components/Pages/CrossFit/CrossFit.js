@@ -160,6 +160,7 @@ const CrossFit = () => {
         </div>
         <div className="flex my-16 justify-center border-y-2 py-10">
           <a
+            rel="noreferrer"
             href="https://journal.crossfit.com"
             target="_blank"
             title="CrossFit Journal: The Performance-Based Lifestyle Resource"

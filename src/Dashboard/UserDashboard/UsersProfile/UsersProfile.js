@@ -48,7 +48,7 @@ const UsersProfile = () => {
                 // console.log(data)
             }
             )
-    }, [token])
+    }, [token, userData])
 
     // image patch on server
     const handleImageEdit = event => {
@@ -133,12 +133,19 @@ const UsersProfile = () => {
                             }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
-                                    <BsPencilSquare
-                                        onClick={() => setOpenModal(false)}
+                                    <div
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
-                                        htmlFor="my-modal-3"
-                                        className='z-50 text-white cursor-pointer h-8 w-8 ' />
+                                        className='bg-black px-3 py-1  cursor-pointer rounded'>
+                                        <h2 className='text-white flex gap-1 items-center'>Edit
+                                            <BsPencilSquare
+                                                onClick={() => setOpenModal(false)}
+
+                                                htmlFor="my-modal-3"
+                                                className='z-50 text-[10px] text-white  h-4 w-4'
+                                            /></h2>
+
+                                    </div>
                                 </label>
                             }
                         </div>
@@ -168,7 +175,7 @@ const UsersProfile = () => {
 
                         <div className='text-center'>
                             <h1 className=' font-bold mt-3'>{userData?.data?.name}</h1>
-                            <h2 className='text-sm  text-secondary'>User</h2>
+                            <h2 className='text-sm  text-secondary'>{userRole}</h2>
                         </div>
                     </div>
                 </div>

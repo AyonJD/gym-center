@@ -24,14 +24,15 @@ const Package = () => {
     }
 
 
-    // console.log(packages)
 
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-7 md:mb-16 mb-10'>
             {
                 packages?.data?.map((item, index) => {
                     return (
-                        <div className="shadow-xl rounded-md">
+                        <div 
+                        key={item.id}
+                        className="shadow-xl rounded-md">
                             {
                                 index === 0 && <h1 className='text-center text-3xl font-bold mt-4 mb-2'>Basic Plan</h1>
                             }
