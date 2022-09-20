@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
+
 import { TbCurrencyTaka } from 'react-icons/tb';
 import AccountsTable from './AccountsTable';
-import { BsPlusLg } from 'react-icons/bs';
 import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import Loading from '../../../hooks/Loading/Loading';
@@ -21,7 +18,6 @@ const AccountsHome = () => {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthName = monthNames[month];
     const date = `${day} ${monthName} ${year}`;
-    const [products, setProducts] = useState([]);
     const expense = useExpense();
     const income = useIncome();
     // const [expenseTotal, setExpenseTotal] = useState(0);

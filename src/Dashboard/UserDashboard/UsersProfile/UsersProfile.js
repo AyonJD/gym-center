@@ -10,27 +10,12 @@ import toast from 'react-hot-toast';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
-    const [userPackage, setUserPackage] = useState([])
     const [handleEditButton, setHandleEditButton] = useState(false)
-    const { register, handleSubmit, watch, formState: { errors }, reset, trigger } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset, trigger } = useForm();
     const [openModal, setOpenModal] = useState(false)
     const [imageField, setImageField] = useState(null)
     const [userData, setUserData] = useState([])
 
-    useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/user_package_order`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setUserPackage(data)
-            }
-            )
-    }, [token])
 
     // get user data
 
@@ -45,7 +30,6 @@ const UsersProfile = () => {
             .then(res => res.json())
             .then(data => {
                 setUserData(data)
-                // console.log(data)
             }
             )
     }, [token, userData])
@@ -63,12 +47,9 @@ const UsersProfile = () => {
             }
         })
             .then(res => {
-                // console.log(res)
             }).then(data => [
-                // console.log(data)
             ])
             .catch(err => {
-                // console.log(err)
             })
     }
 
@@ -98,7 +79,6 @@ const UsersProfile = () => {
                 } else {
                     toast.error('Phone number should be start with +880')
                 }
-                console.log(data)
             }
             )
     }

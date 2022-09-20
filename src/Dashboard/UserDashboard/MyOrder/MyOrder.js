@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
 import { HiShoppingCart } from 'react-icons/hi';
 import OrdersTable from '../../AdminDashboard/Orders/OrdersTable';
 
@@ -33,8 +31,6 @@ const MyOrder = () => {
     }, [token, allProductState]);
 
 
-
-
     useEffect(() => {
         const url = "https://gym-management97.herokuapp.com/api/user_package_order";
 
@@ -59,7 +55,6 @@ const MyOrder = () => {
 
     }
 
-    console.log(packages)
 
     return (
         <div className='p-5 mt-4'>
@@ -90,10 +85,6 @@ const MyOrder = () => {
 
             <div className='mt-7 border-b-[1px] pb-3 mb-8 sm:flex justify-between items-center'>
                 <h2 className='font-semibold sm:mb-0 mb-3'>Order List</h2>
-                {/* <div className='flex gap-2 items-center font-bold text-sm  bg-accent p-2 rounded border cursor-pointer'>
-                    <MdManageSearch className='text-xl mb-1' />
-                    <h1>Filter Order</h1>
-                </div> */}
                 <div className="data_field flex  md:justify-end">
                     <button
                         onClick={handleProduct}
@@ -128,7 +119,9 @@ const MyOrder = () => {
                                     ></OrdersTable>)
                                 ) : (
                                     packages?.map((product, index) =>
-                                        <tr className='text-center' key={index} >
+                                        <tr 
+                                        key={index}
+                                        className='text-center' >
                                             <th>{product?.id}</th>
                                             <td>{product?.package?.package_type?.package_title}</td>
                                             <td>{product?.order_date}</td>
@@ -143,13 +136,6 @@ const MyOrder = () => {
                                     )
                                 )
                             }
-                            {/* {
-                                packages?.map((product, index) => <OrdersTable
-                                    key={product?.id}
-                                    product={product}
-                                    index={index}
-                                ></OrdersTable>)
-                            } */}
                         </tbody>
                     </table>
                 </div>

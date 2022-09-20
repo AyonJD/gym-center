@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import img1 from '../../../assets/Image/UserDashboard/Frame original.png'
-import img2 from '../../../assets/Image/UserDashboard/Frame.png'
-import body from '../../../assets/Image/UserDashboard/body.png'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { useEffect } from 'react';
 
@@ -24,7 +22,6 @@ const UsersHome = () => {
             )
     }, [token])
 
-    console.log(userPhysic)
 
     return (
         <div className='p-5 mt-4 '>
