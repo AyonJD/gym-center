@@ -121,7 +121,7 @@ const UsersProfile = () => {
 
                 <div className=''>
                     <div className=''>
-                        <div className='w-36 h-40 mx-auto relative '>
+                        <div className='w-36 h-40 mx-auto relative border rounded'>
                             {
                                 userData?.data?.profile_image ? <img
                                     onMouseEnter={() => setHandleEditButton(true)}
@@ -129,7 +129,7 @@ const UsersProfile = () => {
                                     className='rounded w-full h-full' src={userData?.data?.profile_image} alt="" /> : <img
                                     onMouseEnter={() => setHandleEditButton(true)}
                                     onMouseLeave={() => setHandleEditButton(false)}
-                                    className='rounded w-full ' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
+                                    className='rounded w-full h-full' src='https://i.ibb.co/vHfKc6X/blank-profile-picture-g3bbbf5065-1280.png' alt="" />
                             }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
@@ -138,7 +138,7 @@ const UsersProfile = () => {
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
                                         htmlFor="my-modal-3"
-                                        className='z-50 cursor-pointer text-white h-8 w-8 ' />
+                                        className='z-50 text-white cursor-pointer h-8 w-8 ' />
                                 </label>
                             }
                         </div>

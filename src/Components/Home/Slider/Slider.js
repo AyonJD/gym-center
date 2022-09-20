@@ -30,7 +30,6 @@ export default function App() {
     }
 
 
-    console.log(review.data, 'review')
 
     return (<div className="mid-container">
         <Swiper
@@ -50,7 +49,7 @@ export default function App() {
 
             {
                 review?.data?.map((item, index) => (
-                    <SwiperSlide>
+                    <SwiperSlide  key={index}>
                         <div className="image-slide-bgOne relative md:px-10 md:py-24 px-5 py-16 md:flex items-center justify-between">
                             <div className="md:w-[70%] flex">
                                 <img className="quote_image relative top-[-35px]  quote_image_one inline-block" src={quote} alt="" />
