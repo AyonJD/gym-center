@@ -33,7 +33,7 @@ const SharedNav = () => {
             <div className='bg-gray-800 border-b lg:pr-10 md:pr-4'>
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly text-white py-2">
-                        <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link>
+                        {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
                         {/* <HiOutlineUser
                             onClick={handleRedirectProfile}
                             className='ml-8 hover:text-primary'></HiOutlineUser> */}
