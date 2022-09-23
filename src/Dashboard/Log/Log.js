@@ -1,5 +1,4 @@
-import React from 'react';
-import { useQuery } from 'react-query';
+import React, { useEffect, useState } from 'react';
 import AuthUser from '../../hooks/AuthUser/AuthUser';
 import Loading from '../../hooks/Loading/Loading';
 import { FaRegEdit } from 'react-icons/fa'
@@ -8,6 +7,7 @@ import { MdOutlinePostAdd } from 'react-icons/md'
 
 const Log = () => {
     const { token, userRole } = AuthUser()
+    const [logData, setLogData] = useState([])
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth();
@@ -16,18 +16,36 @@ const Log = () => {
     const monthName = monthNames[month];
     const date = `${day} ${monthName} ${year}`;
 
-    const { data: logData, isLoading, refetch } = useQuery('users', () =>
+    // const { data: logData, isLoading, refetch } = useQuery('users', () =>
+    //     fetch(`http://crossfitassemble.xyz/api/console`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'authorization': `Bearer ${token}`
+    //         }
+    //     }).then(res => res.json())
+    // )
+    // if (isLoading) {
+    //     return <Loading />
+    // }
+
+    useEffect(() => {
         fetch(`http://crossfitassemble.xyz/api/console`, {
             method: 'GET',
             headers: {
-                'authorization': `Bearer ${token}`
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
-        }).then(res => res.json())
-    )
-    if (isLoading) {
-        return <Loading />
-    }
-    console.log(logData.data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setLogData(data)
+            }
+            )
+    }, [token])
+
+    console.log(logData , userRole)
+
+
 
     return (
         <>
@@ -45,7 +63,7 @@ const Log = () => {
                 </div>
                 <div className='cursor-pointer'>
                     {
-                        logData.data.map(log => (
+                        logData?.data?.map(log => (
                             <div className='mb-7'>
                                 <h1 className=' font-bold text-primary border-primary border w-fit px-5 py-1'>{log?.type}</h1>
                                 <div className="bg-accent package_card px-4 py-3 border flex w-full justify-between ">
