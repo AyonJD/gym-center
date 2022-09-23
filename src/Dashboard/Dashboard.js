@@ -79,6 +79,13 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/log'> <MdPostAdd className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/log'}> Log</DashLink>
+                                    </div>
+                                </div>
+
                                 <div className='flex items-center justify-center mb-4 cursor-pointer'>
                                     <div className='hover:text-primary' onClick={logout}>
                                         <GoSignOut className='mx-auto xl:text-xl' />
@@ -92,8 +99,8 @@ const Dashboard = () => {
                             <>
                                 <div className='flex items-center justify-center mb-4'>
                                     <div className='hover:text-primary'>
-                                        <DashLink to='/dashboard/accounts-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
-                                        <DashLink className='' to={'/dashboard/accounts-home'}> Home</DashLink>
+                                        <DashLink to='/dashboard/users-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/users-home'}> Home</DashLink>
                                     </div>
                                 </div>
                                 <div className='flex items-center justify-center mb-4'>
@@ -150,6 +157,13 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/log'> <MdPostAdd className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/log'}> Log</DashLink>
+                                    </div>
+                                </div>
+
                                 <div className='flex items-center justify-center mb-4 cursor-pointer'>
                                     <div className='hover:text-primary' onClick={logout}>
                                         <GoSignOut className='mx-auto xl:text-xl' />
@@ -182,27 +196,6 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
-                                {/* <div className='flex items-center justify-center mb-4'>
-                                    <div className='hover:text-primary'>
-                                        <DashLink to='/dashboard/trainer-form'> <AiOutlineForm className='mx-auto xl:text-xl' /></DashLink>
-                                        <DashLink className='' to={'/dashboard/trainer-form'}> Form</DashLink>
-                                    </div>
-                                </div> */}
-
-                                {/* <div className='flex items-center justify-center mb-4'>
-                                    <div className='hover:text-primary'>
-                                        <DashLink to='/dashboard/trainer-package'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
-                                        <DashLink className='' to={'/dashboard/trainer-package'}> Packages</DashLink>
-                                    </div>
-                                </div> */}
-
-                                {/* <div className='flex items-center justify-center mb-4'>
-                                    <div className='hover:text-primary'>
-                                        <DashLink to='/dashboard/trainer-settings'>  <AiFillSetting className='mx-auto xl:text-xl' /></DashLink>
-                                        <DashLink className='' to={'/dashboard/trainer-settings'}> Settings</DashLink>
-                                    </div>
-                                </div> */}
-
                                 <div className='flex items-center justify-center mb-4'>
                                     <div className='hover:text-primary'>
                                         <DashLink to='/dashboard/students'> <MdManageAccounts className='mx-auto xl:text-xl' /></DashLink>
@@ -214,6 +207,13 @@ const Dashboard = () => {
                                     <div className='hover:text-primary'>
                                         <DashLink to='/dashboard/my-order'> <HiShoppingCart className='mx-auto xl:text-xl' /></DashLink>
                                         <DashLink className='' to={'/dashboard/my-order'}> My Order</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/log'> <MdPostAdd className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/log'}> Log</DashLink>
                                     </div>
                                 </div>
 
