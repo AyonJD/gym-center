@@ -19,7 +19,6 @@ const UsersProfile = () => {
     const [fileError, setFileError] = useState(false)
 
 
-    // get user data
 
     useEffect(() => {
         fetch(`http://crossfitassemble.xyz/api/update_profile`, {

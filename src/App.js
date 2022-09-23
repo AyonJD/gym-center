@@ -40,6 +40,8 @@ import AllSchedule from './Dashboard/TrainerDashboard/AllSchedule/AllSchedule';
 import RequireMember from './hooks/RequireMember/RequireMember';
 import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
 import TrainerSalary from './Dashboard/TrainerDashboard/TrainerSalary/TrainerSalary';
+import AdminHome from './Dashboard/AdminRole/AdminHome/AdminHome';
+import RequireAdmin from './hooks/UserRoleAuthenticate/RequireAdmin/RequireAdmin';
 
 function App() {
 
@@ -72,6 +74,7 @@ function App() {
           <Route path="manage-orders" element={<RequireAccounts><Orders /></RequireAccounts>} />
           <Route path="accounts-income" element={<RequireAccounts><Incomes /></RequireAccounts>} />
           <Route path="accounts-expense" element={<RequireAccounts><Expense /></RequireAccounts>} />
+
           <Route path="users-home" element={<RequireUser><UsersHome /></RequireUser>} />
           <Route path="user-profile" element={<UsersProfile />} />
           <Route path="user-package" element={<RequireUser><UsersWorkout /></RequireUser>} />
@@ -83,6 +86,8 @@ function App() {
           <Route path="trainer-salary" element={<TrainerSalary />} />
           <Route path="all-schedule" element={<AllSchedule />} />
           <Route path="my-order" element={<MyOrder />} />
+
+          <Route path="admin-home" element={<RequireAdmin><AdminHome /></RequireAdmin>} />
         </Route>
 
       </Routes>

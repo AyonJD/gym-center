@@ -32,6 +32,9 @@ const Header = () => {
     const handleDashboardTrainers = () => {
         navigate('/dashboard/trainers-home')
     }
+    const handleDashboardAdmin = () => {
+        navigate('/dashboard/admin-home')
+    }
 
     return (
         <>
@@ -47,6 +50,9 @@ const Header = () => {
                         }
                         {
                             userRole === 'user' && <MdOutlineSpaceDashboard onClick={handleDashboardUsers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
+                        }
+                        {
+                            userRole === 'admin' && <MdOutlineSpaceDashboard onClick={handleDashboardAdmin} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
                         {
                             userRole === 'trainer' && <MdOutlineSpaceDashboard onClick={handleDashboardTrainers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
@@ -69,15 +75,18 @@ const Header = () => {
                     {
                         email ?
                             <>
-                               {
-                                      userRole === 'user' &&  <Link to="dashboard/users-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
-                               }
-                               {
-                                      userRole === 'trainer' &&  <Link to="dashboard/trainers-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
-                               }
-                               {
-                                      userRole === 'accountant' &&  <Link to="dashboard/accounts-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
-                               }
+                                {
+                                    userRole === 'user' && <Link to="dashboard/users-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                                }
+                                {
+                                    userRole === 'trainer' && <Link to="dashboard/trainers-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                                }
+                                {
+                                    userRole === 'accountant' && <Link to="dashboard/accounts-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                                }
+                                {
+                                    userRole === 'admin' && <Link to="dashboard/admin-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                                }
                             </>
                             :
                             <Link to="/login" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
