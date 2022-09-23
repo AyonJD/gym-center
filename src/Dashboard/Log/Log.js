@@ -38,7 +38,7 @@ const Log = () => {
                 setLogData(data);
             }
             )
-    }, [token])
+    }, [token, logData])
 
     // console.log(allData, 'allData');
 
@@ -48,15 +48,15 @@ const Log = () => {
     // console.log(filterRegularData);
 
     return (
-        <div className='max-h-fit'>
+        <div className='max-h-fit pb-10'>
             <div className='flex justify-between p-3 pb-6 border-b'>
                 <h2 className='text-2xl font-semibold'>Hello, {userRole}!</h2>
                 <div className='flex items-center gap-3'>
                     <p className='text-sm font-bold text-secondary'>{date}</p>
                 </div>
             </div>
-            <div className='w-[60%]  mx-auto'>
-                <div className='flex justify-between my-4 mt-10 items-center'>
+            <div className='lg:w-[60%] md:w-[80%] w-[95vw] mx-auto'>
+                <div className='sm:flex justify-between my-4 mt-10 items-center'>
                     <div>
                         <button className='btn btn-sm btn-primary'
                             onClick={() => {
@@ -80,7 +80,7 @@ const Log = () => {
                             }}
                         >Regular</button>
                     </div>
-                    <div className='flex justify-center'>
+                    <div className='flex sm:mt-0 mt-5 sm:justify-center'>
                         <label onClick={() => setHandleBtn(true)} htmlFor="my-modal-3">
                             <div className='cursor-pointer mr-2 bg-primary rounded py-2 px-4 text-white flex items-center gap-2'>
 
