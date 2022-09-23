@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import AuthUser from '../../hooks/AuthUser/AuthUser';
 
 const LogDeleteModal = ({ log }) => {
-    const { token} = AuthUser()
+    const { token } = AuthUser()
 
     const handleLogDelete = (id) => {
         console.log(id)
@@ -26,8 +26,8 @@ const LogDeleteModal = ({ log }) => {
     }
 
     return (
-        <div>
-            
+        <div className='absolute bottom-0'>
+
             <input type="checkbox" id="my-modal-15" className="modal-toggle" />
             <label htmlFor="my-modal-15" className="modal cursor-pointer">
                 <label className="modal-box relative" for="">
