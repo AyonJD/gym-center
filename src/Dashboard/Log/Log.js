@@ -33,10 +33,10 @@ const Log = () => {
             )
     }, [token])
 
-  
+
 
     return (
-        <>
+        <div className='max-h-fit'>
             <div className='flex justify-between p-3 pb-6 border-b'>
                 <h2 className='text-2xl font-semibold'>Hello, {userRole}!</h2>
                 <div className='flex items-center gap-3'>
@@ -58,7 +58,7 @@ const Log = () => {
                     }
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

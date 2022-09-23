@@ -1,6 +1,6 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-import { RiDeleteBin2Line } from 'react-icons/ri'
+
 import AuthUser from '../../hooks/AuthUser/AuthUser';
 
 const LogDeleteModal = ({ log }) => {
@@ -27,9 +27,7 @@ const LogDeleteModal = ({ log }) => {
 
     return (
         <div>
-            <label htmlFor="my-modal-15"><div className='p-2 cursor-pointer bg-error rounded-full text-white text-xl flex items-center justify-center'>
-                <RiDeleteBin2Line />
-            </div></label>
+            
             <input type="checkbox" id="my-modal-15" className="modal-toggle" />
             <label htmlFor="my-modal-15" className="modal cursor-pointer">
                 <label className="modal-box relative" for="">
