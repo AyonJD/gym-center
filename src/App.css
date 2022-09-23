@@ -296,6 +296,10 @@ input[type="checkbox"]:checked:after {
     border-radius: 10px 10px 10px 10px;
 }
 
+.handle_index {
+    z-index: 1000 !important;
+}
+
 
 @media only screen and (max-width: 1280px) {
     .mid-container {
