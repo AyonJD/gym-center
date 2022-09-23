@@ -43,6 +43,7 @@ import TrainerSalary from './Dashboard/TrainerDashboard/TrainerSalary/TrainerSal
 import AdminHome from './Dashboard/AdminRole/AdminHome/AdminHome';
 import RequireAdmin from './hooks/UserRoleAuthenticate/RequireAdmin/RequireAdmin';
 import Log from './Dashboard/Log/Log';
+import LogDetails from './Dashboard/Log/LogDetails';
 
 function App() {
 
@@ -63,11 +64,13 @@ function App() {
         <Route path='/cart' element={<CartProduct />} />
         <Route path='/checkout' element={<PaymentCard />} />
         <Route path='/payment/:id' element={<PackagePaymentCard />} />
+
         <Route path='*' element={<NotFound />} />
 
         <Route path="/product/:productId" element={<RequireMember><ProductDetails /></RequireMember>}></Route>
 
         <Route path="dashboard" element={<Dashboard />}>
+          <Route path='log/:id' element={<LogDetails />} />
           <Route path="accounts-home" element={<RequireAccounts><AccountsHome /></RequireAccounts>} />
           <Route path="accounts-profile" element={<RequireAccounts><AccountsProfile /></RequireAccounts>} />
           <Route path="accounts-salary" element={<RequireAccounts><Salary /></RequireAccounts>} />

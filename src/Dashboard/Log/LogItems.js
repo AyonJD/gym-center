@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { FaRegEdit } from 'react-icons/fa'
 import LogDeleteModal from './LogDeleteModal';
 import { RiDeleteBin2Line } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom';
 
 const LogItems = ({ log }) => {
     const [handleBtn, setHandleBtn] = useState(false)
+    const navigate = useNavigate()
 
     return (
-        <div>
-            <h1 className=' font-bold text-primary border-primary border w-fit px-5 py-1'>{log?.type}</h1>
+        <div onClick={() => navigate(`/dashboard/log/${log.id}`)}>
+            <h1 className=' font-bold text-primary border-primary border-b-0 border w-fit px-5 py-1'>{log?.type}</h1>
             <div className="bg-accent package_card px-4 py-3 border flex w-full justify-between ">
                 <div>
                     <h1 className='text-xl'><span className='font-bold'> {log?.title}</span></h1>
