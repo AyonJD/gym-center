@@ -101,6 +101,7 @@ const Log = () => {
                                     logData?.data?.map(log => <LogItems
                                         key={log?.id}
                                         log={log}
+                                        setOpenModal={setOpenModal}
                                     ></LogItems>)
                                 }
                             </>
@@ -114,6 +115,7 @@ const Log = () => {
                                     filterAnalysisData?.map(log => <LogItems
                                         key={log?.id}
                                         log={log}
+                                        setOpenModal={setOpenModal}
                                     ></LogItems>)
                                 }
                             </>
@@ -127,6 +129,7 @@ const Log = () => {
                                     filterRegularData?.map(log => <LogItems
                                         key={log?.id}
                                         log={log}
+                                        setOpenModal={setOpenModal}
                                     ></LogItems>)
                                 }
                             </>
