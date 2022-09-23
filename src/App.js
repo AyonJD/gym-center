@@ -42,6 +42,7 @@ import MyOrder from './Dashboard/UserDashboard/MyOrder/MyOrder';
 import TrainerSalary from './Dashboard/TrainerDashboard/TrainerSalary/TrainerSalary';
 import AdminHome from './Dashboard/AdminRole/AdminHome/AdminHome';
 import RequireAdmin from './hooks/UserRoleAuthenticate/RequireAdmin/RequireAdmin';
+import Log from './Dashboard/Log/Log';
 
 function App() {
 
@@ -88,6 +89,7 @@ function App() {
           <Route path="my-order" element={<MyOrder />} />
 
           <Route path="admin-home" element={<RequireAdmin><AdminHome /></RequireAdmin>} />
+          <Route path="log" element={<Log />} />
         </Route>
 
       </Routes>
