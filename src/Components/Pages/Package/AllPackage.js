@@ -11,10 +11,8 @@ const AllPackages = () => {
     const { token } = AuthUser()
     const navigate = useNavigate();
 
-
-
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/packages`, {
+        fetch(`http://crossfitassemble.xyz/api/packages`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -25,17 +23,16 @@ const AllPackages = () => {
         return <Loading />
     }
 
-    console.log(packages?.data)
-
     const currentPackage = packages?.data?.filter(item => item?.package_type?.package_title !== 'Crossfit')
 
-    console.log(currentPackage)
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-7 md:mb-16 mb-10'>
             {
                 currentPackage?.map((item, index) => {
                     return (
-                        <div className="shadow-xl rounded-md">
+                        <div 
+                        key={item.id}
+                        className="shadow-xl rounded-md">
                             <div className='lg:h-[80px] flex items-center justify-center'>
                                 <h1 className='text-center text-2xl font-bold pt-5 mb-2'>{item?.package_type?.package_title}</h1>
                             </div>

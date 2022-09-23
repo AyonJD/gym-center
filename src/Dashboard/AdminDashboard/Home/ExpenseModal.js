@@ -1,38 +1,16 @@
 import React from 'react';
 import Modal from "react-modal";
-import { IoMdAddCircleOutline } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
 import { BsPlusLg } from 'react-icons/bs';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 
-
-
-const customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        width: '50%',
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)",
-        padding: "30px",
-        backgroundColor: "#f3f4f6",
-        border: "1px solid #8f8f8f66",
-    },
-};
-
 Modal.setAppElement("#root");
-
 
 export default function ExpenseModal({ refetch }) {
     const { register, formState: { errors }, handleSubmit, trigger, reset } = useForm();
     const { token } = AuthUser()
 
-
-
     const onSubmitForm = (data) => {
-
         const expense = {
             amount: data.amount,
             expense_date: data.expense_date,
@@ -44,7 +22,7 @@ export default function ExpenseModal({ refetch }) {
         }
         // console.log(expense)
         // post data to database 
-        fetch(`https://gym-management97.herokuapp.com/api/expense/`, {
+        fetch(`http://crossfitassemble.xyz/api/expense/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,21 +37,20 @@ export default function ExpenseModal({ refetch }) {
             }).catch(err => console.log(err))
     }
 
-
     return (
 
         <div className='mt-10'>
-            <label for="my-modal-5" className='cursor-pointer absolute right-5 top-2'>
+            <label htmlFor="my-modal-5" className='cursor-pointer absolute right-5 top-2'>
                 <div className='bg-primary shadow-xl text-white p-2 rounded cursor-pointer  '>
                     <BsPlusLg className=' font-extrabold' />
                 </div>
             </label>
 
             <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-            <label for="my-modal-5" className="modal">
-                <label className="modal-box lg:w-[60%] relative" for="">
+            <label htmlFor="my-modal-5" className="modal">
+                <label className="modal-box lg:w-[60%] relative" htmlFor="">
                     <form onSubmit={handleSubmit(onSubmitForm)} id="my-modal-5">
-                        <label for="my-modal-5" className="btn btn-sm text-white btn-error btn-circle absolute right-2 top-2">✕</label>
+                        <label htmlFor="my-modal-5" className="btn btn-sm text-white btn-error btn-circle absolute right-2 top-2">✕</label>
                         <div className=" mt-3">
                             <div className="form-control w-full">
                                 <label className="label">
@@ -143,26 +120,9 @@ export default function ExpenseModal({ refetch }) {
                             </div>
                         </div>
 
-                        {/* <div className=" mt-3">
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Upload File</span>
-                            </label>
-                            <input type="file" placeholder="Write Any Message For This Income" className="input w-full focus:outline-none h-full pl-0 rounded-none shadow-none border-none"
-                                {...register("image", {
-                                    required: 'Image is required',
-                                })}
-                                onKeyUp={(e) => {
-                                    trigger('image');
-                                }}
-                            />
-                            <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.image?.message}</small>
-                        </div>
-                    </div> */}
-
                         <div className="flex gap-2 mt-12 relative">
                             <div>
-                                <label for="my-modal-5" className="btn btn-error text-white font-bold btn-sm">Close</label>
+                                <label htmlFor="my-modal-5" className="btn btn-error text-white font-bold btn-sm">Close</label>
                             </div>
                             <div className="text-end">
                                 <button

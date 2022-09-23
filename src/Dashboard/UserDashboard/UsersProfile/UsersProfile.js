@@ -7,35 +7,22 @@ import { BsPencilSquare } from 'react-icons/bs'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { data } from 'autoprefixer';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
-    const [userPackage, setUserPackage] = useState([])
     const [handleEditButton, setHandleEditButton] = useState(false)
-    const { register, handleSubmit, watch, formState: { errors }, reset, trigger } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset, trigger } = useForm();
     const [openModal, setOpenModal] = useState(false)
     const [imageField, setImageField] = useState(null)
-    const [userData, setUserData] = useState([])
+    const [userData, setUserData] = useState([]);
+    const [fileError, setFileError] = useState(false)
 
-    useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/user_package_order`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setUserPackage(data)
-            }
-            )
-    }, [token])
 
     // get user data
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,10 +32,9 @@ const UsersProfile = () => {
             .then(res => res.json())
             .then(data => {
                 setUserData(data)
-                // console.log(data)
             }
             )
-    }, [token])
+    }, [token, userData])
 
     // image patch on server
     const handleImageEdit = event => {
@@ -56,19 +42,24 @@ const UsersProfile = () => {
         const image = imageField;
         const formData = new FormData()
         formData.append('profile_image', image)
-        axios.patch(`https://gym-management97.herokuapp.com/api/update_profile`, formData, {
+        axios.patch(`http://crossfitassemble.xyz/api/update_profile`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`
             }
         })
             .then(res => {
-                // console.log(res)
-            }).then(data => [
-                // console.log(data)
-            ])
+            }).then(data => {
+                setOpenModal(true)
+                toast.success('Image Updated Successfully')
+            })
             .catch(err => {
-                // console.log(err)
+                if (err) {
+                    setFileError(true)
+                    // setOpenModal(false)
+                    console.log(err.message)
+                    toast.error('Maximum image size is 2MB')
+                }
             })
     }
 
@@ -82,7 +73,7 @@ const UsersProfile = () => {
             phone: phone || userData?.phone
         }
         // console.log(userData)
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -98,7 +89,6 @@ const UsersProfile = () => {
                 } else {
                     toast.error('Phone number should be start with +880')
                 }
-                console.log(data)
             }
             )
     }
@@ -133,12 +123,19 @@ const UsersProfile = () => {
                             }
                             {
                                 handleEditButton && <label className='absolute bottom-0 right-0' htmlFor="my-modal-3">
-                                    <BsPencilSquare
-                                        onClick={() => setOpenModal(false)}
+                                    <div
                                         onMouseEnter={() => setHandleEditButton(true)}
                                         onMouseLeave={() => setHandleEditButton(false)}
-                                        htmlFor="my-modal-3"
-                                        className='z-50 text-white cursor-pointer h-8 w-8 ' />
+                                        className='bg-black px-3 py-1  cursor-pointer rounded'>
+                                        <h2 className='text-white flex gap-1 items-center'>Edit
+                                            <BsPencilSquare
+                                                onClick={() => setOpenModal(false)}
+
+                                                htmlFor="my-modal-3"
+                                                className='z-50 text-[10px] text-white  h-4 w-4'
+                                            /></h2>
+
+                                    </div>
                                 </label>
                             }
                         </div>
@@ -157,9 +154,12 @@ const UsersProfile = () => {
                                             />
                                             <small className='text-[#FF4B2B] block text-xs ml-2 font-medium my-2'>{errors?.image?.message}</small>
 
-                                            <input
-                                                onClick={() => setOpenModal(true)}
-                                                type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
+                                            <small className='text-[#FF4B2B] block text-xs ml-2 font-medium my-2'>{fileError && 'Maximum image size is 2MB'}</small>
+
+                                            <div>
+                                                <input
+                                                    type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@ const UsersProfile = () => {
 
                         <div className='text-center'>
                             <h1 className=' font-bold mt-3'>{userData?.data?.name}</h1>
-                            <h2 className='text-sm  text-secondary'>User</h2>
+                            <h2 className='text-sm  text-secondary'>{userRole}</h2>
                         </div>
                     </div>
                 </div>

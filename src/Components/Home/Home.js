@@ -9,9 +9,12 @@ import Programme from './Programme/Programme';
 import CrossfitProgramme from './Programme/CrossfitProgramme/CrossfitProgramme';
 import SecondProgramme from './Programme/SecondProgramme';
 import ThirdProgramme from './Programme/ThirdProgramme';
+import AuthUser from '../../hooks/AuthUser/AuthUser';
 
 const Home = () => {
-    
+    const {userRole}= AuthUser()
+
+    console.log(userRole)
 
     return (
         <div>

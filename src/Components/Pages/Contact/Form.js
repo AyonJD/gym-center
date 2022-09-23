@@ -89,7 +89,7 @@ const Form = () => {
                 {/* <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.floating_first_name?.message}</small> */}
 
                 <label
-                  for="floating_first_name"
+                  htmlFor="floating_first_name"
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Your name
@@ -116,7 +116,7 @@ const Form = () => {
                 {/* <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.floating_email?.message}</small> */}
 
                 <label
-                  for="floating_email"
+                  htmlFor="floating_email"
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Email address
@@ -143,7 +143,7 @@ const Form = () => {
                 {/* <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.floating_phone?.message}</small> */}
 
                 <label
-                  for="floating_phone"
+                  htmlFor="floating_phone"
                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
                   Phone number
@@ -155,40 +155,6 @@ const Form = () => {
                   setSelectedCountryName={setSelectedCountryName}
                 />
               </div>
-            </div>
-            <div className="md:grid grid-cols-2 md:gap-6">
-              {/* <div className="relative z-0 mb-6 w-full group">
-                <input
-                  type="text"
-                  name="floating_company"
-                  id="floating_company"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  {...register("floating_company")}
-                  onKeyUp={(e) => {
-                    trigger("floating_company");
-                  }}
-                />
-                <label
-                  for="floating_company"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Company (Ex. Google)
-                </label>
-              </div> */}
-              {/* <div className="relative mb-6 max-w-full group z-0">
-                <select
-                  onChange={(e) => {
-                    setInterestedInOptions(e.target.value);
-                  }}
-                  className="text-gray-500 block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                >
-                  <option value="Interested In">Interested In</option>
-                  <option className="" value="Option 1">
-                    Option 1
-                  </option>
-                </select>
-              </div> */}
             </div>
 
             <div className="relative z-0 mb-6 w-full group">
@@ -214,7 +180,7 @@ const Form = () => {
                 }}
               />
               <label
-                for="floating_phone"
+               htmlFor="floating_phone"
                 className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Your Message

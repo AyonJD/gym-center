@@ -14,7 +14,7 @@ const Salary = () => {
 
 
     const { data: salaryDetails, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/salary_overview`, {
+        fetch(`http://crossfitassemble.xyz/api/salary_overview`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

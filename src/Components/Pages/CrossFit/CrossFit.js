@@ -19,7 +19,7 @@ const CrossFit = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`https://gym-management97.herokuapp.com/api/users/`, {
+    fetch(`http://crossfitassemble.xyz/api/users/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -160,6 +160,7 @@ const CrossFit = () => {
         </div>
         <div className="flex my-16 justify-center border-y-2 py-10">
           <a
+            rel="noreferrer"
             href="https://journal.crossfit.com"
             target="_blank"
             title="CrossFit Journal: The Performance-Based Lifestyle Resource"
