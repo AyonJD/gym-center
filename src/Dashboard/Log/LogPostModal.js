@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import AuthUser from '../../hooks/AuthUser/AuthUser';
@@ -8,14 +8,31 @@ const LogPostModal = ({ setOpenModal }) => {
     const { register, formState: { errors }, handleSubmit, trigger, reset } = useForm();
     const [selection, setSelection] = useState('Analysis log')
     const { token } = AuthUser()
+    const [userData, setUserData] = useState({});
 
+    useEffect(() => {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUserData(data.data)
+            }
+            )
+    }, [token, userData])
 
-    const onSubmitForm = (data) => {
-
+    // console.log(userData)
+    const onSubmitForm = async (data) => {
+        const userId = await userData?.id
         const formData = new FormData();
         formData.append('title', data.title);
         formData.append('description', data.description);
         formData.append('type', selection);
+        formData.append('user', userId);
         formData.append('image', data.image[0]);
 
         //axios post request
