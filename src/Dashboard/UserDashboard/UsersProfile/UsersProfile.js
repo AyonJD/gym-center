@@ -7,6 +7,7 @@ import { BsPencilSquare } from 'react-icons/bs'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { data } from 'autoprefixer';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
@@ -14,7 +15,8 @@ const UsersProfile = () => {
     const { register, handleSubmit, formState: { errors }, reset, trigger } = useForm();
     const [openModal, setOpenModal] = useState(false)
     const [imageField, setImageField] = useState(null)
-    const [userData, setUserData] = useState([])
+    const [userData, setUserData] = useState([]);
+    const [fileError, setFileError] = useState(false)
 
 
     // get user data
@@ -47,9 +49,17 @@ const UsersProfile = () => {
             }
         })
             .then(res => {
-            }).then(data => [
-            ])
+            }).then(data => {
+                setOpenModal(true)
+                toast.success('Image Updated Successfully')
+            })
             .catch(err => {
+                if (err) {
+                    setFileError(true)
+                    // setOpenModal(false)
+                    console.log(err.message)
+                    toast.error('Maximum image size is 2MB')
+                }
             })
     }
 
@@ -144,9 +154,12 @@ const UsersProfile = () => {
                                             />
                                             <small className='text-[#FF4B2B] block text-xs ml-2 font-medium my-2'>{errors?.image?.message}</small>
 
-                                            <input
-                                                onClick={() => setOpenModal(true)}
-                                                type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
+                                            <small className='text-[#FF4B2B] block text-xs ml-2 font-medium my-2'>{fileError && 'Maximum image size is 2MB'}</small>
+
+                                            <div>
+                                                <input
+                                                    type="submit" className='btn btn-primary btn-sm mt-3' value="Upload" />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
