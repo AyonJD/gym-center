@@ -6,17 +6,17 @@ import AuthUser from '../../hooks/AuthUser/AuthUser';
 
 const LogUpdateModal = ({ setOpenModal, log }) => {
     const { register, formState: { errors }, handleSubmit, trigger, reset } = useForm();
-    const [selection, setSelection] = useState('Analysis log')
+    const [selection, setSelection] = useState('analysis log')
     const { token } = AuthUser();
 
-    // console.log(log, 'log');
+    console.log(log, 'log');
     const onSubmitForm = (data) => {
 
         const formData = new FormData();
-        formData.append('title', data.title);
-        formData.append('description', data.description);
-        formData.append('type', selection);
-        formData.append('image', data.image[0]);
+        formData.append('title', data.title || log?.title);
+        formData.append('description', data.description || log?.description);
+        formData.append('type', selection || log?.type);
+        formData.append('image', data.image[0] || log?.image);
 
         //axios post request
         axios.patch(`http://crossfitassemble.xyz/api/console/${log.id}/`, formData, {
@@ -44,8 +44,6 @@ const LogUpdateModal = ({ setOpenModal, log }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="my-modal-8" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-
-
                     <form onSubmit={handleSubmit(onSubmitForm)}>
 
                         <div className=" mt-1">
@@ -77,7 +75,6 @@ const LogUpdateModal = ({ setOpenModal, log }) => {
                                     <option value="analysis log">Analysis log</option>
                                     <option value="regular log">Regular log</option>
                                 </select>
-
                             </div>
                         </div>
 
@@ -102,7 +99,9 @@ const LogUpdateModal = ({ setOpenModal, log }) => {
                                     <span className="label-text">Media</span>
                                 </label>
                                 <input placeholder="Select your media" type="file" className=" w-full focus:outline-none"
-                                    {...register("image")}
+                                    {...register("image", {
+                                        required: 'Image is required',
+                                    })}
                                     onKeyUp={(e) => {
                                         trigger('image');
                                     }}

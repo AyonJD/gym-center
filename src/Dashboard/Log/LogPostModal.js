@@ -6,7 +6,7 @@ import AuthUser from '../../hooks/AuthUser/AuthUser';
 
 const LogPostModal = ({ setOpenModal }) => {
     const { register, formState: { errors }, handleSubmit, trigger, reset } = useForm();
-    const [selection, setSelection] = useState('Analysis log')
+    const [selection, setSelection] = useState('analysis log')
     const { token } = AuthUser()
     const [userData, setUserData] = useState({});
 
@@ -65,7 +65,6 @@ const LogPostModal = ({ setOpenModal }) => {
 
 
                     <form onSubmit={handleSubmit(onSubmitForm)}>
-
                         <div className=" mt-1">
                             <div className="form-control w-full">
                                 <label className="label">
@@ -76,7 +75,7 @@ const LogPostModal = ({ setOpenModal }) => {
                                         required: 'Name is required',
                                         minLength: {
                                             value: 3,
-                                            message: 'Name must be at least 3 characters'
+                                            message: 'Title must be at least 3 characters'
                                         }
                                     })}
                                     onKeyUp={(e) => {
