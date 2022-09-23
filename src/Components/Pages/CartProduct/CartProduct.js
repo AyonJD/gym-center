@@ -14,7 +14,7 @@ const CartProduct = () => {
 
 
     const { data: cartProducts, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/product_cart/`, {
+        fetch(`http://crossfitassemble.xyz/api/product_cart/`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

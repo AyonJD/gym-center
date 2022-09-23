@@ -7,7 +7,7 @@ const CartProductItem = ({ product, refetch }) => {
     const { token } = AuthUser()
 
     const handleDelete = (id) => {
-        fetch(`https://gym-management97.herokuapp.com/api/product_cart/${id}`, {
+        fetch(`http://crossfitassemble.xyz/api/product_cart/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const CartProductItem = ({ product, refetch }) => {
 
     // update quantity
     // const handleQuantity = (type, id) => {
-    //     fetch(`https://gym-management97.herokuapp.com/api/product_cart/${id}`, {
+    //     fetch(`http://crossfitassemble.xyz/api/product_cart/${id}`, {
     //         method: 'PATCH',
     //         headers: {
     //             'Content-Type': 'application/json',

@@ -1,8 +1,6 @@
 import React from 'react';
-import { TbCurrencyTaka } from 'react-icons/tb';
 
 const AccountsTable = ({ orders }) => {
-    // console.log(orders)
     return (
         <div className='mb-5'>
             <div className="overflow-x-auto ">
@@ -20,7 +18,7 @@ const AccountsTable = ({ orders }) => {
                         {
                             orders?.map((order, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <th>{++index}</th>
                                         <td>{order?.email}</td>
                                         <td>{order?.order_date}</td>

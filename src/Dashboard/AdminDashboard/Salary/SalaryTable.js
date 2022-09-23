@@ -12,7 +12,7 @@ const SalaryTable = ({ salaryDetails }) => {
         setId(id)
     }
     if (confirm && id) {
-        fetch(`https://gym-management97.herokuapp.com/api/salary_overview/${id}/`, {
+        fetch(`http://crossfitassemble.xyz/api/salary_overview/${id}/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

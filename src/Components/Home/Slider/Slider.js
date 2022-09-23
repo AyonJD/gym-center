@@ -20,7 +20,7 @@ export default function App() {
 
 
     const { data: review, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/feedback?page=1&limit=10`, {
+        fetch(`http://crossfitassemble.xyz/api/feedback?page=1&limit=10`, {
             method: 'GET',
         }).then(res => res.json())
     )

@@ -27,7 +27,7 @@ const Expense = () => {
     const [pettyCashBullian, setPettyCashBullian] = useState(false);
 
     const { data: expenses, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/expense`, {
+        fetch(`http://crossfitassemble.xyz/api/expense`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

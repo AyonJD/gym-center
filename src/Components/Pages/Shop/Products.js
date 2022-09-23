@@ -14,7 +14,7 @@ const Products = ({ product }) => {
     }
     // post product to cart
     const handleCart = (id) => {
-        fetch('https://gym-management97.herokuapp.com/api/product_cart/', {
+        fetch('http://crossfitassemble.xyz/api/product_cart/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

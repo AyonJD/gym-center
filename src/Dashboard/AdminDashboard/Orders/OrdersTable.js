@@ -6,20 +6,20 @@ const OrdersTable = ({ product, index }) => {
     return (
         <>
             {
-                product?.order_details?.map(items => (
-                    <>
-                        <tr className='text-center'>
-                            <th>{items?.id}</th>
-                            <td>{items?.name}</td>
-                            <td>{product?.order_date}</td>
-                            <td className='font-bold'>৳ {items?.price}</td>
-                            {
-                                items?.status === 'Complete' ? <td><button className='btn btn-xs btn-success'>{items?.status}</button></td>
-                                    :
-                                    <td><button className='btn btn-xs btn-primary'>{items?.status}</button></td>
-                            }
-                        </tr>
-                    </>
+                product?.order_details?.map((items, index) => (
+                    <tr
+                        key={index}
+                        className='text-center'>
+                        <th>{items?.id}</th>
+                        <td>{items?.name}</td>
+                        <td>{product?.order_date}</td>
+                        <td className='font-bold'>৳ {items?.price}</td>
+                        {
+                            items?.status === 'Complete' ? <td><button className='btn btn-xs btn-success'>{items?.status}</button></td>
+                                :
+                                <td><button className='btn btn-xs btn-primary'>{items?.status}</button></td>
+                        }
+                    </tr>
                 ))
             }
         </>
