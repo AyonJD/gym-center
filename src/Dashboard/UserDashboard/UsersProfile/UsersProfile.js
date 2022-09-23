@@ -20,7 +20,7 @@ const UsersProfile = () => {
     // get user data
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const UsersProfile = () => {
         const image = imageField;
         const formData = new FormData()
         formData.append('profile_image', image)
-        axios.patch(`https://gym-management97.herokuapp.com/api/update_profile`, formData, {
+        axios.patch(`http://crossfitassemble.xyz/api/update_profile`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`
@@ -63,7 +63,7 @@ const UsersProfile = () => {
             phone: phone || userData?.phone
         }
         // console.log(userData)
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

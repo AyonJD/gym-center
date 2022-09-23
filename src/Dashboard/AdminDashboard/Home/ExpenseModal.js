@@ -22,7 +22,7 @@ export default function ExpenseModal({ refetch }) {
         }
         // console.log(expense)
         // post data to database 
-        fetch(`https://gym-management97.herokuapp.com/api/expense/`, {
+        fetch(`http://crossfitassemble.xyz/api/expense/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

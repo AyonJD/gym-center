@@ -27,7 +27,7 @@ const TrainersHome = () => {
     const [totalClasses, setTotalClasses] = useState(0);
 
     useEffect(() => {
-        fetch('https://gym-management97.herokuapp.com/api/trainer_package', {
+        fetch('http://crossfitassemble.xyz/api/trainer_package', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -40,7 +40,7 @@ const TrainersHome = () => {
 
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/package_users?package=${packageId}`, {
+        fetch(`http://crossfitassemble.xyz/api/package_users?package=${packageId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -52,7 +52,7 @@ const TrainersHome = () => {
 
     const handlePackageClick = (id) => {
         setPackageId(id)
-        fetch(`https://gym-management97.herokuapp.com/api/package_users?package=${id}`, {
+        fetch(`http://crossfitassemble.xyz/api/package_users?package=${id}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -63,7 +63,7 @@ const TrainersHome = () => {
     }
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/trainer_activity`, {
+        fetch(`http://crossfitassemble.xyz/api/trainer_activity`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
