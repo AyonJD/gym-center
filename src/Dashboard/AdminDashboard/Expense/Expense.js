@@ -46,8 +46,6 @@ const Expense = () => {
         })
     }
 
-
-
     const handleAssets = () => {
         setAllData(false);
         setPettyCashBullian(false);

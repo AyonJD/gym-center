@@ -4,7 +4,6 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { useEffect } from 'react';
 
 const UsersHome = () => {
-
     const { token } = AuthUser()
     const [userPhysic, setUserPhysic] = useState({});
 
@@ -21,7 +20,6 @@ const UsersHome = () => {
             }
             )
     }, [token])
-
 
     return (
         <div className='p-5 mt-4 '>
