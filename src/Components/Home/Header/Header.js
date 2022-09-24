@@ -56,9 +56,9 @@ const Header = () => {
                         {
                             email ? <HiOutlineUser
                                 onClick={handleUserProfile}
-                                className='ml-8 hover:text-primary'></HiOutlineUser> : <HiOutlineUser
+                                className='ml-8 hover:text-primary cursor-pointer'></HiOutlineUser> : <HiOutlineUser
                                     onClick={handleUserLogin}
-                                    className='ml-8 hover:text-primary'></HiOutlineUser>
+                                    className='ml-8 hover:text-primary cursor-pointer'></HiOutlineUser>
                         }
 
                         {

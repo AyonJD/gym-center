@@ -109,8 +109,8 @@ const SharedNav = () => {
                         <div className='navbar-end lg:hidden'>
                             <div className='lg:hidden '>
                                 {
-                                    pathname.includes("dashboard") && (<label htmlFor="my-drawer-2" tabIndex="1" className="">
-                                        <MdDashboard className='text-xl' />
+                                    pathname.includes("dashboard") && (<label htmlFor="my-drawer-2" tabIndex="1" className=" cursor-pointer">
+                                        <MdDashboard className='text-xl ' />
                                     </label>)
                                 }
                             </div>
