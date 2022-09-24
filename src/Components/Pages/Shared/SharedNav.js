@@ -26,7 +26,7 @@ const SharedNav = () => {
     const handleDashboardTrainers = () => {
         navigate('/dashboard/trainers-home')
     }
-   
+
 
     return (
         <>
