@@ -44,7 +44,7 @@ const Header = () => {
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly items-center text-white py-2 ">
                         {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
-                        {/* <Link to="#"><HiOutlineUser className='ml-8 hover:text-primary'></HiOutlineUser></Link> */}
+                        <Link to="#"><HiOutlineUser className='ml-8 hover:text-primary'></HiOutlineUser></Link>
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
@@ -54,9 +54,14 @@ const Header = () => {
                         {
                             userRole === 'admin' && <MdOutlineSpaceDashboard onClick={handleDashboardAdmin} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
-                        {
+                    {
                             userRole === 'trainer' && <MdOutlineSpaceDashboard onClick={handleDashboardTrainers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
+
+                        {/* {
+                            userRole === 'accountant' || userRole === 'user' || userRole === 'admin' || userRole === 'trainer' ? <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard> : <MdOutlineSpaceDashboard className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
+                        } */}
+
                     </div>
                 </div>
             </div>
@@ -85,7 +90,7 @@ const Header = () => {
                                     userRole === 'accountant' && <Link to="dashboard/accounts-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
                                 }
                                 {
-                                    userRole === 'admin' && <Link to="dashboard/admin-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
+                                    userRole === 'admin' && <Link to="dashboard/users-home" className="btn btn-primary lg:w-[150px] md:w-[140px] lg:h-[50px] md:h-[45px] join_gym_button lg:text-lg font-bold ">JOIN GYM</Link>
                                 }
                             </>
                             :
