@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import toast from 'react-hot-toast';
-import { set } from 'react-hook-form';
 import Loading from '../../../hooks/Loading/Loading';
 
 const UsersWorkout = () => {
@@ -37,7 +36,7 @@ const UsersWorkout = () => {
                 setPackageSchedule(data)
 
             })
-    }, [packageId, token, packageSchedule])
+    }, [packageId, token])
 
     useEffect(() => {
         setPackageLoading(true);
@@ -109,14 +108,6 @@ const UsersWorkout = () => {
             })
     }
 
-    // const assignedPackages = purchedPackages?.data?.filter(assigned => {
-    //     if (assigned?.status === 'assigned') {
-    //         return assigned
-
-    //     }
-    // })
-
-    // console.log(purchedPackages, 'purchedPackages');
 
     const tConvert = time => {
         time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];

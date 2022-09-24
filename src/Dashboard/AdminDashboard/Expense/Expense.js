@@ -8,7 +8,6 @@ import { useQuery } from 'react-query';
 const Expense = () => {
     const { token, getUser } = AuthUser()
     const [open, setOpen] = useState(false);
-    const closeModal = () => setOpen(false);
 
     const today = new Date();
     const day = today.getDate();
@@ -79,8 +78,6 @@ const Expense = () => {
         setSetPettyCash(pettyCash);
     }
 
-    // console.log(handlePettyCash());
-    console.log(assets, "assets", pettyCash, "pettyCash");
 
 
     return (

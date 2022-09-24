@@ -61,7 +61,6 @@ const Orders = () => {
 
     }
 
-    console.log(products)
 
     return (
         <div className='p-5 mt-4'>

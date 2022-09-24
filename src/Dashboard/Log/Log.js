@@ -38,7 +38,7 @@ const Log = () => {
                 setLogData(data);
             }
             )
-    }, [token, logData])
+    }, [token])
 
     // console.log(allData, 'allData');
 
