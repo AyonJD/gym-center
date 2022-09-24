@@ -18,8 +18,6 @@ const UsersProfile = () => {
     const [userData, setUserData] = useState([]);
     const [fileError, setFileError] = useState(false)
 
-
-
     useEffect(() => {
         fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
@@ -33,7 +31,7 @@ const UsersProfile = () => {
                 setUserData(data)
             }
             )
-    }, [token, userData])
+    }, [token])
 
     // image patch on server
     const handleImageEdit = event => {

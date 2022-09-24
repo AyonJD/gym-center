@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
 import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import Loading from '../../../hooks/Loading/Loading';
@@ -28,7 +26,6 @@ const StudentList = () => {
         return <Loading />
     }
 
-    console.log(studentData);
 
     return (
         <div className='p-5  mt-4'>
