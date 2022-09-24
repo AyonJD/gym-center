@@ -26,6 +26,9 @@ const SharedNav = () => {
     const handleDashboardTrainers = () => {
         navigate('/dashboard/trainers-home')
     }
+    const handleDashboardAdmin = () => {
+        navigate('/dashboard/admin-home')
+    }
 
 
     return (
@@ -34,14 +37,16 @@ const SharedNav = () => {
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly text-white py-2">
                         {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
-                        {/* <HiOutlineUser
-                            onClick={handleRedirectProfile}
-                            className='ml-8 hover:text-primary'></HiOutlineUser> */}
+                        <HiOutlineUser
+                            className='ml-8 hover:text-primary'></HiOutlineUser>
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
                         {
                             userRole === 'user' && <MdOutlineSpaceDashboard onClick={handleDashboardUsers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
+                        }
+                        {
+                            userRole === 'admin' && <MdOutlineSpaceDashboard onClick={handleDashboardAdmin} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
                         {
                             userRole === 'trainer' && <MdOutlineSpaceDashboard onClick={handleDashboardTrainers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>

@@ -125,6 +125,37 @@ const Dashboard = () => {
                                 </div>
                             </>
                         }
+                        {
+                            userRole === 'manager' &&
+                            <>
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/users-home'> <FaHouseUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/users-home'}> Home</DashLink>
+                                    </div>
+                                </div>
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/user-profile'> <FaUser className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/user-profile'}> Profile</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4'>
+                                    <div className='hover:text-primary'>
+                                        <DashLink to='/dashboard/log'> <MdPostAdd className='mx-auto xl:text-xl' /></DashLink>
+                                        <DashLink className='' to={'/dashboard/log'}> Log</DashLink>
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center mb-4 cursor-pointer'>
+                                    <div className='hover:text-primary' onClick={logout}>
+                                        <GoSignOut className='mx-auto xl:text-xl' />
+                                        <button> LogOut</button>
+                                    </div>
+                                </div>
+                            </>
+                        }
 
                         {
                             userRole === 'user' && <>

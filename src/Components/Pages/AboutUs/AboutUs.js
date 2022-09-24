@@ -8,7 +8,7 @@ const AboutUs = () => {
         <div>
             <SharedNav />
 
-            <img className='w-full lg:max-h-[90vh]' src={img} alt="" />
+            <img className='w-full lg:max-h-[92vh]' src={img} alt="" />
             <div>
                 <div className='mid-container'>
                     <h1 className='text-center sm:text-5xl text-2xl font-bold sm:mb-16 mb-6 mt-4 mx-auto'>Let's know about our CrossFit Assemble</h1>
