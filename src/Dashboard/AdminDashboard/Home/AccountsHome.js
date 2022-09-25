@@ -20,9 +20,7 @@ const AccountsHome = () => {
     const date = `${day} ${monthName} ${year}`;
     const expense = useExpense();
     const income = useIncome();
-    // const [expenseTotal, setExpenseTotal] = useState(0);
 
-    // console.log(expense.expense);
 
 
     const expenseTotal = expense.expense?.reduce((total, expense) => {

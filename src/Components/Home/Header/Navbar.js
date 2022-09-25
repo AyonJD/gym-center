@@ -5,7 +5,6 @@ import './Navbar.css'
 import useNavBg from '../../Hooks/useNavBg';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import CustomLink from '../../../hooks/CustomLink/CustomLink';
-import { IoClose } from 'react-icons/io5'
 
 const Navbar = () => {
     const makeSmallNav = useNavBg();
@@ -51,7 +50,7 @@ const Navbar = () => {
 
             <div className='navbar-end lg:hidden'>
                 <div className=" dropdown-end ">
-                    <label onClick={() => setIsOpen(!isOpen)} tabIndex="0" className="btn btn-ghost lg:hidden ">
+                    <label onClick={() => setIsOpen(!isOpen)} tabIndex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
 
