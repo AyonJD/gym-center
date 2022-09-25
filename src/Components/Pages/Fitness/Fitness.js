@@ -15,7 +15,7 @@ const Fitness = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`http://crossfitassemble.xyz/api/users/`, {
+    fetch(`https://gym-management97.herokuapp.com/api/users/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

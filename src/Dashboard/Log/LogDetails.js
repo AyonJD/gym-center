@@ -18,7 +18,7 @@ const LogDetails = () => {
     const date = `${day} ${monthName} ${year}`;
 
     //axios get request by id
-    axios.get(`http://crossfitassemble.xyz/api/console/${id}`,
+    axios.get(`https://gym-management97.herokuapp.com/api/console/${id}`,
         {
             headers: {
                 'Content-Type': 'application/json',

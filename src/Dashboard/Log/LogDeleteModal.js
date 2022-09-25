@@ -8,7 +8,7 @@ const LogDeleteModal = ({ log }) => {
 
     const handleLogDelete = (id) => {
         console.log(id)
-        fetch(`http://crossfitassemble.xyz/api/console/${id}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/console/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

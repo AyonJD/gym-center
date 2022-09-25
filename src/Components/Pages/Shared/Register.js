@@ -34,7 +34,7 @@ const Register = () => {
             phone: data.phone
         }
         setLoading(true);
-        fetch('http://crossfitassemble.xyz/api/users/', {
+        fetch('https://gym-management97.herokuapp.com/api/users/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ const Register = () => {
 
 
     // const onSubmitForm = async (data) => {
-    //     const url = "http://crossfitassemble.xyz/api/users/";
+    //     const url = "https://gym-management97.herokuapp.com/api/users/";
     //     const res = await fetch(url, {
     //         method: "POST",
     //         headers: {

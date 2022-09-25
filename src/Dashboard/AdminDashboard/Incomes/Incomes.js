@@ -21,7 +21,7 @@ const Incomes = () => {
 
 
     const { data: incomes, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/income`, {
+        fetch(`https://gym-management97.herokuapp.com/api/income`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

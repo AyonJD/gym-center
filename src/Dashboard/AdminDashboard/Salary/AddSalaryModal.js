@@ -45,7 +45,7 @@ export default function AddSalaryModal({ refetch }) {
         }
         console.log(salary)
         // post data to database
-        fetch(`http://crossfitassemble.xyz/api/salary_overview/`, {
+        fetch(`https://gym-management97.herokuapp.com/api/salary_overview/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export default function AddSalaryModal({ refetch }) {
     }
 
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/users/`, {
+        fetch(`https://gym-management97.herokuapp.com/api/users/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

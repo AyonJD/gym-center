@@ -25,7 +25,7 @@ const UsersWorkout = () => {
 
     useEffect(() => {
 
-        fetch(`http://crossfitassemble.xyz/api/shedule?package=${packageId}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${packageId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -40,7 +40,7 @@ const UsersWorkout = () => {
 
     useEffect(() => {
         setPackageLoading(true);
-        fetch('http://crossfitassemble.xyz/api/user_package', {
+        fetch('https://gym-management97.herokuapp.com/api/user_package', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const UsersWorkout = () => {
         setShowSchedule(false)
         setPackageId(id)
         setLoading(true);
-        fetch(`http://crossfitassemble.xyz/api/shedule?package=${id}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${id}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -81,7 +81,7 @@ const UsersWorkout = () => {
 
     const handleConfirm = (schedule_id, package_id) => {
         setActiveCard(schedule_id)
-        fetch(`http://crossfitassemble.xyz/api/confirm_shedule`, {
+        fetch(`https://gym-management97.herokuapp.com/api/confirm_shedule`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

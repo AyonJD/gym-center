@@ -26,7 +26,7 @@ const Log = () => {
     const [regularData, setRegularData] = useState(false)
 
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/console`, {
+        fetch(`https://gym-management97.herokuapp.com/api/console`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

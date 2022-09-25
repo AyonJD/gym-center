@@ -9,7 +9,7 @@ const AdminHome = () => {
 
     //react query for getting phySicalInfo from api
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/physical_info`, {
+        fetch(`https://gym-management97.herokuapp.com/api/physical_info`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

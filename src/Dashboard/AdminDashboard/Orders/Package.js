@@ -7,7 +7,7 @@ export default function Package() {
     const { token } = AuthUser()
 
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/package_order`, {
+        fetch(`https://gym-management97.herokuapp.com/api/package_order`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

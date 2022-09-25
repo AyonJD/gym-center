@@ -19,7 +19,7 @@ const LogUpdateModal = ({ setOpenModal, log }) => {
         formData.append('image', data.image[0] || log?.image);
 
         //axios post request
-        axios.patch(`http://crossfitassemble.xyz/api/console/${log.id}/`, formData, {
+        axios.patch(`https://gym-management97.herokuapp.com/api/console/${log.id}/`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`

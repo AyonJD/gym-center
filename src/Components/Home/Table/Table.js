@@ -26,7 +26,7 @@ const Table = () => {
     // const { token } = AuthUser()
 
     // const { data: schedule, isLoading, refetch } = useQuery('users', () =>
-    //     fetch(`http://crossfitassemble.xyz/api/all_shedule`, {
+    //     fetch(`https://gym-management97.herokuapp.com/api/all_shedule`, {
     //         method: 'GET',
     //         headers: {
     //             'authorization': `Bearer ${token}`
