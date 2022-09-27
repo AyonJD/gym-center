@@ -20,12 +20,13 @@ const Log = () => {
     const date = `${day} ${monthName} ${year}`;
     const [handleBtn, setHandleBtn] = useState(false)
     const [openModal, setOpenModal] = useState(false)
-
+    const [loading, setLoading] = useState(false)
     const [allData, setAllData] = useState(true)
     const [analysisData, setAnalysisData] = useState(false)
     const [regularData, setRegularData] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         fetch(`http://crossfitassemble.xyz/api/console`, {
             method: 'GET',
             headers: {
@@ -36,6 +37,7 @@ const Log = () => {
             .then(res => res.json())
             .then(data => {
                 setLogData(data);
+                setLoading(false)
             }
             )
     }, [token])
@@ -93,49 +95,54 @@ const Log = () => {
                         (handleBtn && !openModal) && <LogPostModal setOpenModal={setOpenModal} />
                     }
                 </div>
-                <div className='grid gap-7'>
-                    {
-                        allData && (
-                            <>
+                {
+                    loading ? <Loading /> :
+                        <>
+                            <div className='grid gap-7'>
                                 {
-                                    logData?.data?.map(log => <LogItems
-                                        key={log?.id}
-                                        log={log}
-                                        setOpenModal={setOpenModal}
-                                    ></LogItems>)
+                                    allData && (
+                                        <>
+                                            {
+                                                logData?.data?.map(log => <LogItems
+                                                    key={log?.id}
+                                                    log={log}
+                                                    setOpenModal={setOpenModal}
+                                                ></LogItems>)
+                                            }
+                                        </>
+                                    )
                                 }
-                            </>
-                        )
-                    }
 
-                    {
-                        analysisData && (
-                            <>
                                 {
-                                    filterAnalysisData?.map(log => <LogItems
-                                        key={log?.id}
-                                        log={log}
-                                        setOpenModal={setOpenModal}
-                                    ></LogItems>)
+                                    analysisData && (
+                                        <>
+                                            {
+                                                filterAnalysisData?.map(log => <LogItems
+                                                    key={log?.id}
+                                                    log={log}
+                                                    setOpenModal={setOpenModal}
+                                                ></LogItems>)
+                                            }
+                                        </>
+                                    )
                                 }
-                            </>
-                        )
-                    }
 
-                    {
-                        regularData && (
-                            <>
                                 {
-                                    filterRegularData?.map(log => <LogItems
-                                        key={log?.id}
-                                        log={log}
-                                        setOpenModal={setOpenModal}
-                                    ></LogItems>)
+                                    regularData && (
+                                        <>
+                                            {
+                                                filterRegularData?.map(log => <LogItems
+                                                    key={log?.id}
+                                                    log={log}
+                                                    setOpenModal={setOpenModal}
+                                                ></LogItems>)
+                                            }
+                                        </>
+                                    )
                                 }
-                            </>
-                        )
-                    }
-                </div>
+                            </div>
+                        </>
+                }
             </div>
 
         </div>
