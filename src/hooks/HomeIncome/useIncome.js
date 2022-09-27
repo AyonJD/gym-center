@@ -6,7 +6,7 @@ const useIncome = () => {
     const [income, setIncome] = useState([]);
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/income`, {
+        fetch(`http://crossfitassemble.xyz/api/income`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

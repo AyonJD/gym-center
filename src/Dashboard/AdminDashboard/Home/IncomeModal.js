@@ -20,7 +20,7 @@ export default function IncomeModal({ refetch }) {
         }
         // console.log(expense)
         // post data to database 
-        fetch(`https://gym-management97.herokuapp.com/api/income/`, {
+        fetch(`http://crossfitassemble.xyz/api/income/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

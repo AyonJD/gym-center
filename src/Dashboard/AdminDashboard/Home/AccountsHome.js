@@ -35,7 +35,7 @@ const AccountsHome = () => {
 
 
     const { data: orders, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/complete_product_orders`, {
+        fetch(`http://crossfitassemble.xyz/api/complete_product_orders`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

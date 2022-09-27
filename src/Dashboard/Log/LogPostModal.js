@@ -11,7 +11,7 @@ const LogPostModal = ({ setOpenModal }) => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
+        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const LogPostModal = ({ setOpenModal }) => {
         formData.append('image', data.image[0]);
 
         //axios post request
-        axios.post('https://gym-management97.herokuapp.com/api/console/', formData, {
+        axios.post('http://crossfitassemble.xyz/api/console/', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`

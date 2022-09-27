@@ -12,7 +12,7 @@ const Package = () => {
     const navigate = useNavigate();
 
     const { data: packages, isLoading, refetch } = useQuery('users', () =>
-        fetch(`https://gym-management97.herokuapp.com/api/package_by_type?package_type=1`, {
+        fetch(`http://crossfitassemble.xyz/api/package_by_type?package_type=1`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`

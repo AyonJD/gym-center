@@ -4,7 +4,7 @@ const useAllProducts = () => {
     const [allProduct, setAllProduct] = useState([]);
 
     useEffect(() => {
-        fetch(`https://gym-management97.herokuapp.com/api/products`)
+        fetch(`http://crossfitassemble.xyz/api/products`)
             .then(res => res.json())
             .then(data => {
                 setAllProduct(data.data)
