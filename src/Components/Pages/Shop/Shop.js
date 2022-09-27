@@ -27,7 +27,7 @@ const Shop = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://crossfitassemble.xyz/api/products`)
+        fetch(`https://gym-management97.herokuapp.com/api/products`)
             .then(res => res.json())
             .then(data => {
                 setLoading(false);
@@ -40,7 +40,7 @@ const Shop = () => {
 
 
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/products?page=${pageNumber}&limit=${productsCount}`)
+        fetch(`https://gym-management97.herokuapp.com/api/products?page=${pageNumber}&limit=${productsCount}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

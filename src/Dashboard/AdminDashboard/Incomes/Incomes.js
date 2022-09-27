@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
 import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import Loading from '../../../hooks/Loading/Loading';
-import AddExpenseModal from '../Expense/AddExpenseModal';
 import AddIncomeModal from './AddIncomeModal';
 
 const Incomes = () => {
@@ -24,7 +21,7 @@ const Incomes = () => {
 
 
     const { data: incomes, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/income`, {
+        fetch(`https://gym-management97.herokuapp.com/api/income`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -43,9 +40,6 @@ const Incomes = () => {
             return incomes.expense_date === selectedDate;
         })
     }
-
-
-    console.log(incomes)
 
 
     return (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import toast from 'react-hot-toast';
-import { set } from 'react-hook-form';
 import Loading from '../../../hooks/Loading/Loading';
 
 const UsersWorkout = () => {
@@ -26,7 +25,7 @@ const UsersWorkout = () => {
 
     useEffect(() => {
 
-        fetch(`http://crossfitassemble.xyz/api/shedule?package=${packageId}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${packageId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -37,11 +36,11 @@ const UsersWorkout = () => {
                 setPackageSchedule(data)
 
             })
-    }, [packageId, token, packageSchedule])
+    }, [packageId, token])
 
     useEffect(() => {
         setPackageLoading(true);
-        fetch('http://crossfitassemble.xyz/api/user_package', {
+        fetch('https://gym-management97.herokuapp.com/api/user_package', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +58,7 @@ const UsersWorkout = () => {
         setShowSchedule(false)
         setPackageId(id)
         setLoading(true);
-        fetch(`http://crossfitassemble.xyz/api/shedule?package=${id}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/shedule?package=${id}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -82,7 +81,7 @@ const UsersWorkout = () => {
 
     const handleConfirm = (schedule_id, package_id) => {
         setActiveCard(schedule_id)
-        fetch(`http://crossfitassemble.xyz/api/confirm_shedule`, {
+        fetch(`https://gym-management97.herokuapp.com/api/confirm_shedule`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -109,14 +108,6 @@ const UsersWorkout = () => {
             })
     }
 
-    // const assignedPackages = purchedPackages?.data?.filter(assigned => {
-    //     if (assigned?.status === 'assigned') {
-    //         return assigned
-
-    //     }
-    // })
-
-    // console.log(purchedPackages, 'purchedPackages');
 
     const tConvert = time => {
         time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];

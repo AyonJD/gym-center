@@ -1,13 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import img from '../../../assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsPencilSquare } from 'react-icons/bs'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { data } from 'autoprefixer';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
@@ -18,11 +16,8 @@ const UsersProfile = () => {
     const [userData, setUserData] = useState([]);
     const [fileError, setFileError] = useState(false)
 
-
-    // get user data
-
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
+        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +29,7 @@ const UsersProfile = () => {
                 setUserData(data)
             }
             )
-    }, [token, userData])
+    }, [token])
 
     // image patch on server
     const handleImageEdit = event => {
@@ -42,7 +37,7 @@ const UsersProfile = () => {
         const image = imageField;
         const formData = new FormData()
         formData.append('profile_image', image)
-        axios.patch(`http://crossfitassemble.xyz/api/update_profile`, formData, {
+        axios.patch(`https://gym-management97.herokuapp.com/api/update_profile`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`
@@ -73,7 +68,7 @@ const UsersProfile = () => {
             phone: phone || userData?.phone
         }
         // console.log(userData)
-        fetch(`http://crossfitassemble.xyz/api/update_profile`, {
+        fetch(`https://gym-management97.herokuapp.com/api/update_profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

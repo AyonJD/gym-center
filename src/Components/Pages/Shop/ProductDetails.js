@@ -21,7 +21,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://crossfitassemble.xyz/api/products/${productId}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/products/${productId}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -46,7 +46,7 @@ const ProductDetails = () => {
     }
 
     const handleCart = (id) => {
-        fetch('http://crossfitassemble.xyz/api/product_cart/', {
+        fetch('https://gym-management97.herokuapp.com/api/product_cart/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

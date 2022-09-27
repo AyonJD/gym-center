@@ -49,12 +49,13 @@ export default function AuthUser() {
   };
 
   const http = axios.create({
-    baseURL: "http://crossfitassemble.xyz/api",
+    baseURL: "https://gym-management97.herokuapp.com/api",
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
+  
   return {
     setToken: saveToken,
     token,

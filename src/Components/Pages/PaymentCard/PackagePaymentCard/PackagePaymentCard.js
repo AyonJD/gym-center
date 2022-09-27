@@ -22,7 +22,7 @@ const PackagePaymentCard = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/packages/${id}`, {
+        fetch(`https://gym-management97.herokuapp.com/api/packages/${id}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -38,7 +38,7 @@ const PackagePaymentCard = () => {
     // confirm order
     const handleConfirmOrder = (data) => {
 
-        fetch('http://crossfitassemble.xyz/api/package_order/', {
+        fetch('https://gym-management97.herokuapp.com/api/package_order/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

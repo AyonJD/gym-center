@@ -296,6 +296,18 @@ input[type="checkbox"]:checked:after {
     border-radius: 10px 10px 10px 10px;
 }
 
+.handle_index {
+    z-index: 1000 !important;
+}
+
+.handle_letter_spacing {
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.handle_letter_spacing:hover {
+    letter-spacing: 2px;
+}
+
 
 @media only screen and (max-width: 1280px) {
     .mid-container {

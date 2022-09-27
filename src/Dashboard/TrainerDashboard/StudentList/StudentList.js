@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
 import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import Loading from '../../../hooks/Loading/Loading';
@@ -17,7 +15,7 @@ const StudentList = () => {
     const date = `${day} ${monthName} ${year}`;
 
     const { data: students, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/all_students_of_trainer`, {
+        fetch(`https://gym-management97.herokuapp.com/api/all_students_of_trainer`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -28,7 +26,6 @@ const StudentList = () => {
         return <Loading />
     }
 
-    console.log(studentData);
 
     return (
         <div className='p-5  mt-4'>

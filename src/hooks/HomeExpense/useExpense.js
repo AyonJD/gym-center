@@ -7,14 +7,14 @@ const useExpense = () => {
     const [expense, setExpense] = useState([]);
 
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/expense`, {
+        fetch(`https://gym-management97.herokuapp.com/api/expense`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
             }
         }).then(res => res.json())
             .then(data => setExpense(data.data))
-    }, []);
+    }, [token]);
 
     return { expense }
 };

@@ -18,7 +18,7 @@ const MyOrder = () => {
     const [allProductState, setAllProductState] = useState(true);
     // product
     useEffect(() => {
-        const url = "http://crossfitassemble.xyz/api/user_orders";
+        const url = "https://gym-management97.herokuapp.com/api/user_orders";
 
         fetch(url, {
             method: "GET",
@@ -32,7 +32,7 @@ const MyOrder = () => {
 
 
     useEffect(() => {
-        const url = "http://crossfitassemble.xyz/api/user_package_order";
+        const url = "https://gym-management97.herokuapp.com/api/user_package_order";
 
         fetch(url, {
             method: "GET",

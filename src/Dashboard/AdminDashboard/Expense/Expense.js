@@ -8,7 +8,6 @@ import { useQuery } from 'react-query';
 const Expense = () => {
     const { token, getUser } = AuthUser()
     const [open, setOpen] = useState(false);
-    const closeModal = () => setOpen(false);
 
     const today = new Date();
     const day = today.getDate();
@@ -27,7 +26,7 @@ const Expense = () => {
     const [pettyCashBullian, setPettyCashBullian] = useState(false);
 
     const { data: expenses, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/expense`, {
+        fetch(`https://gym-management97.herokuapp.com/api/expense`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -46,8 +45,6 @@ const Expense = () => {
             return expense.expense_date === selectedDate;
         })
     }
-
-
 
     const handleAssets = () => {
         setAllData(false);
@@ -79,8 +76,6 @@ const Expense = () => {
         setSetPettyCash(pettyCash);
     }
 
-    // console.log(handlePettyCash());
-    console.log(assets, "assets", pettyCash, "pettyCash");
 
 
     return (

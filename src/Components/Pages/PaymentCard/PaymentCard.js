@@ -19,7 +19,7 @@ const PaymentCard = () => {
     const navigate = useNavigate()
 
     const { data: cartProducts, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/product_cart/`, {
+        fetch(`https://gym-management97.herokuapp.com/api/product_cart/`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -46,7 +46,7 @@ const PaymentCard = () => {
     // confirm order
     const handleConfirmOrder = (data) => {
 
-        fetch('http://crossfitassemble.xyz/api/product_orders/', {
+        fetch('https://gym-management97.herokuapp.com/api/product_orders/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,8 +4,8 @@ import AuthUser from '../../AuthUser/AuthUser';
 
 const RequireUser = ({ children }) => {
     const location = useLocation();
-    const { userRole} = AuthUser()
-    if (userRole !== 'user') {
+    const { userRole, email} = AuthUser()
+    if (!email) {
         // logout()
         return <Navigate to="*" state={{ from: location }} replace></Navigate>
     }

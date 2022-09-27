@@ -11,7 +11,7 @@ const SpecialOffer = () => {
     const navigate = useNavigate()
 
     // const handleCart = (id) => {
-    //     fetch('http://crossfitassemble.xyz/api/product_cart/', {
+    //     fetch('https://gym-management97.herokuapp.com/api/product_cart/', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json',

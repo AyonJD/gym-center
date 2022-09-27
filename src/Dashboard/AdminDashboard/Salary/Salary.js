@@ -1,9 +1,6 @@
 import React from 'react';
 import SalaryTable from './SalaryTable';
-import { BiSearch } from 'react-icons/bi';
-import { VscBellDot } from 'react-icons/vsc';
 import { TbCurrencyTaka } from 'react-icons/tb';
-import { BsPlusLg } from 'react-icons/bs';
 import { useQuery } from 'react-query';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import Loading from '../../../hooks/Loading/Loading';
@@ -14,7 +11,7 @@ const Salary = () => {
 
 
     const { data: salaryDetails, isLoading, refetch } = useQuery('users', () =>
-        fetch(`http://crossfitassemble.xyz/api/salary_overview`, {
+        fetch(`https://gym-management97.herokuapp.com/api/salary_overview`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -26,7 +23,6 @@ const Salary = () => {
         return <Loading />
     }
 
-    // console.log(salaryDetails)
 
     const salaryPaid = salaryDetails.data.filter(salary => {
         if (salary.status) {
@@ -53,7 +49,6 @@ const Salary = () => {
         }
     })
 
-    // console.log(salaryDetails?.data)
 
 
     return (

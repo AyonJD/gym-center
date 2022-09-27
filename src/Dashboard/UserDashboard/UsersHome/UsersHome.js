@@ -4,13 +4,12 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { useEffect } from 'react';
 
 const UsersHome = () => {
-
     const { token } = AuthUser()
     const [userPhysic, setUserPhysic] = useState({});
 
     //react query for getting phySicalInfo from api
     useEffect(() => {
-        fetch(`http://crossfitassemble.xyz/api/physical_info`, {
+        fetch(`https://gym-management97.herokuapp.com/api/physical_info`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${token}`
@@ -21,7 +20,6 @@ const UsersHome = () => {
             }
             )
     }, [token])
-
 
     return (
         <div className='p-5 mt-4 '>

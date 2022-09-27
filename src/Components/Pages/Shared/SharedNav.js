@@ -26,7 +26,17 @@ const SharedNav = () => {
     const handleDashboardTrainers = () => {
         navigate('/dashboard/trainers-home')
     }
-   
+    const handleDashboardAdmin = () => {
+        navigate('/dashboard/admin-home')
+    }
+
+    const handleUserProfile = () => {
+        navigate('/dashboard/user-profile')
+    }
+    const handleUserLogin = () => {
+        navigate('/login')
+    }
+
 
     return (
         <>
@@ -34,14 +44,23 @@ const SharedNav = () => {
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly text-white py-2">
                         {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
-                        {/* <HiOutlineUser
-                            onClick={handleRedirectProfile}
-                            className='ml-8 hover:text-primary'></HiOutlineUser> */}
+
+                        {
+                            email ? <HiOutlineUser
+                                onClick={handleUserProfile}
+                                className='ml-8 hover:text-primary'></HiOutlineUser> : <HiOutlineUser
+                                    onClick={handleUserLogin}
+                                    className='ml-8 hover:text-primary'></HiOutlineUser>
+                        }
+
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
                         {
                             userRole === 'user' && <MdOutlineSpaceDashboard onClick={handleDashboardUsers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
+                        }
+                        {
+                            userRole === 'admin' && <MdOutlineSpaceDashboard onClick={handleDashboardAdmin} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
                         {
                             userRole === 'trainer' && <MdOutlineSpaceDashboard onClick={handleDashboardTrainers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
@@ -90,8 +109,8 @@ const SharedNav = () => {
                         <div className='navbar-end lg:hidden'>
                             <div className='lg:hidden '>
                                 {
-                                    pathname.includes("dashboard") && (<label htmlFor="my-drawer-2" tabIndex="1" className="">
-                                        <MdDashboard className='text-xl' />
+                                    pathname.includes("dashboard") && (<label htmlFor="my-drawer-2" tabIndex="1" className=" cursor-pointer">
+                                        <MdDashboard className='text-xl ' />
                                     </label>)
                                 }
                             </div>

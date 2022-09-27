@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from "react-modal";
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
@@ -26,7 +25,7 @@ export default function AddIncomeModal({ refetch }) {
         }
         // console.log(expense)
         // post data to database 
-        fetch(`http://crossfitassemble.xyz/api/income/`, {
+        fetch(`https://gym-management97.herokuapp.com/api/income/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
