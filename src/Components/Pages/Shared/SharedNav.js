@@ -11,30 +11,58 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import CustomLink from '../../../hooks/CustomLink/CustomLink';
 
 const SharedNav = () => {
-    const [loggedInUser, setLoggedInUser] = useState(null);
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const { email, logout, userRole } = AuthUser();
+    const { email, logout, userRole, token } = AuthUser();
     const [isOpen, setIsOpen] = useState(false);
 
+    const commonLogoutFunc = () => {
+        logout();
+        toast.error('Please Login First');
+        return;
+    }
+
     const handleDashboardAccounts = () => {
-        navigate('/dashboard/accounts-home')
+        if (!token) {
+            commonLogoutFunc();
+        } else {
+            navigate('/dashboard/accounts-home')
+        }
     }
     const handleDashboardUsers = () => {
-        navigate('/dashboard/users-home')
+        if (!token) {
+            commonLogoutFunc();
+        } else {
+            navigate('/dashboard/users-home')
+        }
     }
     const handleDashboardTrainers = () => {
-        navigate('/dashboard/trainers-home')
+        if (!token) {
+            commonLogoutFunc();
+        } else {
+            navigate('/dashboard/trainers-home')
+        }
     }
     const handleDashboardAdmin = () => {
-        navigate('/dashboard/admin-home')
+        if (!token) {
+            commonLogoutFunc();
+        } else {
+            navigate('/dashboard/admin-home')
+        }
     }
 
     const handleUserProfile = () => {
-        navigate('/dashboard/user-profile')
+        if (!token) {
+            commonLogoutFunc();
+        } else {
+            navigate('/dashboard/user-profile')
+        }
     }
     const handleUserLogin = () => {
-        navigate('/login')
+        if (!token) {
+            logout();
+            toast.error('Please Login First');
+        }
     }
 
 
@@ -46,13 +74,12 @@ const SharedNav = () => {
                         {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
 
                         {
-                            email ? <HiOutlineUser
+                            token ? <HiOutlineUser
                                 onClick={handleUserProfile}
                                 className='ml-8 hover:text-primary'></HiOutlineUser> : <HiOutlineUser
                                     onClick={handleUserLogin}
                                     className='ml-8 hover:text-primary'></HiOutlineUser>
                         }
-
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }

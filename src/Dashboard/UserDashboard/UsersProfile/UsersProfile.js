@@ -6,6 +6,7 @@ import { BsPencilSquare } from 'react-icons/bs'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import useLogout from '../../../hooks/useLogout';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
@@ -87,6 +88,8 @@ const UsersProfile = () => {
             }
             )
     }
+
+    useLogout(token)
 
 
     return (
