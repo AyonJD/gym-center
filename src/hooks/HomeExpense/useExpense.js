@@ -14,7 +14,7 @@ const useExpense = () => {
             }
         }).then(res => res.json())
             .then(data => setExpense(data.data))
-    }, []);
+    }, [token]);
 
     return { expense }
 };

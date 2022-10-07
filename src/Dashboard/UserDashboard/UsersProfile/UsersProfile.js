@@ -1,13 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import img from '../../../assets/Image/profile/WhatsApp Image 2022-08-29 at 11.31.14 PM.jpeg'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsPencilSquare } from 'react-icons/bs'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { data } from 'autoprefixer';
 
 const UsersProfile = () => {
     const { token, userRole } = AuthUser()
@@ -17,8 +15,6 @@ const UsersProfile = () => {
     const [imageField, setImageField] = useState(null)
     const [userData, setUserData] = useState([]);
     const [fileError, setFileError] = useState(false)
-
-
 
     useEffect(() => {
         fetch(`http://crossfitassemble.xyz/api/update_profile`, {
@@ -33,7 +29,7 @@ const UsersProfile = () => {
                 setUserData(data)
             }
             )
-    }, [token, userData])
+    }, [token])
 
     // image patch on server
     const handleImageEdit = event => {

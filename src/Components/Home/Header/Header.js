@@ -36,6 +36,13 @@ const Header = () => {
         navigate('/dashboard/admin-home')
     }
 
+    const handleUserProfile = () => {
+        navigate('/dashboard/user-profile')
+    }
+    const handleUserLogin = () => {
+        navigate('/login')
+    }
+
     return (
         <>
             {/* <div className='relative'>
@@ -44,7 +51,16 @@ const Header = () => {
                 <div className="mid-container">
                     <div className="flex sm:justify-end justify-evenly items-center text-white py-2 ">
                         {/* <Link to="/cart"><BsCart3 className='ml-8 hover:text-primary'></BsCart3></Link> */}
-                        <Link to="#"><HiOutlineUser className='ml-8 hover:text-primary'></HiOutlineUser></Link>
+
+
+                        {
+                            email ? <HiOutlineUser
+                                onClick={handleUserProfile}
+                                className='ml-8 hover:text-primary cursor-pointer'></HiOutlineUser> : <HiOutlineUser
+                                    onClick={handleUserLogin}
+                                    className='ml-8 hover:text-primary cursor-pointer'></HiOutlineUser>
+                        }
+
                         {
                             userRole === 'accountant' && <MdOutlineSpaceDashboard onClick={handleDashboardAccounts} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
@@ -54,7 +70,7 @@ const Header = () => {
                         {
                             userRole === 'admin' && <MdOutlineSpaceDashboard onClick={handleDashboardAdmin} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
-                    {
+                        {
                             userRole === 'trainer' && <MdOutlineSpaceDashboard onClick={handleDashboardTrainers} className='ml-8 cursor-pointer hover:text-primary'></MdOutlineSpaceDashboard>
                         }
 
