@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import img1 from '../../../assets/Image/UserDashboard/Frame original.png'
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { useEffect } from 'react';
+import useLogout from '../../../hooks/useLogout';
 
 const UsersHome = () => {
     const { token } = AuthUser()
@@ -20,6 +21,8 @@ const UsersHome = () => {
             }
             )
     }, [token])
+
+    useLogout(token)
 
     return (
         <div className='p-5 mt-4 '>

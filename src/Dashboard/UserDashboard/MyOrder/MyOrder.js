@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { HiShoppingCart } from 'react-icons/hi';
 import OrdersTable from '../../AdminDashboard/Orders/OrdersTable';
+import useLogout from '../../../hooks/useLogout';
 
 const MyOrder = () => {
     const { token, userRole } = AuthUser()
@@ -54,6 +55,8 @@ const MyOrder = () => {
         setAllProductState(false);
 
     }
+
+    useLogout(token);
 
 
     return (
@@ -119,9 +122,9 @@ const MyOrder = () => {
                                     ></OrdersTable>)
                                 ) : (
                                     packages?.map((product, index) =>
-                                        <tr 
-                                        key={index}
-                                        className='text-center' >
+                                        <tr
+                                            key={index}
+                                            className='text-center' >
                                             <th>{product?.id}</th>
                                             <td>{product?.package?.package_type?.package_title}</td>
                                             <td>{product?.order_date}</td>

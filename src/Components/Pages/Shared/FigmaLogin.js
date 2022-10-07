@@ -22,6 +22,7 @@ const FigmaLogin = () => {
             setToken(res.data.data.email, res.data.data.access, res.data.data.role);
             setLoading(false);
         }).catch((err) => {
+            console.log(err);
             setLoading(false);
             toast.error("Login Failed");
         })

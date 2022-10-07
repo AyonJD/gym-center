@@ -105,14 +105,14 @@ const LogPostModal = ({ setOpenModal }) => {
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <input placeholder="Enter your Message" type="text" className="input input-bordered w-full focus:outline-none"
+                                <textarea placeholder="Enter your Message" className="input input-bordered resize-y w-full focus:outline-none"
                                     {...register("description", {
                                         required: 'Description is required',
                                     })}
                                     onKeyUp={(e) => {
                                         trigger('description');
                                     }}
-                                />
+                                ></textarea>
                                 <small className='text-[#FF4B2B] text-xs ml-2 font-medium my-2'>{errors?.description?.message}</small>
                             </div>
                         </div>

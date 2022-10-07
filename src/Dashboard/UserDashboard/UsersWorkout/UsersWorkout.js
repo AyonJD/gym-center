@@ -3,6 +3,7 @@ import AuthUser from '../../../hooks/AuthUser/AuthUser';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import toast from 'react-hot-toast';
 import Loading from '../../../hooks/Loading/Loading';
+import useLogout from '../../../hooks/useLogout';
 
 const UsersWorkout = () => {
     const { token } = AuthUser();
@@ -120,6 +121,7 @@ const UsersWorkout = () => {
         return time.join('');
     }
 
+    useLogout(token)
 
     return (
         <div className="grid mt-16 grid-cols-1 lg:grid-cols-2">
