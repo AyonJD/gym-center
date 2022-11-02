@@ -11,7 +11,6 @@ const LogItems = ({ log }) => {
     const navigate = useNavigate()
 
     const handleLogData = () => {
-        //for loop on log object and store it in a new object
         const logData = {};
         for (let [key, value] of Object.entries(log)) {
             if (value === null) {
