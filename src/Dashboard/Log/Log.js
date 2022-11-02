@@ -45,8 +45,8 @@ const Log = () => {
     // console.log(allData, 'allData');
 
     //filter data
-    const filterAnalysisData = logData?.data?.filter(data => data.type === 'analysis log')
-    const filterRegularData = logData?.data?.filter(data => data.type === 'regular log')
+    // const filterAnalysisData = logData?.data?.filter(data => data.type === 'analysis log')
+    // const filterRegularData = logData?.data?.filter(data => data.type === 'regular log')
     // console.log(filterRegularData);
 
     return (
@@ -57,8 +57,8 @@ const Log = () => {
                     <p className='text-sm font-bold text-secondary'>{date}</p>
                 </div>
             </div>
-            <div className='lg:w-[60%] md:w-[80%] w-[95vw] mx-auto'>
-                <div className='sm:flex justify-between my-4 mt-10 items-center'>
+            <div className=' w-[95vw] mt-2 mx-auto'>
+                {/* <div className='sm:flex justify-between my-4 mt-10 items-center'>
                     <div>
                         <button className='btn btn-sm btn-primary'
                             onClick={() => {
@@ -94,14 +94,33 @@ const Log = () => {
                     {
                         (handleBtn && !openModal) && <LogPostModal setOpenModal={setOpenModal} />
                     }
-                </div>
+                </div> */}
                 {
                     loading ? <Loading /> :
                         <>
-                            <div className='grid gap-7'>
-                                {
-                                    allData && (
-                                        <>
+                            <div className="schedule lg:mb-20 md:mb-16 sm:mb-10 mb-10 md:flex items-center">
+                                <div className="schedule_time w-full">
+                                    <div className="overflow-x-auto">
+                                        <table className="table table-zebra table_border table-compact w-full">
+                                            <thead className='table_border rounded-2xl'>
+                                                <tr >
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Description</th>
+                                                    <th>Date</th>
+                                                    <th>Day</th>
+                                                    <th>Training</th>
+                                                    <th>Sleep</th>
+                                                    <th>Supliment</th>
+                                                    <th>Food</th>
+                                                    <th>Support</th>
+                                                    <th>Eat out</th>
+                                                    <th>Coffee</th>
+                                                    <th>Others</th>
+                                                    <th>Image</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                             {
                                                 logData?.data?.map(log => <LogItems
                                                     key={log?.id}
@@ -109,6 +128,16 @@ const Log = () => {
                                                     setOpenModal={setOpenModal}
                                                 ></LogItems>)
                                             }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* <div className='grid gap-7'>
+                                {
+                                    allData && (
+                                        <>
+                                            
                                         </>
                                     )
                                 }
@@ -140,7 +169,7 @@ const Log = () => {
                                         </>
                                     )
                                 }
-                            </div>
+                            </div> */}
                         </>
                 }
             </div>
