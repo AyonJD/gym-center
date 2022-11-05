@@ -20,6 +20,7 @@ const LogItems = ({ log }) => {
         }
         return logData;
     }
+    // Hudai
 
     return (
         <tr className="hover">
